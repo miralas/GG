@@ -1,0 +1,11 @@
+= simple_form_for(@resume_recomendation) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :post
+    = f.input :organization
+    = f.input :phone
+
+  .form-actions
+    = f.button :submit

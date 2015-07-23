@@ -1,0 +1,33 @@
+%h1 Listing company_vacancies
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th Requirements
+      %th Description
+      %th Employment
+      %th Salary
+      %th Company
+      %th User
+      %th
+      %th
+      %th
+
+  %tbody
+    - @company_vacancies.each do |company_vacancy|
+      %tr
+        %td= company_vacancy.title
+        %td= company_vacancy.requirements
+        %td= company_vacancy.description
+        %td= company_vacancy.employment
+        %td= company_vacancy.salary
+        %td= company_vacancy.company
+        %td= company_vacancy.user
+        %td= link_to 'Show', company_vacancy
+        %td= link_to 'Edit', edit_company_vacancy_path(company_vacancy)
+        %td= link_to 'Destroy', company_vacancy, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Company vacancy', new_company_vacancy_path

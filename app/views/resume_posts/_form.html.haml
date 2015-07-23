@@ -1,0 +1,12 @@
+= simple_form_for(@resume_post) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :wish_post
+    = f.input :specialization
+    = f.input :salary
+    = f.input :employment
+    = f.input :timetable
+
+  .form-actions
+    = f.button :submit

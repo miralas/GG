@@ -1,0 +1,39 @@
+%h3 Контакты
+- if @resume_contact.mobile_phone
+  %p
+    %b Мобильный телефон:
+    = @resume_contact.mobile_phone
+- if @resume_contact.home_phone 
+  %p 
+    %b Домашний телефон:
+    = @resume_contact.home_phone
+- if @resume_contact.work_phone
+  %p 
+    %b Рабочий телефон
+    = @resume_contact.work_phone
+- if @resume_contact.email
+  %p 
+    %b
+    = @resume_contact.email
+- if @resume_contact.icq
+  %p
+    %b Icq:
+    = @resume_contact.icq
+- if @resume_contact.skype
+  %p
+    %b Skype:
+    = @resume_contact.skype
+- if @resume_contact.vk
+  %p
+    %b Vk:
+    = @resume_contact.vk
+- if @resume_contact.facebook
+  %p
+    %b Facebook:
+    = @resume_contact.facebook
+- if @resume_contact.linkedin
+  %p
+    %b Linkedin:
+    = @resume_contact.linkedin
+
+= link_to 'Edit', edit_resume_contact_path(@resume_contact)

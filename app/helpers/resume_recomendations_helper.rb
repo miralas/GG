@@ -1,0 +1,2 @@
+module ResumeRecomendationsHelper
+end

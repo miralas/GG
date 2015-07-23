@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Phone:
+  = @company_contact.phone
+%p
+  %b Adress:
+  = @company_contact.adress
+%p
+  %b Fio:
+  = @company_contact.fio
+
+= link_to 'Edit', edit_company_contact_path(@company_contact)
+\|
+= link_to 'Back', company_contacts_path

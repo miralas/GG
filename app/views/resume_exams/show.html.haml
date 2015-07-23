@@ -1,0 +1,19 @@
+%h3 Образование
+- if @resume_exam.title 
+  %p
+    %b Title:
+    = @resume_exam.title
+- if @resume_exam.organization
+  %p
+    %b Organization:
+    = @resume_exam.organization
+- if @resume_exam.specialization
+  %p
+    %b Specialization:
+    = @resume_exam.specialization
+- if @resume_exam.expire_year
+  %p
+    %b Expire year:
+    = @resume_exam.expire_year
+
+= link_to 'Edit', edit_resume_exam_path(@resume_exam)

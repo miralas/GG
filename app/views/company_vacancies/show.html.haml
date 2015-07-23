@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @company_vacancy.title
+%p
+  %b Requirements:
+  = @company_vacancy.requirements
+%p
+  %b Description:
+  = @company_vacancy.description
+%p
+  %b Employment:
+  = @company_vacancy.employment
+%p
+  %b Salary:
+  = @company_vacancy.salary
+%p
+  %b Company:
+  = @company_vacancy.company
+%p
+  %b User:
+  = @company_vacancy.user
+
+= link_to 'Edit', edit_company_vacancy_path(@company_vacancy)
+\|
+= link_to 'Back', company_vacancies_path

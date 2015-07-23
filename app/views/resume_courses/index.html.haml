@@ -1,0 +1,29 @@
+%h1 Listing resume_courses
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th Organization
+      %th Specialization
+      %th Expire year
+      %th Resume
+      %th
+      %th
+      %th
+
+  %tbody
+    - @resume_courses.each do |resume_course|
+      %tr
+        %td= resume_course.title
+        %td= resume_course.organization
+        %td= resume_course.specialization
+        %td= resume_course.expire_year
+        %td= resume_course.resume
+        %td= link_to 'Show', resume_course
+        %td= link_to 'Edit', edit_resume_course_path(resume_course)
+        %td= link_to 'Destroy', resume_course, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Resume course', new_resume_course_path

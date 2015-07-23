@@ -1,0 +1,29 @@
+%h1 Listing resume_recomendations
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Post
+      %th Organization
+      %th Phone
+      %th Resume
+      %th
+      %th
+      %th
+
+  %tbody
+    - @resume_recomendations.each do |resume_recomendation|
+      %tr
+        %td= resume_recomendation.name
+        %td= resume_recomendation.post
+        %td= resume_recomendation.organization
+        %td= resume_recomendation.phone
+        %td= resume_recomendation.resume
+        %td= link_to 'Show', resume_recomendation
+        %td= link_to 'Edit', edit_resume_recomendation_path(resume_recomendation)
+        %td= link_to 'Destroy', resume_recomendation, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Resume recomendation', new_resume_recomendation_path

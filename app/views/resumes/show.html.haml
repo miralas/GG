@@ -1,0 +1,48 @@
+%h3
+  %b
+    = @resume.surname
+    = @resume.name
+    = @resume.patronymic
+%p
+  %b Bith date:
+  = @resume.bith_date
+
+  %b Sex:
+  = @resume.sex
+
+  %b City:
+  = @resume.city
+
+  %b Change location:
+  = @resume.change_location
+
+  %b Change location place:
+  = @resume.change_location_place
+
+  %b Ready business trip:
+  = @resume.ready_business_trip
+%p
+  %b Nationality:
+  = @resume.nationality
+
+  %b Work ticket:
+  = @resume.work_ticket
+
+  %b Time to work:
+  = @resume.time_to_work
+
+= link_to 'Edit', edit_resume_path(@resume)
+
+= render template: 'resume_contacts/show.html.haml', locals: { '@resume_contact': @resume.resume_contact }
+
+= render template: 'resume_works/show.html.haml', locals: { '@resume_work': @resume.resume_work }
+
+= render template: 'resume_exams/show.html.haml', locals: { '@resume_exam': @resume.resume_exam }
+
+= render template: 'resume_courses/show.html.haml', locals: { '@resume_course': @resume.resume_course }
+
+= render template: 'resume_posts/show.html.haml', locals: { '@resume_post': @resume.resume_post }
+
+= render template: 'resume_recomendations/show.html.haml', locals: { '@resume_recomendation': @resume.resume_recomendation }
+
+= link_to 'Back', resumes_path

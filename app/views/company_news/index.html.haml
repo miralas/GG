@@ -1,0 +1,23 @@
+%h1 Listing company_news
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th Body
+      %th
+      %th
+      %th
+
+  %tbody
+    - @company_news.each do |company_news|
+      %tr
+        %td= company_news.title
+        %td= company_news.body
+        %td= link_to 'Show', company_news
+        %td= link_to 'Edit', edit_company_news_path(company_news)
+        %td= link_to 'Destroy', company_news, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Company news', new_company_news_path

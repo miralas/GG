@@ -1,0 +1,39 @@
+%h1 Listing resume_contacts
+
+%table
+  %thead
+    %tr
+      %th Mobile phone
+      %th Home phone
+      %th Work phone
+      %th Email
+      %th Icq
+      %th Skype
+      %th Vk
+      %th Facebook
+      %th Linkedin
+      %th Resume
+      %th
+      %th
+      %th
+
+  %tbody
+    - @resume_contacts.each do |resume_contact|
+      %tr
+        %td= resume_contact.mobile_phone
+        %td= resume_contact.home_phone
+        %td= resume_contact.work_phone
+        %td= resume_contact.email
+        %td= resume_contact.icq
+        %td= resume_contact.skype
+        %td= resume_contact.vk
+        %td= resume_contact.facebook
+        %td= resume_contact.linkedin
+        %td= resume_contact.resume
+        %td= link_to 'Show', resume_contact
+        %td= link_to 'Edit', edit_resume_contact_path(resume_contact)
+        %td= link_to 'Destroy', resume_contact, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Resume contact', new_resume_contact_path

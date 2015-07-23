@@ -1,0 +1,14 @@
+= simple_form_for(@company_vacancy) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.input :requirements
+    = f.input :description
+    = f.input :employment
+    = f.input :salary
+    = f.association :company
+    = f.association :user
+
+  .form-actions
+    = f.button :submit

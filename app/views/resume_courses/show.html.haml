@@ -1,0 +1,19 @@
+%h3 Повышение квалификации, курсы
+- if @resume_course.title 
+  %p
+    %b Title:
+    = @resume_course.title
+- if @resume_course.organization
+  %p
+    %b Organization:
+    = @resume_course.organization
+- if @resume_course.specialization
+  %p
+    %b Specialization:
+    = @resume_course.specialization
+- if @resume_course.expire_year
+  %p
+    %b Expire year:
+    = @resume_course.expire_year
+
+= link_to 'Edit', edit_resume_course_path(@resume_course)

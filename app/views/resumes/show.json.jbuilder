@@ -1,0 +1,1 @@
+json.extract! @resume, :id, :surname, :name, :patronymic, :bith_date, :sex, :city, :change_location, :change_location_place, :ready_business_trip, :nationality, :work_ticket, :time_to_work, :user_id, :created_at, :updated_at

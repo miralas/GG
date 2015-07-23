@@ -1,0 +1,23 @@
+%h3  Желаемая должность
+- if @resume_post.wish_post
+  %p
+    %b Wish post:
+    = @resume_post.wish_post
+- if @resume_post.specialization
+  %p
+    %b Specialization:
+    = @resume_post.specialization
+- if @resume_post.salary
+  %p
+    %b Salary:
+    = @resume_post.salary
+- if @resume_post.employment
+  %p
+    %b Employment:
+    = @resume_post.employment
+- if @resume_post.timetable
+  %p
+    %b Timetable:
+    = @resume_post.timetable
+
+= link_to 'Edit', edit_resume_post_path(@resume_post)

@@ -1,0 +1,41 @@
+%h1 Listing resume_works
+
+%table
+  %thead
+    %tr
+      %th Organization
+      %th Region
+      %th Website
+      %th Sphere
+      %th Post
+      %th Begin work
+      %th End work
+      %th Functions
+      %th Skills
+      %th About
+      %th Resume
+      %th
+      %th
+      %th
+
+  %tbody
+    - @resume_works.each do |resume_work|
+      %tr
+        %td= resume_work.organization
+        %td= resume_work.region
+        %td= resume_work.website
+        %td= resume_work.sphere
+        %td= resume_work.post
+        %td= resume_work.begin_work
+        %td= resume_work.end_work
+        %td= resume_work.functions
+        %td= resume_work.skills
+        %td= resume_work.about
+        %td= resume_work.resume
+        %td= link_to 'Show', resume_work
+        %td= link_to 'Edit', edit_resume_work_path(resume_work)
+        %td= link_to 'Destroy', resume_work, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Resume work', new_resume_work_path

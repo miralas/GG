@@ -1,0 +1,25 @@
+%h1 Listing company_clients
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th Website
+      %th Description
+      %th
+      %th
+      %th
+
+  %tbody
+    - @company_clients.each do |company_client|
+      %tr
+        %td= company_client.title
+        %td= company_client.website
+        %td= company_client.description
+        %td= link_to 'Show', company_client
+        %td= link_to 'Edit', edit_company_client_path(company_client)
+        %td= link_to 'Destroy', company_client, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Company client', new_company_client_path

@@ -1,0 +1,31 @@
+%h1 Listing resume_posts
+
+%table
+  %thead
+    %tr
+      %th Wish post
+      %th Specialization
+      %th Salary
+      %th Employment
+      %th Timetable
+      %th Resume
+      %th
+      %th
+      %th
+
+  %tbody
+    - @resume_posts.each do |resume_post|
+      %tr
+        %td= resume_post.wish_post
+        %td= resume_post.specialization
+        %td= resume_post.salary
+        %td= resume_post.employment
+        %td= resume_post.timetable
+        %td= resume_post.resume
+        %td= link_to 'Show', resume_post
+        %td= link_to 'Edit', edit_resume_post_path(resume_post)
+        %td= link_to 'Destroy', resume_post, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Resume post', new_resume_post_path

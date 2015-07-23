@@ -1,0 +1,16 @@
+= simple_form_for(@resume_contact) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :mobile_phone
+    = f.input :home_phone
+    = f.input :work_phone
+    = f.input :email
+    = f.input :icq
+    = f.input :skype
+    = f.input :vk
+    = f.input :facebook
+    = f.input :linkedin
+
+  .form-actions
+    = f.button :submit

@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @company.title
+%p
+  %b Logo:
+  = @company.logo
+%p
+  %b Specialization:
+  = @company.specialization
+
+= link_to 'Edit', edit_company_path(@company)
+\|
+= link_to 'Back', companies_path

@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Comment:
+  = @company_comment.comment
+%p
+  %b Company:
+  = @company_comment.company
+%p
+  %b User:
+  = @company_comment.user
+
+= link_to 'Edit', edit_company_comment_path(@company_comment)
+\|
+= link_to 'Back', company_comments_path

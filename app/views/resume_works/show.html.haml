@@ -1,0 +1,44 @@
+%h3 Опыт работы
+
+-if @resume_work.organization
+  %p
+    %b Organization:
+    = @resume_work.organization
+-if @resume_work.region
+  %p
+    %b Region:
+    = @resume_work.region
+-if @resume_work.website
+  %p
+    %b Website:
+    = @resume_work.website
+-if @resume_work.sphere
+  %p
+    %b Sphere:
+    = @resume_work.sphere
+-if @resume_work.post
+  %p
+    %b Post:
+    = @resume_work.post
+-if @resume_work.begin_work
+  %p
+    %b Begin work:
+    = @resume_work.begin_work
+-if @resume_work.end_work
+  %p
+    %b End work:
+    = @resume_work.end_work
+-if @resume_work.functions
+  %p
+    %b Functions:
+    = @resume_work.functions
+-if @resume_work.skills
+  %p
+    %b Skills:
+    = @resume_work.skills
+-if @resume_work.about
+  %p
+    %b About:
+    = @resume_work.about
+
+= link_to 'Edit', edit_resume_work_path(@resume_work)

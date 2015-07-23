@@ -1,0 +1,17 @@
+= simple_form_for(@resume_work) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :organization
+    = f.input :region
+    = f.input :website
+    = f.input :sphere
+    = f.input :post
+    = f.input :begin_work
+    = f.input :end_work
+    = f.input :functions
+    = f.input :skills
+    = f.input :about
+
+  .form-actions
+    = f.button :submit
