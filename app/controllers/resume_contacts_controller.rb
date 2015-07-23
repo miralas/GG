@@ -28,7 +28,7 @@ class ResumeContactsController < ApplicationController
 
     respond_to do |format|
       if @resume_contact.save
-        format.html { redirect_to @resume_contact, notice: 'Resume contact was successfully created.' }
+        format.html { redirect_to @resume_contact, notice: 'Контакты успешно добавлены' }
         format.json { render :show, status: :created, location: @resume_contact }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ResumeContactsController < ApplicationController
   def update
     respond_to do |format|
       if @resume_contact.update(resume_contact_params)
-        format.html { redirect_to @resume_contact.resume, notice: 'Resume contact was successfully updated.' }
+        format.html { redirect_to @resume_contact.resume, notice: 'Контакты успешно обновлены' }
         format.json { render :show, status: :ok, location: @resume_contact }
       else
         format.html { render :edit }

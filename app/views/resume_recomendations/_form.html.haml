@@ -2,10 +2,23 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :name
-    = f.input :post
-    = f.input :organization
-    = f.input :phone
+    .form-group
+      .span1
+        = f.label 'Имя'
+      = f.input_field :name
+    .form-group
+      .span1
+        = f.label 'Должность'
+      = f.input_field :post
+    .form-group
+      .span1
+        = f.label 'Огранизация'
+      = f.input_field :organization
+    .form-group
+      .span1
+        = f.label 'Телефон'
+      = f.input_field :phone
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, 'Сохранить раздел Рекомендации'
+    = link_to 'Назад', resumes_path, class: 'btn btn-default'

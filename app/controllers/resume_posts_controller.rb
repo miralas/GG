@@ -28,7 +28,7 @@ class ResumePostsController < ApplicationController
 
     respond_to do |format|
       if @resume_post.save
-        format.html { redirect_to @resume_post, notice: 'Resume post was successfully created.' }
+        format.html { redirect_to @resume_post, notice: "Раздел 'Желаемая должность' успешно добавлен" }
         format.json { render :show, status: :created, location: @resume_post }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ResumePostsController < ApplicationController
   def update
     respond_to do |format|
       if @resume_post.update(resume_post_params)
-        format.html { redirect_to @resume_post.resume, notice: 'Resume post was successfully updated.' }
+        format.html { redirect_to @resume_post.resume, notice: "Раздел 'Желаемая должность' успешно отредактирован" }
         format.json { render :show, status: :ok, location: @resume_post }
       else
         format.html { render :edit }

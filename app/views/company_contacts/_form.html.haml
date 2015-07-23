@@ -2,9 +2,19 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :phone
-    = f.input :adress
-    = f.input :fio
+    .form-group
+      .span1
+        = f.label 'Телефон'
+      = f.input_field :phone
+    .form-group
+      .span1
+        = f.label 'Адрес'
+      = f.input_field :adress
+    .form-group
+      .span1
+        = f.label 'ФИО контактного лица'
+      = f.input_field :fio
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, 'Сохранить'
+    = link_to 'Назад', company_contact_path(@company_contact), class: 'btn btn-default'

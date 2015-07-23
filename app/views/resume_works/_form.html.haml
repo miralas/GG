@@ -2,16 +2,47 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :organization
-    = f.input :region
-    = f.input :website
-    = f.input :sphere
-    = f.input :post
-    = f.input :begin_work
-    = f.input :end_work
-    = f.input :functions
-    = f.input :skills
-    = f.input :about
+    .form-group
+      .span1
+        = f.label 'Организация:'
+      = f.input_field :organization
+    .form-group
+      .span1
+        = f.label 'Регион:'
+      = f.input_field :region
+    .form-group
+      .span1
+        = f.label 'Сайт:'
+      = f.input_field :website
+    .form-group
+      .span1
+        = f.label 'Сфера деятельности компании:'
+      = f.input_field :sphere
+    .form-group
+      .span1
+        = f.label 'Должность:'
+      = f.input_field :post
+    .form-group
+      .span1
+        = f.label 'Начало работы:'
+      = f.input_field :begin_work
+    .form-group
+      .span1
+        = f.label 'Окончание:'
+      = f.input_field :end_work
+    .form-group
+      .span1
+        = f.label 'Обязанности, функции, достижения:'
+      = f.input_field :functions
+    .form-group
+      .span1
+        = f.label 'Ключевые навыки:'
+      = f.input_field :skills
+    .form-group
+      .span1
+        = f.label 'Обо мне:'
+      = f.input_field :about
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, 'Сохранить'
+    = link_to 'Назад', resumes_path, class: 'btn btn-default'

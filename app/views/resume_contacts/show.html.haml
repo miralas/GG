@@ -9,11 +9,11 @@
     = @resume_contact.home_phone
 - if @resume_contact.work_phone
   %p 
-    %b Рабочий телефон
+    %b Рабочий телефон:
     = @resume_contact.work_phone
 - if @resume_contact.email
   %p 
-    %b
+    %b Электронная почта:
     = @resume_contact.email
 - if @resume_contact.icq
   %p
@@ -25,7 +25,7 @@
     = @resume_contact.skype
 - if @resume_contact.vk
   %p
-    %b Vk:
+    %b Вконтакте:
     = @resume_contact.vk
 - if @resume_contact.facebook
   %p
@@ -33,7 +33,7 @@
     = @resume_contact.facebook
 - if @resume_contact.linkedin
   %p
-    %b Linkedin:
+    %b LinkedIn:
     = @resume_contact.linkedin
 
-= link_to 'Edit', edit_resume_contact_path(@resume_contact)
+= link_to 'Редактировать', edit_resume_contact_path(@resume_contact), class: 'btn btn-default'

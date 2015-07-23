@@ -1,14 +1,14 @@
 <%# add navigation links to this file %>
 <% if user_signed_in? %>
   <% if current_user.role == 'user' %>
-    <li><%= link_to 'Company', companies_path %></li>
-    <li><%= link_to 'My resume', resumes_path %></li>
+    <li><%= link_to 'Компании', companies_path %></li>
+    <li><%= link_to 'Мое резюме', resumes_path %></li>
   <% end %>
-  <li><%= link_to 'Edit account', edit_user_registration_path %></li>
-  <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
+  <li><%= link_to 'Редактировать профиль', edit_user_registration_path %></li>
+  <li><%= link_to 'Выход', destroy_user_session_path, :method=>'delete' %></li>
 <% else %>
-  <li><%= link_to 'Sign in', new_user_session_path %></li>
-  <li><%= link_to 'Sign up', new_user_registration_path %></li>
+  <li><%= link_to 'Войти', new_user_session_path %></li>
+  <li><%= link_to 'Регистрация', new_user_registration_path %></li>
 <% end %>
 <% if user_signed_in? %>
   <% if current_user.try(:admin?) %>

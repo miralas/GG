@@ -28,7 +28,7 @@ class ResumeWorksController < ApplicationController
 
     respond_to do |format|
       if @resume_work.save
-        format.html { redirect_to @resume_work, notice: 'Resume work was successfully created.' }
+        format.html { redirect_to @resume_work, notice: "Раздел 'Опыт работы' успешно создан" }
         format.json { render :show, status: :created, location: @resume_work }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ResumeWorksController < ApplicationController
   def update
     respond_to do |format|
       if @resume_work.update(resume_work_params)
-        format.html { redirect_to @resume_work.resume, notice: 'Resume work was successfully updated.' }
+        format.html { redirect_to @resume_work.resume, notice: "Раздел 'Опыт работы' успешно отредактирован" }
         format.json { render :show, status: :ok, location: @resume_work }
       else
         format.html { render :edit }

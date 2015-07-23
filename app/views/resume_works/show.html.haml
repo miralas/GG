@@ -2,43 +2,43 @@
 
 -if @resume_work.organization
   %p
-    %b Organization:
+    %b Организация:
     = @resume_work.organization
 -if @resume_work.region
   %p
-    %b Region:
+    %b Регион:
     = @resume_work.region
 -if @resume_work.website
   %p
-    %b Website:
+    %b Сайт:
     = @resume_work.website
 -if @resume_work.sphere
   %p
-    %b Sphere:
+    %b Сфера деятельности:
     = @resume_work.sphere
 -if @resume_work.post
   %p
-    %b Post:
+    %b Должность:
     = @resume_work.post
 -if @resume_work.begin_work
   %p
-    %b Begin work:
+    %b Начало работы:
     = @resume_work.begin_work
 -if @resume_work.end_work
   %p
-    %b End work:
+    %b Окончание:
     = @resume_work.end_work
 -if @resume_work.functions
   %p
-    %b Functions:
+    %b Обязанности, функции:
     = @resume_work.functions
 -if @resume_work.skills
   %p
-    %b Skills:
+    %b Навыки:
     = @resume_work.skills
 -if @resume_work.about
   %p
-    %b About:
+    %b Обо мне:
     = @resume_work.about
 
-= link_to 'Edit', edit_resume_work_path(@resume_work)
+= link_to "Редактировать", edit_resume_work_path(@resume_work), class: 'btn btn-default'

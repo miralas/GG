@@ -4,13 +4,13 @@
   %p= @companies.specialization
   %p= @companies.logo
 
-  %p= link_to 'Company Contacts', company_contacts_path
-  %p= link_to 'Company Clients', company_clients_path
-  %p= link_to 'Company News', company_news_index_path
-  %p= link_to 'Company Reviews', company_reviews_path
-  %p= link_to 'Company Comments', company_comments_path
-  %p= link_to 'Company Vacancies', company_vacancies_path
+  %p= link_to 'Контакты', company_contact_path(@companies.company_contact)
+  %p= link_to 'Клиенты', company_clients_path
+  %p= link_to 'Новости компании', company_news_index_path
+  %p= link_to 'Отзывы о компании', company_reviews_path
+  %p= link_to 'Комментарии', company_comments_path
+  %p= link_to 'Вакансии', company_vacancies_path
 
 - else
   %h1  У Вас пока нет ни одной компании
-  = link_to 'New Company', new_company_path
+  = link_to 'Добавить компанию', new_company_path

@@ -2,10 +2,23 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :title
-    = f.input :organization
-    = f.input :specialization
-    = f.input :expire_year
+    .form-group
+      .span1
+        = f.label 'Название'
+      = f.input_field :title
+    .form-group
+      .span1
+        = f.label 'Организация'
+      = f.input_field :organization
+    .form-group
+      .span1
+        = f.label 'Специальность'
+      = f.input_field :specialization
+    .form-group
+      .span1
+        = f.label 'Год окончания'
+      = f.input_field :expire_year
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, 'Сохранить'
+    = link_to 'Назад', resumes_path, class: 'btn btn-default'

@@ -2,15 +2,43 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :mobile_phone
-    = f.input :home_phone
-    = f.input :work_phone
-    = f.input :email
-    = f.input :icq
-    = f.input :skype
-    = f.input :vk
-    = f.input :facebook
-    = f.input :linkedin
+    .form-group
+      .span1
+        = f.label 'Мобильный телефон'
+      = f.input_field :mobile_phone
+    .form-group
+      .span1
+        = f.label 'Домашний телефон'
+      = f.input_field :home_phone
+    .form-group
+      .span1
+        = f.label 'Рабочий телефон'
+      = f.input_field :work_phone
+    .form-group
+      .span1
+        = f.label 'Электронная почта'
+      = f.input_field :email
+    .form-group
+      .span1
+        = f.label 'ICQ'
+      = f.input_field :icq
+    .form-group
+      .span1
+        = f.label 'Skype'
+      = f.input_field :skype
+    .form-group
+      .span1
+        = f.label 'Вконтакте'
+      = f.input_field :vk
+    .form-group
+      .span1
+        = f.label 'Facebook'
+      = f.input_field :facebook
+    .form-group
+      .span1
+        = f.label 'LinkedIn'
+      = f.input_field :linkedin
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, 'Сохранить'
+    = link_to 'Назад', resumes_path, class: 'btn btn-default'

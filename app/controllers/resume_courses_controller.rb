@@ -28,7 +28,7 @@ class ResumeCoursesController < ApplicationController
 
     respond_to do |format|
       if @resume_course.save
-        format.html { redirect_to @resume_course, notice: 'Resume course was successfully created.' }
+        format.html { redirect_to @resume_course, notice: "Раздел 'Курсы, повышение квалификации' успешно добавлен" }
         format.json { render :show, status: :created, location: @resume_course }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ResumeCoursesController < ApplicationController
   def update
     respond_to do |format|
       if @resume_course.update(resume_course_params)
-        format.html { redirect_to @resume_course.resume, notice: 'Resume course was successfully updated.' }
+        format.html { redirect_to @resume_course.resume, notice: "Раздел 'Курсы, повышение квалификации' успешно отредактирован" }
         format.json { render :show, status: :ok, location: @resume_course }
       else
         format.html { render :edit }

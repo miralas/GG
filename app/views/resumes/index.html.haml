@@ -1,15 +1,18 @@
 %h1 Мои резюме
-- @resumes.each do |resume|
-  - if !resume.resume_post.nil? and !resume.resume_post.wish_post.blank?
-    %h3
-      = link_to resume.resume_post.wish_post, resume
-  - else
-    %h3 
-      = link_to 'Название не задано', resume
+- if @resumes.first
+  - @resumes.each do |resume|
+    - if !resume.resume_post.nil? and !resume.resume_post.wish_post.blank?
+      %h3
+        = link_to resume.resume_post.wish_post, resume
+    - else
+      %h3 
+        = link_to 'Название не задано', resume
 
-  %p
-    Последнее изменение
-    = resume.updated_at.to_datetime
-%hr
+    %p
+      Последнее изменение
+      = resume.updated_at.to_datetime
+  %hr
+- else
+  %p На данный момент Вы не создали ни одного резюме
 
-= link_to 'New Resume', new_resume_path
+= link_to 'Добавить резюме', new_resume_path, class: 'btn btn-default'

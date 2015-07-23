@@ -28,7 +28,7 @@ class ResumeRecomendationsController < ApplicationController
 
     respond_to do |format|
       if @resume_recomendation.save
-        format.html { redirect_to @resume_recomendation, notice: 'Resume recomendation was successfully created.' }
+        format.html { redirect_to @resume_recomendation, notice: 'Рекомендация успешно добавлена' }
         format.json { render :show, status: :created, location: @resume_recomendation }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ResumeRecomendationsController < ApplicationController
   def update
     respond_to do |format|
       if @resume_recomendation.update(resume_recomendation_params)
-        format.html { redirect_to @resume_recomendation.resume, notice: 'Resume recomendation was successfully updated.' }
+        format.html { redirect_to @resume_recomendation.resume, notice: 'Рекомендация успешно отредактирована' }
         format.json { render :show, status: :ok, location: @resume_recomendation }
       else
         format.html { render :edit }

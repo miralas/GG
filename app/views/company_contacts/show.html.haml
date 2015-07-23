@@ -1,15 +1,15 @@
+%h1 Контакты
 %p#notice= notice
 
 %p
-  %b Phone:
+  %b Телефон:
   = @company_contact.phone
 %p
-  %b Adress:
+  %b Адрес:
   = @company_contact.adress
 %p
-  %b Fio:
+  %b Имя контактного лица:
   = @company_contact.fio
 
-= link_to 'Edit', edit_company_contact_path(@company_contact)
-\|
-= link_to 'Back', company_contacts_path
+= link_to 'Редактировать', edit_company_contact_path(@company_contact), class: 'btn btn-default'
+= link_to 'Назад', companies_path, class: 'btn btn-default'

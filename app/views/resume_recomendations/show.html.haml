@@ -1,19 +1,19 @@
 %h3 Рекомендации
 - if @resume_recomendation.name
   %p
-    %b Name:
+    %b Имя:
     = @resume_recomendation.name
 - if @resume_recomendation.post
   %p
-    %b Post:
+    %b Должность:
     = @resume_recomendation.post
 - if @resume_recomendation.organization
   %p
-    %b Organization:
+    %b Организация:
     = @resume_recomendation.organization
 - if @resume_recomendation.phone
   %p
-    %b Phone:
+    %b Телефон:
     = @resume_recomendation.phone
 
-= link_to 'Edit', edit_resume_recomendation_path(@resume_recomendation)
+= link_to 'Редактировать', edit_resume_recomendation_path(@resume_recomendation), class: 'btn btn-default'

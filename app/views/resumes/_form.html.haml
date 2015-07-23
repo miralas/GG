@@ -2,19 +2,62 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :surname
-    = f.input :name
-    = f.input :patronymic
-    = f.input :bith_date
-    = f.input :sex
-    = f.input :city
-    = f.input :change_location
-    = f.input :change_location_place
-    = f.input :ready_business_trip
-    = f.input :nationality
-    = f.input :work_ticket
-    = f.input :time_to_work
-    = f.association :user
+    .form-group
+      .span1
+        = f.label 'Фамилия:'
+      = f.input_field :surname
+      .span1
+        = f.label 'Имя:'
+      = f.input_field :name
+      .span1
+        = f.label 'Отчество:'
+      = f.input_field :patronymic
+    .form-group
+      .span1
+        = f.label 'Дата рождения:'
+      = f.input_field :bith_date
+    .form-group
+      .span1
+        = f.label 'Пол:'
+      = f.select :sex, options_for_select([["Мужской", true], ["Женский", false]]), include_blank: false
+    .form-group
+      .span1
+        = f.label 'Город проживания:'
+      = f.input_field :city
+    .form-group
+      .span1
+        = f.label 'Готовность к переезду:'
+      = f.select :change_location, ['Невозможен', 'Возможен', 'Желателен'], include_blank: false
+    .form-group
+      .span1
+        = f.label 'Куда желаете переехать:'
+      = f.input_field :change_location_place
+    .form-group
+      .span1
+        = f.label 'Готовность к командировкам:'
+      = f.input_field :ready_business_trip
+    .form-group
+      .span1
+        = f.label 'Гражданство:'
+      = f.input_field :nationality
+    .form-group
+      .span1
+        = f.label 'Разрешение на работу:'
+      = f.input_field :work_ticket
+    .form-group
+      .span1
+        = f.label 'Время в пути до работы:'
+      = f.select :time_to_work, ['Не имеет значения', '1,5 - 2 часа', '1 час'], include_blank: false
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, 'Сохранить общую информацию'
+    = link_to 'Назад', resumes_path, class: 'btn btn-default'
+
+
+:javascript
+  $('.datepicker').datepicker({
+      format: "yyyy-mm-dd",
+      todayHighlight: true,
+      todayBtn: 'linked',
+      autoclose: true
+  }); ;

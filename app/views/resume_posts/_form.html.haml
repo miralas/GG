@@ -2,11 +2,27 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :wish_post
-    = f.input :specialization
-    = f.input :salary
-    = f.input :employment
-    = f.input :timetable
+    .form-group
+      .span1
+        = f.label 'Желаемая должность'
+      = f.input_field :wish_post
+    .form-group
+      .span1
+        = f.label 'Профессиональная область'
+      = f.input_field :specialization
+    .form-group
+      .span1
+        = f.label 'Зарплата'
+      = f.input_field :salary
+    .form-group
+      .span1
+        = f.label 'Занятость'
+      = f.input_field :employment
+    .form-group
+      .span1
+        = f.label 'График работы'
+      = f.input_field :timetable
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, 'Сохранить'
+    = link_to 'Назад', resumes_path, class: 'btn btn-default'

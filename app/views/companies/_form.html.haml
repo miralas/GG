@@ -2,10 +2,22 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :title
-    = f.input :logo
-    = f.input :specialization
-    = f.text_field :description
+    .form-group
+      .span1
+        = f.label 'Название компании'
+      = f.input_field :title
+    .form-group
+      .span1
+        = f.label 'Логотип'
+      = f.input_field :logo
+    .form-group
+      .span1
+        = f.label 'Специализация компании'
+      = f.input_field :specialization
+    .form-group
+      .span1
+        = f.label 'Описание'
+      = f.input_field :description
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, 'Сохранить'
