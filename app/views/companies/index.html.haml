@@ -4,6 +4,8 @@
   %p= @companies.specialization
   %p= @companies.logo
 
+  = link_to 'Редактировать общую информацию', edit_company_path, class: 'btn btn-default'
+
   %p= link_to 'Контакты', company_contact_path(@companies.company_contact)
   %p= link_to 'Клиенты', company_clients_path
   %p= link_to 'Новости компании', company_news_index_path
