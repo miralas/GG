@@ -2,9 +2,11 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :review
-    = f.input :mark
-    = f.association :user
+    .form-group
+      .span1
+        = f.label 'Отзыв'
+      = f.input_field :review
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, 'Сохранить'
+    = link_to 'Назад', company_reviews_path, class: 'btn btn-default'

@@ -29,7 +29,7 @@ class CompanyContactsController < ApplicationController
 
     respond_to do |format|
       if @company_contact.save
-        format.html { redirect_to companies_path, notice: 'Company contact was successfully created.' }
+        format.html { redirect_to companies_path, notice: 'Контакты добавлены!' }
         format.json { render :show, status: :created, location: @company_contact }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class CompanyContactsController < ApplicationController
   def update
     respond_to do |format|
       if @company_contact.update(company_contact_params)
-        format.html { redirect_to companies_path, notice: 'Company contact was successfully updated.' }
+        format.html { redirect_to companies_path, notice: 'Ваши контакты были успешно обновлены' }
         format.json { render :show, status: :ok, location: @company_contact }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class CompanyContactsController < ApplicationController
   def destroy
     @company_contact.destroy
     respond_to do |format|
-      format.html { redirect_to company_contacts_url, notice: 'Company contact was successfully destroyed.' }
+      format.html { redirect_to company_contacts_url, notice: 'Контакты удалены' }
       format.json { head :no_content }
     end
   end

@@ -1,23 +1,12 @@
-%h1 Listing company_news
+%h1 Новости компании
 
-%table
-  %thead
-    %tr
-      %th Title
-      %th Body
-      %th
-      %th
-      %th
-
-  %tbody
-    - @company_news.each do |company_news|
-      %tr
-        %td= company_news.title
-        %td= company_news.body
-        %td= link_to 'Show', company_news
-        %td= link_to 'Edit', edit_company_news_path(company_news)
-        %td= link_to 'Destroy', company_news, :method => :delete, :data => { :confirm => 'Are you sure?' }
+- @company_news.each do |company_news|
+  %h3= company_news.title
+  %p= company_news.body
+  - if current_user == company_news.user_id
+    %td= link_to 'Edit', edit_company_news_path(company_news), class: 'btn btn-default'
+    %td= link_to 'Destroy', company_news, :method => :delete, :data => { :confirm => 'Вы уверены, что хотите удалить новость?' }, class: 'btn btn-danger'
 
 %br
 
-= link_to 'New Company news', new_company_news_path
+= link_to 'Добавить новость', new_company_news_path, class: 'btn btn-default'

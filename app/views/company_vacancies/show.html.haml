@@ -1,27 +1,23 @@
+%h3= @company_vacancy.title
 %p#notice= notice
 
 %p
-  %b Title:
-  = @company_vacancy.title
+  %b Компания:
+  = @company_vacancy.company.title
 %p
-  %b Requirements:
-  = @company_vacancy.requirements
-%p
-  %b Description:
-  = @company_vacancy.description
-%p
-  %b Employment:
-  = @company_vacancy.employment
-%p
-  %b Salary:
+  %b Зарплата:
   = @company_vacancy.salary
 %p
-  %b Company:
-  = @company_vacancy.company
+  %b Требования:
+  = @company_vacancy.requirements
 %p
-  %b User:
-  = @company_vacancy.user
+  %b Описание:
+  = @company_vacancy.description
+%p
+  %b Занятость:
+  = @company_vacancy.employment
 
-= link_to 'Edit', edit_company_vacancy_path(@company_vacancy)
-\|
-= link_to 'Back', company_vacancies_path
+
+
+= link_to 'Редактировать', edit_company_vacancy_path(@company_vacancy), class: 'btn btn-default' if current_user == @company_vacancy.user
+= link_to 'Назад', company_vacancies_path, class: 'btn btn-default'

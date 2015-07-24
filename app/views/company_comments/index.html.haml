@@ -1,25 +1,22 @@
-%h1 Listing company_comments
+%h1 Комментарии
 
-%table
+%table.table
   %thead
     %tr
-      %th Comment
-      %th Company
-      %th User
+      %th Комментарий
+      %th Кто добавил
       %th
       %th
       %th
 
-  %tbody
+  %tbody.table-hover
     - @company_comments.each do |company_comment|
       %tr
         %td= company_comment.comment
-        %td= company_comment.company
-        %td= company_comment.user
-        %td= link_to 'Show', company_comment
-        %td= link_to 'Edit', edit_company_comment_path(company_comment)
-        %td= link_to 'Destroy', company_comment, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= company_comment.user.name
+        %td= link_to 'Редактировать', edit_company_comment_path(company_comment), class: 'btn btn-default' if current_user == company_comment.user
+        %td= link_to 'Удалить', company_comment, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger'
 
 %br
 
-= link_to 'New Company comment', new_company_comment_path
+= link_to 'Добавить комментарий', new_company_comment_path, class: 'btn btn-default'

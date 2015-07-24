@@ -30,7 +30,7 @@ class CompanyReviewsController < ApplicationController
 
     respond_to do |format|
       if @company_review.save
-        format.html { redirect_to company_reviews_path, notice: 'Company review was successfully created.' }
+        format.html { redirect_to company_reviews_path, notice: 'Отзыв о компании успешно добавлен' }
         format.json { render :show, status: :created, location: @company_review }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class CompanyReviewsController < ApplicationController
   def update
     respond_to do |format|
       if @company_review.update(company_review_params)
-        format.html { redirect_to company_reviews_path, notice: 'Company review was successfully updated.' }
+        format.html { redirect_to company_reviews_path, notice: 'Отзыв о компании отредактирован' }
         format.json { render :show, status: :ok, location: @company_review }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class CompanyReviewsController < ApplicationController
   def destroy
     @company_review.destroy
     respond_to do |format|
-      format.html { redirect_to company_reviews_url, notice: 'Company review was successfully destroyed.' }
+      format.html { redirect_to company_reviews_url, notice: 'Отзыв о компании удален' }
       format.json { head :no_content }
     end
   end

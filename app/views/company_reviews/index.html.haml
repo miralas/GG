@@ -1,25 +1,17 @@
-%h1 Listing company_reviews
+%h1 Отзывы о компании
 
-%table
-  %thead
-    %tr
-      %th Review
-      %th Mark
-      %th User
-      %th
-      %th
-      %th
-
-  %tbody
-    - @company_reviews.each do |company_review|
-      %tr
-        %td= company_review.review
-        %td= company_review.mark
-        %td= company_review.user
-        %td= link_to 'Show', company_review
-        %td= link_to 'Edit', edit_company_review_path(company_review)
-        %td= link_to 'Destroy', company_review, :method => :delete, :data => { :confirm => 'Are you sure?' }
+- @company_reviews.each do |company_review|
+  %h3
+    Отзыв от #{company_review.user.name}
+  %p= company_review.review
+  %br
+  %td= link_to 'Просмотр', company_review, class: 'btn btn-default'
+  %br
+  - if current_user == company_review.user
+    %td= link_to 'Редактировать', edit_company_review_path(company_review), class: 'btn btn-default'
+    %td= link_to 'Удалить', company_review, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger'
 
 %br
+%br
 
-= link_to 'New Company review', new_company_review_path
+= link_to 'Добавить обзор', new_company_review_path, class: 'btn btn-default'

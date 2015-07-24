@@ -29,7 +29,7 @@ class CompanyClientsController < ApplicationController
 
     respond_to do |format|
       if @company_client.save
-        format.html { redirect_to company_clients_path, notice: 'Company client was successfully created.' }
+        format.html { redirect_to company_clients_path, notice: 'Клиент успешно добавлен' }
         format.json { render :show, status: :created, location: @company_client }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class CompanyClientsController < ApplicationController
   def update
     respond_to do |format|
       if @company_client.update(company_client_params)
-        format.html { redirect_to company_clients_path, notice: 'Company client was successfully updated.' }
+        format.html { redirect_to company_clients_path, notice: 'Клиент успешно отредактирован' }
         format.json { render :show, status: :ok, location: @company_client }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class CompanyClientsController < ApplicationController
   def destroy
     @company_client.destroy
     respond_to do |format|
-      format.html { redirect_to company_clients_url, notice: 'Company client was successfully destroyed.' }
+      format.html { redirect_to company_clients_url, notice: 'Клиент был успешно удален' }
       format.json { head :no_content }
     end
   end

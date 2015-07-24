@@ -29,7 +29,7 @@ class CompanyVacanciesController < ApplicationController
 
     respond_to do |format|
       if @company_vacancy.save
-        format.html { redirect_to company_vacancies_path, notice: 'Company vacancy was successfully created.' }
+        format.html { redirect_to company_vacancies_path, notice: 'Вакансия добавлена!' }
         format.json { render :show, status: :created, location: @company_vacancy }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class CompanyVacanciesController < ApplicationController
   def update
     respond_to do |format|
       if @company_vacancy.update(company_vacancy_params)
-        format.html { redirect_to company_vacancies, notice: 'Company vacancy was successfully updated.' }
+        format.html { redirect_to company_vacancies, notice: 'Вакансия благополучно отредактирована' }
         format.json { render :show, status: :ok, location: @company_vacancy }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class CompanyVacanciesController < ApplicationController
   def destroy
     @company_vacancy.destroy
     respond_to do |format|
-      format.html { redirect_to company_vacancies_url, notice: 'Company vacancy was successfully destroyed.' }
+      format.html { redirect_to company_vacancies_url, notice: 'Вакансия удалена!' }
       format.json { head :no_content }
     end
   end

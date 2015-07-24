@@ -1,33 +1,19 @@
-%h1 Listing company_vacancies
+%h1 Вакансии компании
 
-%table
-  %thead
-    %tr
-      %th Title
-      %th Requirements
-      %th Description
-      %th Employment
-      %th Salary
-      %th Company
-      %th User
-      %th
-      %th
-      %th
+-if @company_vacancies.first
+  - @company_vacancies.each do |company_vacancy|
+    %h3= company_vacancy.title
+    %p= company_vacancy.salary
+    %br
+    = link_to 'Show', company_vacancy, class: 'btn btn-default'
+    %br
+    - if current_user == company_vacancy.user
+      %td= link_to 'Редактировать', edit_company_vacancy_path(company_vacancy), class: 'btn btn-default'
+      %td= link_to 'Удалить', company_vacancy, :method => :delete, :data => { :confirm => 'Вы уверены, что хотите удалить вакансию?' }, class: 'btn btn-danger'
 
-  %tbody
-    - @company_vacancies.each do |company_vacancy|
-      %tr
-        %td= company_vacancy.title
-        %td= company_vacancy.requirements
-        %td= company_vacancy.description
-        %td= company_vacancy.employment
-        %td= company_vacancy.salary
-        %td= company_vacancy.company
-        %td= company_vacancy.user
-        %td= link_to 'Show', company_vacancy
-        %td= link_to 'Edit', edit_company_vacancy_path(company_vacancy)
-        %td= link_to 'Destroy', company_vacancy, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
+  %br
+- else
+  %p На данный момент Вы не разместили ни одной вакансии
 %br
 
-= link_to 'New Company vacancy', new_company_vacancy_path
+= link_to 'Добавить новую вакансию', new_company_vacancy_path, class: 'btn btn-default'

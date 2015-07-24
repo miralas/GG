@@ -2,9 +2,11 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :comment
-    = f.association :company
-    = f.association :user
+    .form-group
+      .span1
+        = f.label 'Комментарий'
+      = f.input_field :comment
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, 'Сохранить'
+    = link_to 'Назад', companies_path, class: 'btn btn-default'

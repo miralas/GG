@@ -1,15 +1,11 @@
+%h3 
+  Отзыв о компании #{@company_review.company.title}
 %p#notice= notice
 
 %p
-  %b Review:
   = @company_review.review
 %p
-  %b Mark:
-  = @company_review.mark
-%p
-  %b User:
-  = @company_review.user
+  %b Автор:
+  = @company_review.user.name
 
-= link_to 'Edit', edit_company_review_path(@company_review)
-\|
-= link_to 'Back', company_reviews_path
+= link_to 'Назад', company_reviews_path, class: 'btn btn-default'

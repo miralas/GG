@@ -26,10 +26,11 @@ class CompanyNewsController < ApplicationController
   def create
     @company_news = CompanyNews.new(company_news_params)
     @company_news.company = current_user.companies.first
+    @company_news.user_id = current_user
 
     respond_to do |format|
       if @company_news.save
-        format.html { redirect_to company_news_path, notice: 'Company news was successfully created.' }
+        format.html { redirect_to company_news_index_path, notice: 'Новость добавлена!' }
         format.json { render :show, status: :created, location: @company_news }
       else
         format.html { render :new }
@@ -43,7 +44,7 @@ class CompanyNewsController < ApplicationController
   def update
     respond_to do |format|
       if @company_news.update(company_news_params)
-        format.html { redirect_to company_news_path, notice: 'Company news was successfully updated.' }
+        format.html { redirect_to company_news_path, notice: 'Новость отредактирована' }
         format.json { render :show, status: :ok, location: @company_news }
       else
         format.html { render :edit }
@@ -57,7 +58,7 @@ class CompanyNewsController < ApplicationController
   def destroy
     @company_news.destroy
     respond_to do |format|
-      format.html { redirect_to company_news_index_url, notice: 'Company news was successfully destroyed.' }
+      format.html { redirect_to company_news_index_url, notice: 'Новость была удалена' }
       format.json { head :no_content }
     end
   end

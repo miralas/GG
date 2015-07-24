@@ -2,9 +2,20 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :title
-    = f.input :website
-    = f.input :description
+    .form-group
+      .span1
+        = f.label 'Название'
+      = f.input_field :title
+    .form-group
+      .span1
+        = f.label 'Сайт'
+      = f.input_field :website
+    .form-group
+      .span1
+        = f.label 'Описание'
+      = f.input_field :description
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, 'Сохранить'
+    = link_to 'Назад', companies_path, class: 'btn btn-default'
+

@@ -1,25 +1,23 @@
-%h1 Listing company_clients
+%h1 Клиенты компании
 
-%table
+%table.table
   %thead
     %tr
-      %th Title
-      %th Website
-      %th Description
-      %th
-      %th
-      %th
+      %th Название
+      %th Сайт
+      %th Описание
+      %th{ colspan: 2 }
 
-  %tbody
+  %tbody.table-hover
     - @company_clients.each do |company_client|
       %tr
         %td= company_client.title
         %td= company_client.website
         %td= company_client.description
-        %td= link_to 'Show', company_client
-        %td= link_to 'Edit', edit_company_client_path(company_client)
-        %td= link_to 'Destroy', company_client, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Посмотреть', company_client, class: 'btn btn-default'
+        %td= link_to 'Редактировать', edit_company_client_path(company_client), class: 'btn btn-default'
+        / %td= link_to 'Удалить', company_client, :method => :delete, :data => { :confirm => 'Вы уверены, что хотите удалить клиента?' }, class: 'btn btn-danger'
 
 %br
 
-= link_to 'New Company client', new_company_client_path
+= link_to 'Добавить клиента', new_company_client_path, class: 'btn btn-default'

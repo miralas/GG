@@ -2,13 +2,28 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :title
-    = f.input :requirements
-    = f.input :description
-    = f.input :employment
-    = f.input :salary
-    = f.association :company
-    = f.association :user
+    .form-group
+      .span1
+        = f.label 'Название вакансии'
+      = f.input_field :title
+    .form-group
+      .span1
+        = f.label 'Требования'
+      = f.input_field :requirements
+    .form-group
+      .span1
+        = f.label 'Описание'
+      = f.input_field :description
+    .form-group
+      .span1
+        = f.label 'Занятость'
+      = f.input_field :employment
+    .form-group
+      .span1
+        = f.label 'Зарплата'
+      = f.input_field :salary
+
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, 'Сохранить'
+    = link_to 'Назад', company_vacancies_path, class: 'btn btn-default'

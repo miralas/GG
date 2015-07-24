@@ -1,15 +1,13 @@
 %p#notice= notice
 
 %p
-  %b Title:
+  %b Название:
   = @company_client.title
 %p
-  %b Website:
+  %b Сайт:
   = @company_client.website
 %p
-  %b Description:
+  %b Описание:
   = @company_client.description
 
-= link_to 'Edit', edit_company_client_path(@company_client)
-\|
-= link_to 'Back', company_clients_path
+= link_to 'Назад', company_clients_path, class: 'btn btn-default'
