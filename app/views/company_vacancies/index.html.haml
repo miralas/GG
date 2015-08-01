@@ -1,6 +1,6 @@
 %h1 Вакансии
 
--if @company_vacancies.first
+-if @company_vacancies
   - @company_vacancies.each do |company_vacancy|
     %h3= company_vacancy.title
     %p= company_vacancy.salary
