@@ -9,15 +9,17 @@
       %th{ colspan: 2 }
 
   %tbody.table-hover
-    - @company_clients.each do |company_client|
-      %tr
-        %td= company_client.title
-        %td= company_client.website
-        %td= company_client.description
-        %td= link_to 'Посмотреть', company_client, class: 'btn btn-default'
-        %td= link_to 'Редактировать', edit_company_client_path(company_client), class: 'btn btn-default'
-        / %td= link_to 'Удалить', company_client, :method => :delete, :data => { :confirm => 'Вы уверены, что хотите удалить клиента?' }, class: 'btn btn-danger'
+    - if @company_clients
+      - @company_clients.each do |company_client|
+        %tr
+          %td= company_client.title
+          %td= company_client.website
+          %td= company_client.description
+          %td= link_to 'Посмотреть', company_client, class: 'btn btn-default'
+          %td= link_to 'Редактировать', edit_company_client_path(company_client), class: 'btn btn-default'
+          / %td= link_to 'Удалить', company_client, :method => :delete, :data => { :confirm => 'Вы уверены, что хотите удалить клиента?' }, class: 'btn btn-danger'
 
 %br
 
 = link_to 'Добавить клиента', new_company_client_path, class: 'btn btn-default'
+= link_to 'Назад', companies_path, class: 'btn btn-default'

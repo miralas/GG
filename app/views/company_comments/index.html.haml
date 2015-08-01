@@ -10,13 +10,15 @@
       %th
 
   %tbody.table-hover
-    - @company_comments.each do |company_comment|
-      %tr
-        %td= company_comment.comment
-        %td= company_comment.user.name
-        %td= link_to 'Редактировать', edit_company_comment_path(company_comment), class: 'btn btn-default' if current_user == company_comment.user
-        %td= link_to 'Удалить', company_comment, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger'
+    - if @company_comments
+      - @company_comments.each do |company_comment|
+        %tr
+          %td= company_comment.comment
+          %td= company_comment.user.name
+          %td= link_to 'Редактировать', edit_company_comment_path(company_comment), class: 'btn btn-default' if current_user == company_comment.user
+          %td= link_to 'Удалить', company_comment, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger'
 
 %br
 
 = link_to 'Добавить комментарий', new_company_comment_path, class: 'btn btn-default'
+= link_to 'Назад', companies_path, class: 'btn btn-default'

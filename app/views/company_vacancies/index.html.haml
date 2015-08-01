@@ -17,3 +17,4 @@
 %br
 - if current_user.role != 'user'
   = link_to 'Добавить новую вакансию', new_company_vacancy_path, class: 'btn btn-default'
+= link_to 'Назад', companies_path, class: 'btn btn-default'
