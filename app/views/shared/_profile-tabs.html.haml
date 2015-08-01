@@ -1,0 +1,13 @@
+%ul.nav.nav-tabs
+  %li.active
+    = link_to 'Контакты', resume_contact_path(@resume), html_options = { "data-toggle" => "result" }
+  %li
+    = link_to 'Желаемая должность', resume_post_path(@resume), html_options = { "data-toggle" => "result" }
+  %li
+    = link_to 'Опыт работы', resume_work_path(@resume), html_options = { "data-toggle" => "result" }
+  %li
+    = link_to 'Образование', resume_exam_path(@resume), html_options = { "data-toggle" => "result" }
+  %li
+    = link_to 'Курсы', resume_course_path(@resume), html_options = { "data-toggle" => "result" }
+  %li
+    = link_to 'Рекомендации', resume_recomendation_path(@resume), html_options = { "data-toggle" => "result" }

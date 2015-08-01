@@ -4,7 +4,7 @@ class CompanyCommentsController < ApplicationController
   # GET /company_comments
   # GET /company_comments.json
   def index
-    @company_comments = CompanyComment.all
+    @company_comments = CompanyComment.where(company: params[:company]).first
   end
 
   # GET /company_comments/1

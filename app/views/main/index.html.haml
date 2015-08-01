@@ -1,0 +1,42 @@
+= render 'layouts/messages'
+- if @vacancies
+  %h3 Топ вакансий
+  %hr.btn-danger
+  - @vacancies.each do |vacancy|
+    .panel.panel-default.span3
+      .panel-heading
+        %a{ href: "#{company_vacancy_path(vacancy.company)}" }
+          %h4
+            = vacancy.title 
+            = vacancy.company.title
+      .panel-body
+        %p
+          %b Зарплата
+          = vacancy.salary
+          рублей
+        %p
+          = vacancy.requirements.truncate(30)
+        .pull-right
+          = link_to 'Подробнее', company_vacancy_path(vacancy.company), class: 'btn btn-default'
+- elsif @resumes
+  %h3 Топ резюме
+  %hr.btn-danger
+  - @resumes.each do |resume|
+    .panel.panel-default.span3
+      .panel-heading
+        %a{ href: "#{resume_path(resume)}" }
+          %h4
+            = resume.surname
+            = resume.name
+            = resume.patronymic
+            ,город:
+            = resume.city
+            ,
+            = resume.resume_post.wish_post
+      .panel-body
+        %p
+          %b Желаемая зарплата
+          = resume.resume_post.salary
+          рублей
+        .pull-right
+          = link_to 'Подробнее', resume_path(resume), class: 'btn btn-default'

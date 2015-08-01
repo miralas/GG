@@ -4,7 +4,7 @@ class CompanyContactsController < ApplicationController
   # GET /company_contacts
   # GET /company_contacts.json
   def index
-    @company_contacts = CompanyContact.all
+    @company_contacts = CompanyContact.where(company: params[:company]).first
   end
 
   # GET /company_contacts/1

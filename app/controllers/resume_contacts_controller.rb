@@ -4,7 +4,7 @@ class ResumeContactsController < ApplicationController
   # GET /resume_contacts
   # GET /resume_contacts.json
   def index
-    @resume_contacts = ResumeContact.all
+    @resume_contacts = ResumeContact.where(resume: params[:resume]).first
   end
 
   # GET /resume_contacts/1

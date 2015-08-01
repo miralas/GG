@@ -15,6 +15,8 @@ end
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'devise-i18n'
+gem 'omniauth'
+gem 'omniauth-facebook'
 gem 'haml-rails'
 gem 'high_voltage'
 gem 'simple_form'

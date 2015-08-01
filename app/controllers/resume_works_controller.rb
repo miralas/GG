@@ -10,6 +10,9 @@ class ResumeWorksController < ApplicationController
   # GET /resume_works/1
   # GET /resume_works/1.json
   def show
+    respond_to do |format|
+      format.js { render :show, locals: { :'@resume' => @resume_work.resume } }
+    end
   end
 
   # GET /resume_works/new

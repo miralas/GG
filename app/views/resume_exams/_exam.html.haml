@@ -1,0 +1,33 @@
+%ul.nav.nav-tabs
+  %li
+    = link_to 'Контакты', resume_path(@resume), remote: true
+  %li
+    = link_to 'Желаемая должность', resume_post_path(@resume), remote: true
+  %li
+    = link_to 'Опыт работы', resume_work_path(@resume), remote: true
+  %li.active
+    = link_to 'Образование', resume_exam_path(@resume), remote: true
+  %li
+    = link_to 'Курсы', resume_course_path(@resume), remote: true
+  %li
+    = link_to 'Рекомендации', resume_recomendation_path(@resume), remote: true
+
+- if @resume_exam.title 
+  %p
+    %b Название:
+    = @resume_exam.title
+- if @resume_exam.organization
+  %p
+    %b Проводившая организация:
+    = @resume_exam.organization
+- if @resume_exam.specialization
+  %p
+    %b Специализация/специальность:
+    = @resume_exam.specialization
+- if @resume_exam.expire_year
+  %p
+    %b Год окончания:
+    = @resume_exam.expire_year
+
+- if @resume_exam.resume.user == current_user
+  = link_to 'Редактировать', edit_resume_exam_path(@resume_exam), class: 'btn btn-default'

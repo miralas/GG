@@ -18,6 +18,6 @@
   = @company_vacancy.employment
 
 
-
-= link_to 'Редактировать', edit_company_vacancy_path(@company_vacancy), class: 'btn btn-default' if current_user == @company_vacancy.user
-= link_to 'Назад', company_vacancies_path, class: 'btn btn-default'
+- if current_user && @company_vacancy.company.user == current_user
+  = link_to 'Редактировать', edit_company_vacancy_path(@company_vacancy), class: 'btn btn-default' if current_user == @company_vacancy.user
+  = link_to 'Назад', company_vacancies_path, class: 'btn btn-default'

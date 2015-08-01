@@ -1,4 +1,3 @@
-%h3  Желаемая должность
 - if @resume_post.wish_post
   %p
     %b Желаемая должность:
@@ -20,4 +19,5 @@
     %b График работы:
     = @resume_post.timetable
 
-= link_to "Редактировать", edit_resume_post_path(@resume_post), class: 'btn btn-default'
+- if @resume_post.resume.user == current_user
+  = link_to "Редактировать", edit_resume_post_path(@resume_post), class: 'btn btn-default'

@@ -4,7 +4,7 @@ class CompanyReviewsController < ApplicationController
   # GET /company_reviews
   # GET /company_reviews.json
   def index
-    @company_reviews = CompanyReview.all
+    @company_reviews = CompanyReview.where(company: params[:company])
   end
 
   # GET /company_reviews/1

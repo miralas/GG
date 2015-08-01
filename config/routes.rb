@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :company_vacancies
   resources :company_reviews
   resources :company_news
@@ -13,7 +14,6 @@ Rails.application.routes.draw do
   resources :resume_exams
   resources :resume_courses
   resources :resumes
-  root to: 'visitors#index'
-  devise_for :users
-  resources :users
+  root to: 'main#index'
+  # resources :users
 end

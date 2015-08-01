@@ -1,12 +1,15 @@
 <%# add navigation links to this file %>
 <% if user_signed_in? %>
   <% if current_user.role == 'user' %>
-    <li><%= link_to 'Компании', companies_path %></li>
-    <li><%= link_to 'Мое резюме', resumes_path %></li>
+    <li><%= link_to 'Мои резюме', resumes_path %></li>
+    <li><%= link_to 'Вакансии', company_vacancies_path %></li>
+  <% else %>
+    <li><%= link_to 'Мои компании', companies_path %></li>
   <% end %>
   <li><%= link_to 'Редактировать профиль', edit_user_registration_path %></li>
   <li><%= link_to 'Выход', destroy_user_session_path, :method=>'delete' %></li>
 <% else %>
+  <li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
   <li><%= link_to 'Войти', new_user_session_path %></li>
   <li><%= link_to 'Регистрация', new_user_registration_path %></li>
 <% end %>

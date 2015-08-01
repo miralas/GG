@@ -4,6 +4,10 @@
   .form-inputs
     .form-group
       .span1
+        = f.label 'Правовая форма'
+      = f.input_field :company_type
+    .form-group
+      .span1
         = f.label 'Название компании'
       = f.input_field :title
     .form-group
@@ -16,7 +20,7 @@
       = f.input_field :specialization
     .form-group
       .span1
-        = f.label 'Описание'
+        = f.label 'О компании'
       = f.input_field :description
 
   .form-actions

@@ -1,0 +1,57 @@
+%ul.nav.nav-tabs
+  %li
+    = link_to 'Контакты', resume_path(@resume), remote: true
+  %li
+    = link_to 'Желаемая должность', resume_post_path(@resume), remote: true
+  %li.active
+    = link_to 'Опыт работы', resume_work_path(@resume), remote: true
+  %li
+    = link_to 'Образование', resume_exam_path(@resume), remote: true
+  %li
+    = link_to 'Курсы', resume_course_path(@resume), remote: true
+  %li
+    = link_to 'Рекомендации', resume_recomendation_path(@resume), remote: true
+
+-if @resume_work.organization
+  %p
+    %b Организация:
+    = @resume_work.organization
+-if @resume_work.region
+  %p
+    %b Регион:
+    = @resume_work.region
+-if @resume_work.website
+  %p
+    %b Сайт:
+    = @resume_work.website
+-if @resume_work.sphere
+  %p
+    %b Сфера деятельности:
+    = @resume_work.sphere
+-if @resume_work.post
+  %p
+    %b Должность:
+    = @resume_work.post
+-if @resume_work.begin_work
+  %p
+    %b Начало работы:
+    = @resume_work.begin_work
+-if @resume_work.end_work
+  %p
+    %b Окончание:
+    = @resume_work.end_work
+-if @resume_work.functions
+  %p
+    %b Обязанности, функции:
+    = @resume_work.functions
+-if @resume_work.skills
+  %p
+    %b Навыки:
+    = @resume_work.skills
+-if @resume_work.about
+  %p
+    %b Обо мне:
+    = @resume_work.about
+
+- if @resume_work.resume.user == current_user
+  = link_to "Редактировать", edit_resume_work_path(@resume_work), class: 'btn btn-default'

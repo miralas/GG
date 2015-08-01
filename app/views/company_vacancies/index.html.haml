@@ -1,4 +1,4 @@
-%h1 Вакансии компании
+%h1 Вакансии
 
 -if @company_vacancies.first
   - @company_vacancies.each do |company_vacancy|
@@ -13,7 +13,7 @@
 
   %br
 - else
-  %p На данный момент Вы не разместили ни одной вакансии
+  %p На данный момент нет актуальных вакансий
 %br
-
-= link_to 'Добавить новую вакансию', new_company_vacancy_path, class: 'btn btn-default'
+- if current_user.role != 'user'
+  = link_to 'Добавить новую вакансию', new_company_vacancy_path, class: 'btn btn-default'

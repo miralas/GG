@@ -3,46 +3,39 @@
     = @resume.surname
     = @resume.name
     = @resume.patronymic
+%hr.btn-danger
 %p
   %b Дата рождения:
   = @resume.bith_date
-
+%p
   %b Пол:
   = @resume.sex
-
+%p
   %b Город проживания:
   = @resume.city
-
+%p
   %b Возможность переезда:
   = @resume.change_location
   - if !@resume.change_location_place.blank? && !@resume.change_location_place.nil?
     %b Желательный город для переезда:
     = @resume.change_location_place
-
+%p
   %b Готовность к командировкам:
   = @resume.ready_business_trip
 %p
   %b Гражданство:
   = @resume.nationality
-
+%p
   %b Разрешение на работу:
   = @resume.work_ticket
-
+%p
   %b Время в пути до работы:
   = @resume.time_to_work
 
-= link_to 'Редактировать общую информацию', edit_resume_path(@resume), class: 'btn btn-default'
+#result.panel.panel-default
+  = render 'resume.html.haml', locals: {:'@resume_contact' => @resume.resume_contact, :'@resume' => @resume}
 
-= render template: 'resume_contacts/show.html.haml', locals: { '@resume_contact': @resume.resume_contact }
-
-= render template: 'resume_works/show.html.haml', locals: { '@resume_work': @resume.resume_work }
-
-= render template: 'resume_exams/show.html.haml', locals: { '@resume_exam': @resume.resume_exam }
-
-= render template: 'resume_courses/show.html.haml', locals: { '@resume_course': @resume.resume_course }
-
-= render template: 'resume_posts/show.html.haml', locals: { '@resume_post': @resume.resume_post }
-
-= render template: 'resume_recomendations/show.html.haml', locals: { '@resume_recomendation': @resume.resume_recomendation }
-
-= link_to 'Назад', resumes_path, class: 'btn btn-default'
+- if @resume_contact.resume.user == current_user
+  = link_to 'Редактировать общую информацию', edit_resume_path(@resume), class: 'btn btn-default'
+  %br
+  = link_to 'Назад', resumes_path, class: 'btn btn-default'

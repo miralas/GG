@@ -1,4 +1,3 @@
-%h3 Контакты
 - if @resume_contact.mobile_phone
   %p
     %b Мобильный телефон:
@@ -36,4 +35,4 @@
     %b LinkedIn:
     = @resume_contact.linkedin
 
-= link_to 'Редактировать', edit_resume_contact_path(@resume_contact), class: 'btn btn-default'
+= link_to 'Редактировать', edit_resume_contact_path(@resume_contact), class: 'btn btn-default' if @resume_contact.resume.user == current_user

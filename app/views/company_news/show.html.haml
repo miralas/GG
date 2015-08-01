@@ -1,12 +1,5 @@
-%p#notice= notice
-
+%h3
+  %b
+	= @company_news.title
 %p
-  %b Title:
-  = @company_news.title
-%p
-  %b Body:
   = @company_news.body
-
-= link_to 'Edit', edit_company_news_path(@company_news)
-\|
-= link_to 'Back', company_news_index_path

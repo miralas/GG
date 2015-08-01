@@ -4,7 +4,7 @@ class CompanyClientsController < ApplicationController
   # GET /company_clients
   # GET /company_clients.json
   def index
-    @company_clients = CompanyClient.all
+    @company_clients = CompanyClient.where(company: params[:company]).first
   end
 
   # GET /company_clients/1

@@ -1,0 +1,15 @@
+%ul.nav.nav-tabs
+  %li.active
+    = link_to 'Контакты', resume_path(@resume), remote: true
+  %li
+    = link_to 'Желаемая должность', resume_post_path(@resume), remote: true
+  %li
+    = link_to 'Опыт работы', resume_work_path(@resume), remote: true
+  %li
+    = link_to 'Образование', resume_exam_path(@resume), remote: true
+  %li
+    = link_to 'Курсы', resume_course_path(@resume), remote: true
+  %li
+    = link_to 'Рекомендации', resume_recomendation_path(@resume), remote: true
+.panel.panel-default
+= render template: 'resume_contacts/show', locals: {:'@resume_contact' => @resume.resume_contact, :'@resume' => @resume}

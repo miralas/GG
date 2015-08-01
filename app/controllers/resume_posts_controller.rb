@@ -4,12 +4,15 @@ class ResumePostsController < ApplicationController
   # GET /resume_posts
   # GET /resume_posts.json
   def index
-    @resume_posts = ResumePost.all
+    @resume_posts = ResumePost.where(resume: params[:resume]).first
   end
 
   # GET /resume_posts/1
   # GET /resume_posts/1.json
   def show
+    respond_to do |format|
+      format.js { render :show, locals: { :'@resume' => @resume_post.resume } }
+    end
   end
 
   # GET /resume_posts/new
