@@ -4,7 +4,6 @@ class MyRegister::RegistrationsController < Devise::RegistrationsController
 		if resource.save
 			resource.role = params[:user][:role]
 			resource.name = params[:user][:name]
-			binding.pry
 			resource.save
 		end
 	end

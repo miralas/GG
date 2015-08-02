@@ -3,7 +3,6 @@ class RegistrationsController < Devise::RegistrationsController
 		super
 		if resource.save
 			resource.role = params[:role]
-			binding.pry
 			resource.save
 		end
 	end
