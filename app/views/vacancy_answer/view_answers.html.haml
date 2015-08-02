@@ -1,0 +1,8 @@
+- if @answers
+  %ul
+    - @answers.each do |answer|
+      %li
+        %b
+          = link_to "#{answer.vacancy.title}, #{answer.created_at}", resume_path(answer.resume)
+- else
+  %p На данный момент откликов на вакансию нет

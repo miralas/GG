@@ -1,0 +1,2 @@
+module ResumeAnswerHelper
+end

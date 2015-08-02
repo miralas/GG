@@ -1,0 +1,12 @@
+- if @company_contact
+  %p
+    %b Телефон:
+    = @company_contact.phone
+  %p
+    %b Адрес:
+    = @company_contact.adress
+  %p
+    %b Имя контактного лица:
+    = @company_contact.fio
+
+  = link_to 'Редактировать', edit_company_contact_path(@company_contact), class: 'btn btn-default'

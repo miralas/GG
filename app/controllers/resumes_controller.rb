@@ -7,6 +7,10 @@ class ResumesController < ApplicationController
     @resumes = Resume.where(user: current_user)
   end
 
+  def all
+    @resumes = Resume.all
+  end
+
   # GET /resumes/1
   # GET /resumes/1.json
   def show

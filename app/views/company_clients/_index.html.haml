@@ -1,4 +1,17 @@
-%h1 Клиенты компании
+#result.panel.panel-default
+  %ul.nav.nav-tabs
+    %li
+      = link_to 'Контакты', company_contact_path(@company_clients.company.company_contact), remote: true
+    %li.active
+      = link_to 'Клиенты', company_clients_path, remote: true
+    %li
+      = link_to 'Новости компании', company_news_index_path, remote: true
+    %li
+      = link_to 'Отзывы о компании', company_reviews_path, remote: true
+    %li
+      = link_to 'Комментарии', company_comments_path, remote: true
+    %li
+      = link_to 'Вакансии', company_vacancies_path, remote: true
 
 %table.table
   %thead
@@ -21,6 +34,6 @@
             %td= link_to 'Удалить', company_client, :method => :delete, :data => { :confirm => 'Вы уверены, что хотите удалить клиента?' }, class: 'btn btn-danger'
 
 %br
-- if @company.clients
-  - if @company.clients.first.user == current_user
+- if @company_clients
+  - if @company_clients.company.user == current_user
     = link_to 'Добавить клиента', new_company_client_path, class: 'btn btn-default'

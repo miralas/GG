@@ -7,6 +7,10 @@
       <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
     </div>
     <div class="form-group">
+      <%= f.label :role %>
+      <%= f.select :role, options_for_select([['Соискатель', 'user'],['Работодатель', 'client']]), class: 'form-control' %>
+    </div>
+    <div class="form-group">
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
     </div>

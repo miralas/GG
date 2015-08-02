@@ -4,7 +4,7 @@ class CompanyVacanciesController < ApplicationController
   # GET /company_vacancies
   # GET /company_vacancies.json
   def index
-    @company_vacancies = CompanyVacancy.where(company: params[:company]).first
+    @company_vacancies = CompanyVacancy.where(company: params[:company])
   end
 
   # GET /company_vacancies/1

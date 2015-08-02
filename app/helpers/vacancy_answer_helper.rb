@@ -1,0 +1,2 @@
+module VacancyAnswerHelper
+end

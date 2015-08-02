@@ -1,5 +1,5 @@
 %ul.nav.nav-tabs
-  %li.active
+  %li
     = link_to 'Контакты', resume_path(@resume), remote: true
   %li
     = link_to 'Желаемая должность', resume_post_path(@resume), remote: true
@@ -11,8 +11,11 @@
     = link_to 'Курсы', resume_course_path(@resume), remote: true
   %li
     = link_to 'Рекомендации', resume_recomendation_path(@resume), remote: true
-  - if current_user.role == 'user' and @resume.user == current_user
-    %li
-      = link_to 'Отклики', view_answers_path(@resume), remote: true
-.panel.panel-default
-= render template: 'resume_contacts/show', locals: {:'@resume_contact' => @resume.resume_contact, :'@resume' => @resume}
+  %li.active
+    = link_to 'Отклики', view_answers_path(@resume), remote: true
+- if @answers
+  %ul
+    - @answers.each do |answer|
+      %li
+        %b
+          = link_to "#{answer.company.title}, #{answer.created_at}", company_vacancies_path(answer.company)

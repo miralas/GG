@@ -5,7 +5,7 @@
     %h3= company_vacancy.title
     %p= company_vacancy.salary
     %br
-    = link_to 'Show', company_vacancy, class: 'btn btn-default'
+    = link_to 'Подробнее', company_vacancy, class: 'btn btn-default'
     %br
     - if current_user == company_vacancy.user
       %td= link_to 'Редактировать', edit_company_vacancy_path(company_vacancy), class: 'btn btn-default'
@@ -17,4 +17,3 @@
 %br
 - if current_user.role != 'user'
   = link_to 'Добавить новую вакансию', new_company_vacancy_path, class: 'btn btn-default'
-= link_to 'Назад', companies_path, class: 'btn btn-default'

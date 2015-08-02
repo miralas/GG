@@ -39,3 +39,7 @@
   = link_to 'Редактировать общую информацию', edit_resume_path(@resume), class: 'btn btn-default'
   %br
   = link_to 'Назад', resumes_path, class: 'btn btn-default'
+
+- a = ResumeAnswer.where(resume: @resume, company: current_user.companies.first).first
+- if current_user.role == 'client' and !a
+  = link_to 'Направить отзыв', send_answer_path(@resume, current_user.companies.first), method: 'post'

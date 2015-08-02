@@ -15,5 +15,9 @@ Rails.application.routes.draw do
   resources :resume_courses
   resources :resumes
   root to: 'main#index'
+  get 'all_resumes', to: 'resumes#all', as: :all_resume
+  post 'send_answer/resume/:resume/company/:company', to: 'resume_answer#answer', as: :send_answer
+  get 'view_answers/:resume', to: 'resume_answer#view_answers', as: :view_answers
+  get 'all_company_vacancies/:company', to: 'company_vacancies#index', as: :all_vacancy
   # resources :users
 end
