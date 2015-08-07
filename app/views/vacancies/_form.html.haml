@@ -1,4 +1,4 @@
-= simple_form_for(@company_vacancy) do |f|
+= simple_form_for :vacancy, url: company_vacancies_path(params[:company_id]) do |f|
   = f.error_notification
 
   .form-inputs

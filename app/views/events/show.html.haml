@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Author:
+  = @event.author_id
+%p
+  %b Title:
+  = @event.title
+%p
+  %b Text:
+  = @event.text
+%p
+  %b Starts at:
+  = @event.starts_at
+%p
+  %b Ends at:
+  = @event.ends_at
+%p
+  %b All day:
+  = @event.all_day
+
+= link_to 'Edit', edit_event_path(@event)
+\|
+= link_to 'Back', events_path

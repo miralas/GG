@@ -5,7 +5,7 @@
   - @vacancies.each do |vacancy|
     .panel.panel-default.span3
       .panel-heading
-        %a{ href: "#{company_vacancy_path(vacancy.company)}" }
+        %a{ href: "#{company_vacancy_path(vacancy.company, vacancy)}" }
           %h4
             = vacancy.title 
             = vacancy.company.title
@@ -17,7 +17,7 @@
         %p
           = vacancy.requirements.truncate(30)
         .pull-right
-          = link_to 'Подробнее', company_vacancy_path(vacancy.company), class: 'btn btn-default'
+          = link_to 'Подробнее', company_vacancy_path(vacancy.company, vacancy), class: 'btn btn-default'
 - elsif @resumes
   %h3 Топ резюме
   %hr.btn-danger

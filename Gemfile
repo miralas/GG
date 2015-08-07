@@ -20,6 +20,8 @@ gem 'omniauth-facebook'
 gem 'haml-rails'
 gem 'high_voltage'
 gem 'simple_form'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
 gem 'therubyracer', :platform=>:ruby
 gem 'thin'
 group :development do

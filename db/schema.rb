@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150802142828) do
+ActiveRecord::Schema.define(version: 20150806184912) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "title"
@@ -89,6 +89,17 @@ ActiveRecord::Schema.define(version: 20150802142828) do
 
   add_index "company_vacancies", ["company_id"], name: "index_company_vacancies_on_company_id"
   add_index "company_vacancies", ["user_id"], name: "index_company_vacancies_on_user_id"
+
+  create_table "events", force: :cascade do |t|
+    t.integer  "author_id"
+    t.string   "title"
+    t.text     "text"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.boolean  "all_day"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "resume_answers", force: :cascade do |t|
     t.integer  "resume_id"
@@ -226,6 +237,21 @@ ActiveRecord::Schema.define(version: 20150802142828) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "vacancies", force: :cascade do |t|
+    t.string   "title"
+    t.text     "requirements"
+    t.text     "description"
+    t.string   "employment"
+    t.integer  "salary"
+    t.integer  "user_id"
+    t.integer  "company_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "vacancies", ["company_id"], name: "index_vacancies_on_company_id"
+  add_index "vacancies", ["user_id"], name: "index_vacancies_on_user_id"
 
   create_table "vacancy_answers", force: :cascade do |t|
     t.integer  "resume_id"

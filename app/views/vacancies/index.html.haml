@@ -1,11 +1,11 @@
 %h1 Вакансии
 
--if @company_vacancies
-  - @company_vacancies.each do |company_vacancy|
+-if @vacancies
+  - @vacancies.each do |company_vacancy|
     %h3= company_vacancy.title
     %p= company_vacancy.salary
     %br
-    = link_to 'Подробнее', company_vacancy, class: 'btn btn-default'
+    = link_to 'Подробнее', company_vacancy_path(company_vacancy.company, company_vacancy), class: 'btn btn-default'
     %br
     - if current_user == company_vacancy.user
       %td= link_to 'Редактировать', edit_company_vacancy_path(company_vacancy), class: 'btn btn-default'
