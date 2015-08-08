@@ -2,12 +2,11 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :author_id
-    = f.input :title
-    = f.input :text
-    = f.input :starts_at
-    = f.input :ends_at
-    = f.input :all_day
+    = f.input :title, label: 'Название'
+    = f.input :text, label: 'Описание'
+    = f.input :starts_at, label: 'Дата начала'
+    = f.input :ends_at, label: 'Дата окончания'
+    = f.input :all_day, label: 'Весь день'
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, 'Создать', class: 'btn btn-default'
