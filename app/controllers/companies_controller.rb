@@ -4,7 +4,11 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
-    @companies = Company.find_by(user: current_user)
+    if current_user.role == 'admin'
+      @companies = Company.all
+    else
+      @companies = Company.where(user: current_user)
+    end
   end
 
   # GET /companies/1
