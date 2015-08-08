@@ -4,7 +4,11 @@ class ResumesController < ApplicationController
   # GET /resumes
   # GET /resumes.json
   def index
-    @resumes = Resume.where(user: current_user)
+    if current_user.role != 'admin'
+      @resumes = Resume.where(user: current_user)
+    else
+      @resumes = Resume.all
+    end
   end
 
   def all

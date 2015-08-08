@@ -4,7 +4,11 @@ class VacanciesController < ApplicationController
   # GET /vacancies
   # GET /vacancies.json
   def index
-    @vacancies = Vacancy.where(company: params[:company_id])
+    if params[:company_id]
+      @vacancies = Vacancy.where(company: params[:company_id])
+    else
+      @vacansies = Vacancy.all
+    end
   end
 
   def all_vacancies

@@ -8,7 +8,8 @@
     <li><%= link_to 'Резюме', all_resume_path %></li>
   <% else%>
     <li><%= link_to 'Компании', companies_path %></li>
-    <li><%= link_to 'Резюме', all_resume_path %></li>
+    <li><%= link_to 'Резюме', resumes_path %></li>
+    <li><%= link_to 'Календарь', events_path %></li>
   <% end %>
   <li><%= link_to 'Редактировать профиль', edit_user_registration_path %></li>
   <li><%= link_to 'Выход', destroy_user_session_path, :method=>'delete' %></li>
