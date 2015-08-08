@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  get 'calendar', to: 'calendar#index'
+
   resources :events
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", registrations: 'my_register/registrations' }
   resources :company_reviews
