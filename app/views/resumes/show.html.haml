@@ -35,10 +35,11 @@
 #result.panel.panel-default
   = render 'resume.html.haml', locals: {:'@resume_contact' => @resume.resume_contact, :'@resume' => @resume}
 
-- if @resume_contact.resume.user == current_user
+- if @resume_contact.resume.user == current_user or current_user.role == 'admin'
   = link_to 'Редактировать общую информацию', edit_resume_path(@resume), class: 'btn btn-default'
   %br
   = link_to 'Назад', resumes_path, class: 'btn btn-default'
+  = link_to 'Удалить резюме', resume_path, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-danger'
 
 - a = ResumeAnswer.where(resume: @resume, company: current_user.companies.first).first
 - if current_user.role == 'client' and !a and current_user.companies.first

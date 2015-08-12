@@ -1,24 +1,21 @@
 %p#notice= notice
 
 %p
-  %b Author:
-  = @event.author_id
-%p
-  %b Title:
+  %b Название:
   = @event.title
 %p
-  %b Text:
+  %b Текст:
   = @event.text
 %p
-  %b Starts at:
+  %b Начало:
   = @event.starts_at
 %p
-  %b Ends at:
+  %b Окончание:
   = @event.ends_at
 %p
-  %b All day:
+  %b Весь день:
   = @event.all_day
 
-= link_to 'Edit', edit_event_path(@event)
-\|
-= link_to 'Back', events_path
+= link_to 'Редактировать', edit_event_path(@event), class: 'btn btn-default'
+
+= link_to 'Удалить', event_path(@event), class: 'btn btn-danger'

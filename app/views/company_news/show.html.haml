@@ -1,5 +1,8 @@
 %h3
   %b
-	= @company_news.title
+    = @company_news.title
 %p
   = @company_news.body
+- if current_user == @company_news.user_id or current_user.role == 'admin'
+  %td= link_to 'Редактировать', edit_company_news_path(@company_news), class: 'btn btn-default'
+  %td= link_to 'Удалить', root_path, :method => :delete, :data => { :confirm => 'Вы уверены, что хотите удалить новость?' }, class: 'btn btn-danger'

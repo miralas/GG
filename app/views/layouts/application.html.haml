@@ -38,8 +38,8 @@
           .panel-heading
             %h3 Новости
           .panel-body
-            - if @company_news
-              - @company_news.each do |news|
+            - if @company_all_news
+              - @company_all_news.each do |news|
                 %h4
                   = news.created_at.to_date
                   = news.title

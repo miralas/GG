@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :get_news
 
   def get_news
-    @company_news = CompanyNews.limit(10).reverse
+    @company_all_news = CompanyNews.limit(10).reverse
   end
 
 end

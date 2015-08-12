@@ -1,11 +1,11 @@
 class Resume < ActiveRecord::Base
   belongs_to :user
-  has_one :resume_contact
-  has_one :resume_course
-  has_one :resume_exam
-  has_one :resume_post
-  has_one :resume_recomendation
-  has_one :resume_work
+  has_one :resume_contact, dependent: :destroy
+  has_one :resume_course, dependent: :destroy
+  has_many :resume_exam, dependent: :destroy
+  has_one :resume_post, dependent: :destroy
+  has_many :resume_recomendation, dependent: :destroy
+  has_many :resume_work, dependent: :destroy
 
   after_create :create_symlinks
 
