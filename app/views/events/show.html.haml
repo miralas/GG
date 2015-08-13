@@ -1,10 +1,8 @@
-%p#notice= notice
-
+%h1= @event.title
+%hr.btn-danger
 %p
-  %b Название:
-  = @event.title
-%p
-  %b Текст:
+  %b Описание:
+  %br
   = @event.text
 %p
   %b Начало:
@@ -14,8 +12,11 @@
   = @event.ends_at
 %p
   %b Весь день:
-  = @event.all_day
+  - if @event.all_day
+    да
+  - else
+    нет
 
-= link_to 'Редактировать', edit_event_path(@event), class: 'btn btn-default'
-
-= link_to 'Удалить', event_path(@event), class: 'btn btn-danger'
+- if current_user.role == 'admin' or @event.author == current_user.role
+  = link_to 'Редактировать', edit_event_path(@event), class: 'btn btn-default'
+  = link_to 'Удалить', event_path(@event), class: 'btn btn-danger'

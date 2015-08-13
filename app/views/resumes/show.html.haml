@@ -9,7 +9,10 @@
   = @resume.bith_date
 %p
   %b Пол:
-  = @resume.sex
+  - if @resume.sex
+    Мужской
+  - else
+    Женский
 %p
   %b Город проживания:
   = @resume.city
@@ -21,7 +24,10 @@
     = @resume.change_location_place
 %p
   %b Готовность к командировкам:
-  = @resume.ready_business_trip
+  - if @resume.ready_business_trip
+    Готов(а)
+  - else
+    Не готов(а)
 %p
   %b Гражданство:
   = @resume.nationality

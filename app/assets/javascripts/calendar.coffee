@@ -15,7 +15,7 @@ $(document).on 'ready page:load', ->
     ]
 
     eventClick: (event) ->
-      window.open event.url, '_self' if event.url
+      window.open 'events/' + event.id if event.url
 
     dayClick: (date, jsEvent, view) ->
       window.open '/events/new?date=' + date, '_self'
