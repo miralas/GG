@@ -62,7 +62,7 @@ namespace :users do
       count += 1
     end
     list_of_pass.write 'lib/files/passwords.xls'
-
+    UserMailer.send_file.deliver_now
     puts "Всего создано #{total}, не найдено Электронных почт: #{bad_companies}, некорректных электронных почт: #{incorrect}"
   end
 end
