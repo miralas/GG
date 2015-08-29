@@ -62,7 +62,27 @@ namespace :users do
       count += 1
     end
     list_of_pass.write 'lib/files/passwords.xls'
-    UserMailer.send_file.deliver_now
+    # UserMailer.send_file.deliver_now
     puts "Всего создано #{total}, не найдено Электронных почт: #{bad_companies}, некорректных электронных почт: #{incorrect}"
+  end
+
+  desc "Создает пользователей и компании к ним"
+  task :from_passwords => :environment do
+    require 'spreadsheet'
+    directory = "lib/files/"
+    name = directory + 'passwords.xls'
+    spreadsheet = Spreadsheet.open(name)
+    sheet = spreadsheet.worksheet(0)
+    sheet.each do |row|
+      if row[0]
+        @new_user = User.new
+        @new_user.email = row[0].strip
+        @new_user.password = row[1]
+        @new_user.password_confirmation = row[1]
+        @new_user.role = 'client'
+        @new_user.save
+        puts row[0]
+      end
+    end
   end
 end
