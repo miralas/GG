@@ -4,7 +4,7 @@ class CompanyNewsController < ApplicationController
   # GET /company_news
   # GET /company_news.json
   def index
-    @company_news = CompanyNews.where(company: params[:company])
+    @company_news = CompanyNews.where(company: params[:company]).first
   end
 
   # GET /company_news/1

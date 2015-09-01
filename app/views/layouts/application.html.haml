@@ -59,9 +59,9 @@
       - if request.env['PATH_INFO'] == root_path
         #slider.well{ style: 'width: 100%; height: 350px;' }
           Слайдер
-        = image_tag('gg_web_960-12_news_section')
+        = image_tag(asset_path('gg_web_960-12_news_section.png'))
         #news.pull-left
-          = image_tag('gg_web_960-12_news_image', width: '100%')
+          = image_tag(asset_path('gg_web_960-12_news_image', width: '100%')
           %h2{style: 'color: rgb(240, 64, 129);'} HFHDKD DHDHJD DKLDKL
           %p kdsjfkdsjfksd skdfjksdfj skdjfkdsjf skdjfksdjf skfdjskdf ksdfj skfjsk fksfj kdsfkdjf kdsj j fdsjdhfjds ytsfjdshf jsdgfjdsjf slkdfjslkdfj shdgfdsb ssdfhksdf sjdgfs, fshf sd
           %p sjahja ajsdakdasdaldm adywqyq adalsnj aoisdia oaisjd aksdoqdj aodkjqh askhdjkas alskdaskdkasjdsa  sahdjashdjk ajshdas ausdhka aushdka uasgd
@@ -74,12 +74,12 @@
             %p
           .news-columns
             .news.pull-left{ style: 'width: 48%' }
-              = image_tag('gg_web_960-12_news_image')
+              = image_tag(asset_path('gg_web_960-12_news_image.png'))
               %h2 fdhhsdjfh dsjfhsjdh
               %p djhfjhdsfj sjkdfhskjdf ksjdfhskdfh skjdfhsjdf ksjdfhsdf jsdfhdskf sjhdfsdbfgf sdhgf dshjfgdsfg sjhjsdgfjsdhfjks dsjhdgfksdjhf sjfsjhdf skdjhf shfgskd fkjsdf jdhf
               = link_to 'Читать далее', '#', style: 'color: rgb(240, 64, 129);'
             .news.pull-right{ style: 'width: 48%' }
-              = image_tag('gg_web_960-12_news_image')
+              = image_tag(asset_path('gg_web_960-12_news_image.png'))
               %h2 fdhhsdjfh dsjfhsjdh
               %p djhfjhdsfj sjkdfhskjdf ksjdfhskdfh skjdfhsjdf ksjdfhsdf jsdfhdskf sjhdfsdbfgf sdhgf dshjfgdsfg sjhjsdgfjsdhfjks dsjhdgfksdjhf sjfsjhdf skdjhf shfgskd fkjsdf jdhf
               = link_to 'Читать далее', '#', style: 'color: rgb(240, 64, 129);'
@@ -102,8 +102,8 @@
           .clear{style: 'content: "", display: block; clear: both;'}
         %br
         .career.pull-left
-          = image_tag('gg_web_960-12_7_carerra_section')
-          = image_tag('gg_web_960-12_news_image')
+          = image_tag(asset_path('gg_web_960-12_7_carerra_section.png'))
+          = image_tag(asset_path('gg_web_960-12_news_image.png'))
           %h2{style: 'color: rgb(240, 64, 129);'} dfdjfh skjdfhskjdf kjdshfsd
           %p{style: 'columns: 200px auto;'} jdshfjkdfhjksdfh kjsdfhsk fjshjd dsjkfh sdjfksjdhfdsjf ksdjhf sdfhks djsdhf sdf skdjf sdkjf sf sdkjfh sdf sf sdkf s fshf ksjdhf sjd fksdfh sjd fsjkdf skjdf skfhsfwoiqoif qks fksdjfklsdf sdjfhqofldsf skfdjoidsjfs sdjfl sfkh fjfireh fqe hweufh wruef wuehf nsjddsbfwf kdkcmdkncjnqmdcmo  djsdfjjhsdfk djshfds kjfds ds sf sdkjfh sdf sf sdkf s fshf ksjdhf sjd fksdfh sjd fsjkdf skjdf skfhsfwoiqoif qks fksdjfklsdf sdjfhqofldsf skfdjoidsjfs sdjfl sfkh fjfireh fqe hweufh wruef wuehf nsjddsbfwfo  djsdfjjhsdfk djshfds o  djsdfjjhsdfk djshfds
         .clear
@@ -130,5 +130,5 @@
         .clear{style: 'content: "", display: block; clear: both;'}
       #bottom.well{ style: 'width: 100%; height: 150px;'}
         Слайдер маленький
-      = image_tag('gg_web_960-12_7_podval')
-      
+      = image_tag(asset_path('gg_web_960-12_7_podval.png'))
+

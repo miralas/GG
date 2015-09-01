@@ -4,7 +4,7 @@ class ResumeWorksController < ApplicationController
   # GET /resume_works
   # GET /resume_works.json
   def index
-    @resume_works = ResumeWork.all
+    @resume_works = ResumeWork.where(resume: params[:resume]).first
   end
 
   # GET /resume_works/1
