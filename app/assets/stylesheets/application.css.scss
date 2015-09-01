@@ -15,6 +15,23 @@
  *= require_self
  */
 
-#content {
-	width: 75%;
+#logo {
+	float:left;
+	margin-left: 50px;
+	padding-right: 200px;
+}
+
+#top-navigation {
+	float: right;
+	margin-top: 35px;
+	margin-right: 50px;
+}
+
+.clear {
+	clear: both;
+}
+
+#news {
+	margin-left: 100px;
+	width: 60%;
 }

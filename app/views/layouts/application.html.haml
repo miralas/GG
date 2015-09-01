@@ -25,33 +25,110 @@
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
     %header
-      = render 'layouts/navigation'
-    %main{:role => "main"}
+      #logo
+        = image_tag('gg_basic_logo_RGB.png', size: '300x100')
+      #top-navigation
+        - if user_signed_in?
+          = link_to 'Выход'
+          |
+          = link_to 'Задай вопрос' 
+          |
+          = link_to 'Обратный звонок' 
+          |
+        - else
+          = link_to 'Вход' 
+          |
+          = link_to 'Регистрация' 
+          |
+          = link_to 'Задай вопрос' 
+          |
+          = link_to 'Обратный звонок' 
+          |
+        %br
+        = text_field_tag 'Поиск', nil, style: "width: 78%; display: inline;"
+        = button_tag 'Поиск', style: "width: 20%; display: inline;"
+      .clear
+
+      #menu{style: 'text-align: center; background: #2e87d5; color: white;'}
+        = link_to 'СОИСКАТЕЛЯМ', '#', style: 'display: inline-block; background: rgb(250, 204, 38); padding: 0px 20px; color: white;'
+        = link_to 'СТАЖЕРАМ И ПРАКТИКАНТАМ' , '#',style: 'display: inline-block; background: rgb(240, 64, 129); padding: 0px 20px; color: white;'
+        = link_to 'РАБОТОДАТЕЛЯМ', '#', style: 'display: inline-block; background: rgb(118, 205, 255); padding: 0px 20px; color: white;'
+        = link_to 'УЧЕБНЫМ ЗАВЕДЕНИЯМ', '#', style: 'display: inline-block; background: rgb(198, 43, 108); padding: 0px 20px; color: white;'
+    #content{:role => "main"}
       / = render 'layouts/messages'
       - if request.env['PATH_INFO'] == root_path
-        #slider.well{ style: 'width: 100%; height: 300px;' }
+        #slider.well{ style: 'width: 100%; height: 350px;' }
           Слайдер
-      #content.pull-left
-        = yield
-      #sidebar.pull-right
-        .panel.panel-default
-          .panel-heading
-            %h3 Новости
-          .panel-body
-            - if @company_all_news
-              - @company_all_news.each do |news|
-                %h4
-                  = news.created_at.to_date
-                  = news.title
-                %hr.btn-danger
-                %p
-                  = news.body.truncate(30)
-                  .pull-right
-                    = link_to 'Подробнее', company_news_path(news), class: 'btn btn-default'
-            - else
-              %p На данный момент новостей нет.
-        .panel.panel-default.pull-right{ style: 'width: 255px; height: 300px;' }
-          баннер
-      .clear{style: 'content: "", display: block; clear: both;'}
+        = image_tag('gg_web_960-12_news_section')
+        #news.pull-left
+          = image_tag('gg_web_960-12_news_image', width: '100%')
+          %h2{style: 'color: rgb(240, 64, 129);'} HFHDKD DHDHJD DKLDKL
+          %p kdsjfkdsjfksd skdfjksdfj skdjfkdsjf skdjfksdjf skfdjskdf ksdfj skfjsk fksfj kdsfkdjf kdsj j fdsjdhfjds ytsfjdshf jsdgfjdsjf slkdfjslkdfj shdgfdsb ssdfhksdf sjdgfs, fshf sd
+          %p sjahja ajsdakdasdaldm adywqyq adalsnj aoisdia oaisjd aksdoqdj aodkjqh askhdjkas alskdaskdkasjdsa  sahdjashdjk ajshdas ausdhka aushdka uasgd
+          = link_to 'Читать далее', '#', style: 'color: rgb(240, 64, 129);'
+          .clear
+          %br
+          .panel.panel-default.pull-left{ style: 'width: 550px; height: 60px;' }
+            %p
+          .panel.panel-default.pull-right{ style: 'width: 160px; height: 60px;' }
+            %p
+          .news-columns
+            .news.pull-left{ style: 'width: 48%' }
+              = image_tag('gg_web_960-12_news_image')
+              %h2 fdhhsdjfh dsjfhsjdh
+              %p djhfjhdsfj sjkdfhskjdf ksjdfhskdfh skjdfhsjdf ksjdfhsdf jsdfhdskf sjhdfsdbfgf sdhgf dshjfgdsfg sjhjsdgfjsdhfjks dsjhdgfksdjhf sjfsjhdf skdjhf shfgskd fkjsdf jdhf
+              = link_to 'Читать далее', '#', style: 'color: rgb(240, 64, 129);'
+            .news.pull-right{ style: 'width: 48%' }
+              = image_tag('gg_web_960-12_news_image')
+              %h2 fdhhsdjfh dsjfhsjdh
+              %p djhfjhdsfj sjkdfhskjdf ksjdfhskdfh skjdfhsjdf ksjdfhsdf jsdfhdskf sjhdfsdbfgf sdhgf dshjfgdsfg sjhjsdgfjsdhfjks dsjhdgfksdjhf sjfsjhdf skdjhf shfgskd fkjsdf jdhf
+              = link_to 'Читать далее', '#', style: 'color: rgb(240, 64, 129);'
+        #sidebar.pull-right
+          .panel.panel-default
+            .panel-heading
+              %h3 Новости
+            .panel-body
+              - if @company_all_news
+                - @company_all_news.each do |news|
+                  %h4
+                    = news.created_at.to_date
+                    = news.title
+                  %hr.btn-danger
+                  = link_to news.body.truncate(30), company_news_path(news)
+              - else
+                %p На данный момент новостей нет.
+          .panel.panel-default.pull-right{ style: 'width: 255px; height: 400px;' }
+            баннер
+          .clear{style: 'content: "", display: block; clear: both;'}
+        %br
+        .career.pull-left
+          = image_tag('gg_web_960-12_7_carerra_section')
+          = image_tag('gg_web_960-12_news_image')
+          %h2{style: 'color: rgb(240, 64, 129);'} dfdjfh skjdfhskjdf kjdshfsd
+          %p{style: 'columns: 200px auto;'} jdshfjkdfhjksdfh kjsdfhsk fjshjd dsjkfh sdjfksjdhfdsjf ksdjhf sdfhks djsdhf sdf skdjf sdkjf sf sdkjfh sdf sf sdkf s fshf ksjdhf sjd fksdfh sjd fsjkdf skjdf skfhsfwoiqoif qks fksdjfklsdf sdjfhqofldsf skfdjoidsjfs sdjfl sfkh fjfireh fqe hweufh wruef wuehf nsjddsbfwf kdkcmdkncjnqmdcmo  djsdfjjhsdfk djshfds kjfds ds sf sdkjfh sdf sf sdkf s fshf ksjdhf sjd fksdfh sjd fsjkdf skjdf skfhsfwoiqoif qks fksdjfklsdf sdjfhqofldsf skfdjoidsjfs sdjfl sfkh fjfireh fqe hweufh wruef wuehf nsjddsbfwfo  djsdfjjhsdfk djshfds o  djsdfjjhsdfk djshfds
+        .clear
+        %br
+      - else
+        #content.pull-left
+          = yield
+        #sidebar.pull-right
+          .panel.panel-default
+            .panel-heading
+              %h3 Новости
+            .panel-body
+              - if @company_all_news
+                - @company_all_news.each do |news|
+                  %h4
+                    = news.created_at.to_date
+                    = news.title
+                  %hr.btn-danger
+                  = link_to news.body.truncate(30), company_news_path(news)
+              - else
+                %p На данный момент новостей нет.
+          .panel.panel-default.pull-right{ style: 'width: 255px; height: 400px;' }
+            баннер
+        .clear{style: 'content: "", display: block; clear: both;'}
       #bottom.well{ style: 'width: 100%; height: 150px;'}
         Слайдер маленький
+      = image_tag('gg_web_960-12_7_podval')
+      

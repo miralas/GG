@@ -10,6 +10,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'nokogiri'
 gem 'spreadsheet'
 gem 'valid_email'
+gem 'redactor-rails'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

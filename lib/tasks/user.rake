@@ -85,4 +85,22 @@ namespace :users do
       end
     end
   end
+
+  desc "add_companies"
+  task :add_companies => :environment do
+    require 'spreadsheet'
+    count = 0
+    spreadsheet = Spreadsheet.open('lib/files/passwords.xls')
+    spreadsheet2 = Spreadsheet.open('lib/files/companies.xls')
+    sheet = spreadsheet.worksheet(0)
+    sheet2 = spreadsheet2.worksheet(0)
+    sheet.each do |row|
+      if row[0]
+        row[3] = sheet2[count, 0]
+      end
+      count +=1
+    end
+    File.delete 'lib/files/passwords.xls'
+    spreadsheet.write 'lib/files/passwords.xls'
+  end
 end
