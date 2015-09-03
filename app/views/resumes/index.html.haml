@@ -1,18 +1,59 @@
-%h1 Мои резюме
-- if @resumes.first
-  - @resumes.each do |resume|
-    - if !resume.resume_post.nil? and !resume.resume_post.wish_post.blank?
-      %h3
-        = link_to resume.resume_post.wish_post, resume
-    - else
-      %h3 
-        = link_to 'Название не задано', resume
+- if @aga
+  %h1 Мои резюме
+  - if @resumes.first
+    - @resumes.each do |resume|
+      - if !resume.resume_post.nil? and !resume.resume_post.wish_post.blank?
+        %h3
+          = link_to resume.resume_post.wish_post, resume
+      - else
+        %h3 
+          = link_to 'Название не задано', resume
 
-    %p
-      Последнее изменение
-      = resume.updated_at.to_datetime
-  %hr
+      %p
+        Последнее изменение
+        = resume.updated_at.to_datetime
+    %hr
+  - else
+    %p На данный момент Вы не создали ни одного резюме
+
+  = link_to 'Добавить резюме', new_resume_path, class: 'btn btn-default'
 - else
-  %p На данный момент Вы не создали ни одного резюме
+  #goal.pull-left
+    %br
+    = image_tag(asset_path('gg_web_960-12_7_logo_placeholder.png'), width: '100%')
+    = link_to '#' do
+      %h2{style: 'color: rgb(240, 64, 129); float: left; margin-left: 20px;'} О СЕБЕ
+    = link_to '#' do
+      %h2{style: 'color: rgb(240, 64, 129); float: left; margin-left: 20px;'} РЕЗЮМЕ
+    = link_to '#' do
+      %h2{style: 'color: rgb(240, 64, 129); float: left; margin-left: 20px;'} ОБРАЗОВАНИЕ
+    .clear
+    %p kdsjfkdsjfksd skdfjksdfj skdjfkdsjf skdjfksdjf skfdjskdf ksdfj skfjsk fksfj kdsfkdjf kdsj j fdsjdhfjds ytsfjdshf jsdgfjdsjf slkdfjslkdfj shdgfdsb ssdfhksdf sjdgfs, fshf sd
+    %p{style: 'width: 90%'} 
+      sjahja ajsdakdasdaldm adywqyq adalsnj aoisdia oaisjd aksdoqdj aodkjqh askhdjkas alskdaskdkasjdsa  sahdjashdjk ajshdas ausdhka aushdka uasgd
+      = link_to '#' do
+        = image_tag(asset_path('gg_web_960-12_7_edit_icon.png'), width: '50px', class: 'edit')
+    %h2{style: 'color: rgb(240, 64, 129); float: left;'} КОНТАКТЫ
+    .clear
+    %p kdsjfkdsjfksd skdfjksdfj skdjfkdsjf skdjfksdjf skfdjskdf ksdfj skfjsk fksfj kdsfkdjf kdsj j fdsjdhfjds ytsfjdshf jsdgfjdsjf slkdfjslkdfj shdgfdsb ssdfhksdf sjdgfs, fshf sd
+    %p{style: 'width: 90%'} 
+      sjahja ajsdakdasdaldm adywqyq adalsnj aoisdia oaisjd aksdoqdj aodkjqh askhdjkas alskdaskdkasjdsa  sahdjashdjk ajshdas ausdhka aushdka uasgd
+      = link_to '#' do
+        = image_tag(asset_path('gg_web_960-12_7_edit_icon.png'), width: '50px', class: 'edit')
+    %h2{style: 'color: rgb(240, 64, 129); float: left;'} ЕЩЕ ОДНО ПОЛЕ
+    .clear
+    %p kdsjfkdsjfksd skdfjksdfj skdjfkdsjf skdjfksdjf skfdjskdf ksdfj skfjsk fksfj kdsfkdjf kdsj j fdsjdhfjds ytsfjdshf jsdgfjdsjf slkdfjslkdfj shdgfdsb ssdfhksdf sjdgfs, fshf sd
+    %p{style: 'width: 90%'} 
+      sjahja ajsdakdasdaldm adywqyq adalsnj aoisdia oaisjd aksdoqdj aodkjqh askhdjkas alskdaskdkasjdsa  sahdjashdjk ajshdas ausdhka aushdka uasgd
+      = link_to '#' do
+        = image_tag(asset_path('gg_web_960-12_7_edit_icon.png'), width: '50px', class: 'edit')
 
-= link_to 'Добавить резюме', new_resume_path, class: 'btn btn-default'
+    = image_tag(asset_path('gg_web_960-12_news_section.png'))
+    = image_tag(asset_path('gg_web_960-12_7_logo_placeholder.png'), width: '50%', height: '300px;', style: 'float: left')
+    %br
+    = image_tag(asset_path('gg_web_960-12_7_logo_placeholder.png'), width: '70%', height: '300px;', style: 'float: right')
+    %br
+    = image_tag(asset_path('gg_web_960-12_7_logo_placeholder.png'), width: '80%', height: '300px;', style: 'float: left')
+    .clear
+    = link_to '#' do
+      = image_tag(asset_path('gg_web_960-12_7_edit_icon.png'), width: '50px', class: 'edit')
