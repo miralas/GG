@@ -50,11 +50,40 @@
         = button_tag 'Поиск', style: "width: 20%; display: inline;"
       .clear
 
-      #menu{style: 'text-align: center; background: #2e87d5; color: white;'}
-        = link_to 'СОИСКАТЕЛЯМ', '#', style: 'display: inline-block; background: rgb(250, 204, 38); padding: 0px 20px; color: white;'
-        = link_to 'СТАЖЕРАМ И ПРАКТИКАНТАМ' , '#',style: 'display: inline-block; background: rgb(240, 64, 129); padding: 0px 20px; color: white;'
-        = link_to 'РАБОТОДАТЕЛЯМ', '#', style: 'display: inline-block; background: rgb(118, 205, 255); padding: 0px 20px; color: white;'
-        = link_to 'УЧЕБНЫМ ЗАВЕДЕНИЯМ', '#', style: 'display: inline-block; background: rgb(198, 43, 108); padding: 0px 20px; color: white;'
+      #menu.primary_nav_wrap{style: 'text-align: center; background: #2e87d5; color: white;'}
+        %ul
+          %li
+            = link_to 'СОИСКАТЕЛЯМ', '#', style: 'background: rgb(250, 204, 38); padding: 0px 20px; color: white;'
+            %ul
+              %li
+                = link_to 'ВАКАНСИИ', '#', style: 'background: rgb(250, 204, 38); padding: 0px 20px; color: white;'
+                %ul
+                  %li= link_to 'ПО ОТРАСЛЯМ', '#', style: 'background: rgb(250, 204, 38); padding: 0px 20px; color: white;'
+                  %li= link_to 'РАБОЧИЕ', '#', style: 'background: rgb(250, 204, 38); padding: 0px 20px; color: white;'
+                  %li= link_to 'ИНЖЕНЕРЫ', '#', style: 'background: rgb(250, 204, 38); padding: 0px 20px; color: white;'
+                  %li= link_to 'УПРАВЛЯЮЩИЕ', '#', style: 'background: rgb(250, 204, 38); padding: 0px 20px; color: white;'
+          %li
+            = link_to 'РАБОТОДАТЕЛЯМ', '#', style: 'display: inline-block; background: rgb(118, 205, 255); padding: 0px 20px; color: white;'
+            %ul
+              %li
+                = link_to 'РЕЗЮМЕ', '#', style: 'background: rgb(118, 205, 255); padding: 0px 20px; color: white;'
+                %ul
+                  %li= link_to 'ПО ОТРАСЛЯМ', '#', style: 'background: rgb(118, 205, 255); padding: 0px 20px; color: white;'
+                  %li= link_to 'РАБОЧИЕ', '#', style: 'background: rgb(118, 205, 255); padding: 0px 20px; color: white;'
+                  %li= link_to 'ИНЖЕНЕРЫ', '#', style: 'background: rgb(118, 205, 255); padding: 0px 20px; color: white;'
+                  %li= link_to 'УПРАВЛЯЮЩИЕ', '#', style: 'background: rgb(118, 205, 255); padding: 0px 20px; color: white;'
+          %li
+            = link_to 'УЧЕБНЫМ ЗАВЕДЕНИЯМ', '#', style: 'background: rgb(198, 43, 108); padding: 0px 20px; color: white;'
+          %li
+            = link_to 'ВЫПУСКНИКАМ' , '#',style: 'background: rgb(240, 64, 129); padding: 0px 20px; color: white;'
+            %ul
+              %li
+                = link_to 'ДНИ ОТКРЫТЫХ ДВЕРЕЙ', '#', style: 'background: rgb(240, 64, 129); padding: 0px 20px; color: white;'
+                = link_to 'ДНИ КАРЬЕРЫ', '#', style: 'background: rgb(240, 64, 129); padding: 0px 20px; color: white;'
+                = link_to 'ЯРМАРКИ ВАКАНСИЙ', '#', style: 'background: rgb(240, 64, 129); padding: 0px 20px; color: white;'
+                = link_to 'СТАЖИРОВКИ', '#', style: 'background: rgb(240, 64, 129); padding: 0px 20px; color: white;'
+                = link_to 'ПРАКТИКИ', '#', style: 'background: rgb(240, 64, 129); padding: 0px 20px; color: white;'
+                = link_to 'КАРЬЕРНЫЕ КАРТЫ', '#', style: 'background: rgb(240, 64, 129); padding: 0px 20px; color: white;'
     #content{:role => "main"}
       / = render 'layouts/messages'
       - if request.env['PATH_INFO'] == root_path
