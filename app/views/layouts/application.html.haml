@@ -26,10 +26,11 @@
        }(document, 'script', 'facebook-jssdk'));
     %header
       #logo
-        = image_tag('gg_basic_logo_RGB.png', size: '300x100')
+        = link_to root_path do
+          = image_tag('gg_basic_logo_RGB.png', size: '300x100')
       #top-navigation
         - if user_signed_in?
-          = link_to 'Выход'
+          = link_to 'Выход', destroy_user_session_path, :method=>'delete'
           |
           = link_to 'Задай вопрос' 
           |
@@ -84,6 +85,8 @@
               %p djhfjhdsfj sjkdfhskjdf ksjdfhskdfh skjdfhsjdf ksjdfhsdf jsdfhdskf sjhdfsdbfgf sdhgf dshjfgdsfg sjhjsdgfjsdhfjks dsjhdgfksdjhf sjfsjhdf skdjhf shfgskd fkjsdf jdhf
               = link_to 'Читать далее', '#', style: 'color: rgb(240, 64, 129);'
         #sidebar.pull-right
+          #datepicker
+          %br
           .panel.panel-default
             .panel-heading
               %h3 Новости
@@ -109,9 +112,11 @@
         .clear
         %br
       - else
-        #content.pull-left
+        #news.pull-left
           = yield
         #sidebar.pull-right
+          #datepicker
+          %br
           .panel.panel-default
             .panel-heading
               %h3 Новости

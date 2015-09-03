@@ -11,9 +11,16 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require moment.min
 //= require fullcalendar
 //= require_tree .
+
+$(document).ready(function() {
+	$(function() {
+	  $('#datepicker').datepicker();
+	});
+});

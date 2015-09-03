@@ -5,13 +5,12 @@
       = company.company_type
       = company.title
     %hr.btn-danger
+    = image_tag(asset_path('gg_web_960-12_7_logo_placeholder.png'), width: '95%')
     %p= company.description
-    %p= company.specialization
-    %p= company.logo
-
-    %br
-    = link_to 'Редактировать общую информацию', edit_company_path(company), class: 'btn btn-default'
-    %hr.btn-danger
+    %p.desc
+      = company.specialization
+      = link_to edit_company_path(company) do
+        = image_tag(asset_path('gg_web_960-12_7_edit_icon.png'), width: '50px', class: 'edit')
 
     %p= link_to 'Контакты', company_contact_path(company.company_contact)
     %p= link_to 'Клиенты', company_clients_path

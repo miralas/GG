@@ -5,7 +5,7 @@ class CompaniesController < ApplicationController
   # GET /companies.json
   def index
     if current_user.role == 'admin'
-      @companies = Company.all
+      @companies = Company.all.limit(5)
     else
       @companies = Company.where(user: current_user)
     end
