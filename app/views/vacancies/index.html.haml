@@ -16,4 +16,4 @@
   %p На данный момент нет актуальных вакансий
 %br
 - if current_user.role != 'user'
-  = link_to 'Добавить новую вакансию', new_vacancy_path, class: 'btn btn-default'
+  = link_to 'Добавить новую вакансию', new_company_vacancy_path(current_user.company), class: 'btn btn-default'
