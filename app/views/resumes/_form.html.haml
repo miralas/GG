@@ -15,7 +15,7 @@
     .form-group
       .span1
         = f.label 'Дата рождения:'
-      = f.input_field :bith_date
+      = f.input_field :bith_date, as: :date, start_year: Date.today.year - 60, end_year: Date.today.year - 16
     .form-group
       .span1
         = f.label 'Пол:'
@@ -23,7 +23,7 @@
     .form-group
       .span1
         = f.label 'Город проживания:'
-      = f.input_field :city
+      = f.collection_select :city, City.all, :id, :name, include_blank: false
     .form-group
       .span1
         = f.label 'Готовность к переезду:'
@@ -50,7 +50,7 @@
       = f.select :time_to_work, ['Не имеет значения', '1,5 - 2 часа', '1 час'], include_blank: false
 
   .form-actions
-    = f.button :submit, 'Сохранить общую информацию'
+    = f.button :submit, 'Сохранить и продолжить'
     = link_to 'Назад', resumes_path, class: 'btn btn-default'
 
 

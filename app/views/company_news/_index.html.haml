@@ -23,7 +23,7 @@
 - else 
   %p
     Пока не добавлено ни одной новости
-    - if current_user and company_news.user = current_user
-      = link_to edit_company_news_path(company_news), style: 'float: right;' do
+    - if current_user
+      = link_to new_company_news_path, style: 'float: right;' do
         = image_tag(asset_path('gg_web_960-12_7_edit_icon.png'), width: '50px')
   %br

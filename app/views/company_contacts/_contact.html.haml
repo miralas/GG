@@ -26,10 +26,12 @@
       - if current_user and @company.user = current_user
         = link_to edit_company_contact_path(@company_contact), style: 'float: right;' do
           = image_tag(asset_path('gg_web_960-12_7_edit_icon.png'), width: '50px')
+    %br
 
 - else
   %p 
     Контактная информация не добавлена
     - if current_user and @company.user = current_user
-      = link_to edit_company_contact_path(@company_contact), style: 'float: right;' do
+      = link_to new_company_contact_path(@company), style: 'float: right;' do
         = image_tag(asset_path('gg_web_960-12_7_edit_icon.png'), width: '50px')
+  %br

@@ -11,27 +11,22 @@
     %li
       = link_to 'Комментарии', company_comments_path, remote: true
 
-%table.table
-  %thead
-    %tr
-      %th Название
-      %th Сайт
-      %th Описание
-      %th{ colspan: 2 }
-
-  %tbody.table-hover
-    - if @company_clients
-      - @company_clients.each do |company_client|
-        %tr
-          %td= company_client.title
-          %td= company_client.website
-          %td= company_client.description
-          %td= link_to 'Посмотреть', company_client, class: 'btn btn-default'
-          - if company.client.company == current_user
-            %td= link_to 'Редактировать', edit_company_client_path(company_client), class: 'btn btn-default'
-            %td= link_to 'Удалить', company_client, :method => :delete, :data => { :confirm => 'Вы уверены, что хотите удалить клиента?' }, class: 'btn btn-danger'
+- if @company_clients
+  - @company_clients.each do |company_client|
+    %p= company_client.title
+    %p= company_client.website
+    %p= company_client.description
+    - if company_client.company == current_user
+      = link_to '', edit_company_client_path(company_client) do
+        = image_tag(asset_path('gg_web_960-12_7_edit_icon.png'), width: '50px')
+      = link_to 'Удалить', company_client, :method => :delete, :data => { :confirm => 'Вы уверены, что хотите удалить клиента?' }, class: 'btn btn-danger'
 
 %br
 - if @company_clients
   - if @company_clients.company.user == current_user
     = link_to 'Добавить клиента', new_company_client_path, class: 'btn btn-default'
+- else
+  %p 
+    Пока не добавлен ни один клиент
+    = link_to '', new_company_client_path do
+      = image_tag(asset_path('gg_web_960-12_7_edit_icon.png'), width: '50px')
