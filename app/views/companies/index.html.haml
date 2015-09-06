@@ -1,44 +1,45 @@
-- if !@companies
+- if !@companies.empty?
+  - @companies.each do |company|
+    %hr.btn-primary
+    %h1
+      = company.company_type
+      = company.title
+    %hr.btn-danger
+    = image_tag(asset_path('gg_web_960-12_7_logo_placeholder.png'), width: '95%')
+    %p= company.description
+    %p.desc
+      = company.specialization
+      = link_to edit_company_path(company) do
+        = image_tag(asset_path('gg_web_960-12_7_edit_icon.png'), width: '50px', class: 'edit')
+
+    #result.panel.panel-default
+      = render 'company.html.haml', locals: {:'@company_contact' => company.company_contact, :'@company' => company}
+
+    %p= link_to 'Вакансии', company_vacancies_path(company)
+    = image_tag(asset_path('gg_web_960-12_7_video_section.png'))
+    = render 'vacancies/index.html.haml', locals: {:'company_id' => company.id }
+
+
+
+    = image_tag(asset_path('gg_web_960-12_7_video_section.png'))
+    %br
+    = image_tag(asset_path('gg_web_960-12_7_logo_placeholder.png'), width: '50%', height: '300px;', style: 'float: left')
+    %h3{style: 'color: rgb(240, 64, 129);'} HDFHJFHJH KJHJKHJ KJKJ
+    %p 
+      skldhfkldsjf slkdfjklsd fk uisdklfks ;lsdflsd;lf smdfnjsdgfhsd fkjsdfhsd fsdjfujsldkjf sdfjsdlfksdl fsdlfkksd fklsdj fsldkfjksdjf ;saldf jsdlafsd;alfkds afl;dsf k;lasdkf ;ldsaak f;sdalkf ;asdlf;asdfk l;sdakfl; asdfl;
+      = link_to '#' do
+        = image_tag(asset_path('gg_web_960-12_7_edit_icon.png'), width: '50px', class: 'edit')
+
+    = image_tag(asset_path('gg_web_960-12_news_section.png'))
+    = image_tag(asset_path('gg_web_960-12_7_logo_placeholder.png'), width: '50%', height: '300px;', style: 'float: left')
+    %br
+    = image_tag(asset_path('gg_web_960-12_7_logo_placeholder.png'), width: '70%', height: '300px;', style: 'float: right')
+    %br
+    = image_tag(asset_path('gg_web_960-12_7_logo_placeholder.png'), width: '80%', height: '300px;', style: 'float: left')
+    .clear
+
+    - if current_user and current_user.role == 'admin' or company.user == current_user
+      = link_to 'Удалить компанию', company_path(company), method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-default'
+- else
   %p У Вас не создано ни одной компаниии.
   = link_to 'Добавить компанию', new_company_path, class: 'btn btn-default'
-- @companies.each do |company|
-  %hr.btn-primary
-  %h1
-    = company.company_type
-    = company.title
-  %hr.btn-danger
-  = image_tag(asset_path('gg_web_960-12_7_logo_placeholder.png'), width: '95%')
-  %p= company.description
-  %p.desc
-    = company.specialization
-    = link_to edit_company_path(company) do
-      = image_tag(asset_path('gg_web_960-12_7_edit_icon.png'), width: '50px', class: 'edit')
-
-  #result.panel.panel-default
-    = render 'company.html.haml', locals: {:'@company_contact' => company.company_contact, :'@company' => company}
-
-  %p= link_to 'Вакансии', company_vacancies_path(company)
-  = image_tag(asset_path('gg_web_960-12_7_video_section.png'))
-  = render 'vacancies/index.html.haml', locals: {:'company_id' => company.id }
-
-
-
-  = image_tag(asset_path('gg_web_960-12_7_video_section.png'))
-  %br
-  = image_tag(asset_path('gg_web_960-12_7_logo_placeholder.png'), width: '50%', height: '300px;', style: 'float: left')
-  %h3{style: 'color: rgb(240, 64, 129);'} HDFHJFHJH KJHJKHJ KJKJ
-  %p 
-    skldhfkldsjf slkdfjklsd fk uisdklfks ;lsdflsd;lf smdfnjsdgfhsd fkjsdfhsd fsdjfujsldkjf sdfjsdlfksdl fsdlfkksd fklsdj fsldkfjksdjf ;saldf jsdlafsd;alfkds afl;dsf k;lasdkf ;ldsaak f;sdalkf ;asdlf;asdfk l;sdakfl; asdfl;
-    = link_to '#' do
-      = image_tag(asset_path('gg_web_960-12_7_edit_icon.png'), width: '50px', class: 'edit')
-
-  = image_tag(asset_path('gg_web_960-12_news_section.png'))
-  = image_tag(asset_path('gg_web_960-12_7_logo_placeholder.png'), width: '50%', height: '300px;', style: 'float: left')
-  %br
-  = image_tag(asset_path('gg_web_960-12_7_logo_placeholder.png'), width: '70%', height: '300px;', style: 'float: right')
-  %br
-  = image_tag(asset_path('gg_web_960-12_7_logo_placeholder.png'), width: '80%', height: '300px;', style: 'float: left')
-  .clear
-
-  - if current_user and current_user.role == 'admin' or company.user == current_user
-    = link_to 'Удалить компанию', company_path(company), method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-default'
