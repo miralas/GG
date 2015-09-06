@@ -1,11 +1,25 @@
-%h1 Новости компании
+#result.panel.panel-default
+  %ul.nav.nav-tabs
+    %li
+      = link_to 'Контакты', company_contacts_path, remote: true
+    %li
+      = link_to 'Клиенты', company_clients_path, remote: true
+    %li.active
+      = link_to 'Новости компании', company_news_index_path, remote: true
+    %li
+      = link_to 'Отзывы о компании', company_reviews_path, remote: true
+    %li
+      = link_to 'Комментарии', company_comments_path, remote: true
 
-- @company_news.each do |company_news|
-  %h3= company_news.title
-  %p= company_news.body
-  - if current_user == company_news.user_id or current_user.role == 'admin'
-    %td= link_to 'Редактировать', edit_company_news_path(company_news), class: 'btn btn-default'
-    %td= link_to 'Удалить', root_path, :method => :delete, :data => { :confirm => 'Вы уверены, что хотите удалить новость?' }, class: 'btn btn-danger'
+- if @company_news
+  - @company_news.each do |company_news|
+    %h3= company_news.title
+    %p= company_news.body
+    - if current_user == company_news.user_id or current_user.role == 'admin'
+      %td= link_to 'Редактировать', edit_company_news_path(company_news), class: 'btn btn-default'
+      %td= link_to 'Удалить', root_path, :method => :delete, :data => { :confirm => 'Вы уверены, что хотите удалить новость?' }, class: 'btn btn-danger'
+- else 
+  %p Пока не добавлено ни одной новости
 
 %br
 

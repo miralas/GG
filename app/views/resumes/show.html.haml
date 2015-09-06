@@ -37,16 +37,27 @@
 %p
   %b Время в пути до работы:
   = @resume.time_to_work
-
+  - if current_user and @resume.user = current_user
+    = link_to edit_resume_path(@resume), style: 'float: right;' do
+      = image_tag(asset_path('gg_web_960-12_7_edit_icon.png'), width: '50px')
+%br
 #result.panel.panel-default
   = render 'resume.html.haml', locals: {:'@resume_contact' => @resume.resume_contact, :'@resume' => @resume}
 
-- if @resume_contact.resume.user == current_user or current_user.role == 'admin'
-  = link_to 'Редактировать общую информацию', edit_resume_path(@resume), class: 'btn btn-default'
+- if @resume_contact.resume.user == current_user or  current_user and current_user.role == 'admin'
   %br
   = link_to 'Назад', resumes_path, class: 'btn btn-default'
   = link_to 'Удалить резюме', resume_path, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-danger'
 
-- a = ResumeAnswer.where(resume: @resume, company: current_user.companies.first).first
-- if current_user.role == 'client' and !a and current_user.companies.first
-  = link_to 'Направить отзыв', send_answer_path(@resume, current_user.companies.first), method: 'post'
+  - a = ResumeAnswer.where(resume: @resume, company: current_user.companies.first).first
+  - if current_user.role == 'client' and !a and current_user.companies.first
+    = link_to 'Направить отзыв', send_answer_path(@resume, current_user.companies.first), method: 'post'
+
+= image_tag(asset_path('gg_web_960-12_news_section.png'))
+%br
+= image_tag(asset_path('gg_web_960-12_7_logo_placeholder.png'), width: '50%', height: '300px;', style: 'float: left')
+%br
+= image_tag(asset_path('gg_web_960-12_7_logo_placeholder.png'), width: '70%', height: '300px;', style: 'float: right')
+%br
+= image_tag(asset_path('gg_web_960-12_7_logo_placeholder.png'), width: '80%', height: '300px;', style: 'float: left')
+.clear

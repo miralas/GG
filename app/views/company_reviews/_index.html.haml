@@ -1,0 +1,25 @@
+#result.panel.panel-default
+  %ul.nav.nav-tabs
+    %li
+      = link_to 'Контакты', company_contacts_path, remote: true
+    %li
+      = link_to 'Клиенты', company_clients_path, remote: true
+    %li
+      = link_to 'Новости компании', company_news_index_path, remote: true
+    %li.active
+      = link_to 'Отзывы о компании', company_reviews_path, remote: true
+    %li
+      = link_to 'Комментарии', company_comments_path, remote: true
+- if @company_reviews
+  - @company_reviews.each do |company_review|
+    %h3
+      Отзыв от #{company_review.user.name}
+    %p= company_review.review
+    %br
+    %td= link_to 'Просмотр', company_review, class: 'btn btn-default'
+    %br
+    - if current_user == company_review.user
+      %td= link_to 'Редактировать', edit_company_review_path(company_review), class: 'btn btn-default'
+      %td= link_to 'Удалить', company_review, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger'
+- else
+  %p Пока не добавлено ни одного отзыва

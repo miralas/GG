@@ -1,0 +1,19 @@
+%h1 Вакансии
+
+-if @vacancies
+  - @vacancies.each do |company_vacancy|
+    %h3= company_vacancy.title
+    %p= company_vacancy.salary
+    %br
+    = link_to 'Подробнее', company_vacancy_path(company_vacancy.company, company_vacancy), class: 'btn btn-default'
+    %br
+    - if current_user == company_vacancy.user or current_user.role == 'admin'
+      %td= link_to 'Редактировать', edit_company_vacancy_path(company_vacancy), class: 'btn btn-default'
+      %td= link_to 'Удалить', company_vacancy, :method => :delete, :data => { :confirm => 'Вы уверены, что хотите удалить вакансию?' }, class: 'btn btn-danger'
+
+  %br
+- else
+  %p На данный момент нет актуальных вакансий
+%br
+- if current_user and current_user.role != 'user'
+  = link_to 'Добавить новую вакансию', new_company_vacancy_path, class: 'btn btn-default'

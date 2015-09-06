@@ -11,7 +11,7 @@
     = link_to 'Курсы', resume_course_path(@resume), remote: true
   %li
     = link_to 'Рекомендации', resume_recomendation_path(@resume), remote: true
-  - if current_user.role == 'user' and @resume.user == current_user
+  - if current_user and  current_user.role == 'user' and @resume.user == current_user
     %li
       = link_to 'Отклики', view_answers_path(@resume), remote: true
 - if @resume_exam.title 
@@ -32,4 +32,7 @@
     = @resume_exam.expire_year
 
 - if @resume_exam.resume.user == current_user
-  = link_to 'Редактировать', edit_resume_exam_path(@resume_exam), class: 'btn btn-default'
+  %p
+    = link_to edit_resume_exam_path(@resume_exam), style: 'float: right;' do
+      = image_tag(asset_path('gg_web_960-12_7_edit_icon.png'), width: '50px')
+  %br

@@ -1,0 +1,14 @@
+%ul.nav.nav-tabs
+  %li.active
+    = link_to 'Контакты', companies_path(@company), remote: true
+  %li
+    = link_to 'Клиенты', company_clients_path(@company), remote: true
+  %li
+    = link_to 'Новости компании', company_news_index_path, remote: true
+  %li
+    = link_to 'Отзывы о компании', company_reviews_path, remote: true
+  %li
+    = link_to 'Комментарии', company_comments_path(@company), remote: true
+
+.panel.panel-default
+= render template: 'company_contacts/show', locals: {:'@company_contact' => @company_contact, :'@company' => @company}

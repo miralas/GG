@@ -1,0 +1,29 @@
+%ul.nav.nav-tabs
+  %li
+    = link_to 'Контакты', companies_path(@company), remote: true
+  %li
+    = link_to 'Клиенты', company_clients_path(@company), remote: true
+  %li
+    = link_to 'Новости компании', company_news_index_path, remote: true
+  %li
+    = link_to 'Отзывы о компании', company_reviews_path, remote: true
+  %li.active
+    = link_to 'Комментарии', company_comments_path(@company), remote: true
+
+- if @company_comments
+  - @company_comments.each do |company_comment|
+    %tr
+      %p= company_comment.comment
+      %p
+        = company_comment.user.name
+        - if current_user and @company.user = current_user
+          = link_to edit_company_comment_path(company_comment), style: 'float: right;' do
+            = image_tag(asset_path('gg_web_960-12_7_edit_icon.png'), width: '50px')
+      %br
+- else
+  %p
+    Пока не добавлено ни одного комментария
+    - if current_user and @company.user = current_user
+      = link_to edit_company_comment_path(company_comment), style: 'float: right;' do
+        = image_tag(asset_path('gg_web_960-12_7_edit_icon.png'), width: '50px')
+  %br

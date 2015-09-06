@@ -1,25 +1,18 @@
-%h1 Listing company_contacts
+- if @company_contact
+  - if @company_contact.phone
+    %p
+      %b Телефон:
+      = @company_contact.phone
+  - if @company_contact.adress
+    %p
+      %b Адрес:
+      = @company_contact.adress
+  - if @company_contact.fio
+    %p
+      %b Имя контактного лица:
+      = @company_contact.fio
 
-%table
-  %thead
-    %tr
-      %th Phone
-      %th Adress
-      %th Fio
-      %th
-      %th
-      %th
+  = link_to 'Редактировать', edit_company_contact_path(@company_contact), class: 'btn btn-default'
 
-  %tbody
-    - @company_contacts.each do |company_contact|
-      %tr
-        %td= company_contact.phone
-        %td= company_contact.adress
-        %td= company_contact.fio
-        %td= link_to 'Show', company_contact
-        %td= link_to 'Edit', edit_company_contact_path(company_contact)
-        %td= link_to 'Destroy', company_contact, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Company contact', new_company_contact_path
+- else
+  %p Контактная информация не добавлена

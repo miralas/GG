@@ -16,6 +16,16 @@
  *= require_self
  */
 
+h1, h2, h3 {
+	color: rgb(240, 64, 129);
+}
+
+.nav.nav-tabs li a {
+	text-transform: uppercase;
+	font-weight: bold;
+	color: rgb(240, 64, 129);	
+}
+
 #logo {
 	float:left;
 	margin-left: 50px;
@@ -42,15 +52,14 @@
 }
 
 #news {
-	margin-left: 100px;
-	width: 60%;
+	width: 76%;
 }
 #goal {
 	margin-left: 100px;
 	width: 90%;
 }
 #career {
-	margin-left: 100px;
+	width: 100%;
 }
 
 .ui-datepicker {
@@ -179,7 +188,8 @@
 	position:relative;
 	float:left;
 	margin:0;
-	padding:0
+	padding:0;
+	background-color:inherit;
 }
 
 .primary_nav_wrap ul li.current-menu-item
@@ -189,7 +199,7 @@
 
 .primary_nav_wrap ul li:hover
 {
-	background:#f6f6f6
+	background:inherit
 }
 
 .primary_nav_wrap ul ul
@@ -198,12 +208,14 @@
 	position:absolute;
 	top:100%;
 	left:0;
-	background:#fff;
-	padding:0
+	background-color:inherit;
+	padding:0;
+	height:100px;
 }
 
 .primary_nav_wrap ul ul li
 {
+	text-align:left;
 	float:none;
 	width:200px
 }

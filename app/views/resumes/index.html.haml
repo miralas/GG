@@ -1,5 +1,6 @@
-- if @aga
-  %h1 Мои резюме
+- if !@aga
+  %h1 Резюме
+  %hr
   - if @resumes.first
     - @resumes.each do |resume|
       - if !resume.resume_post.nil? and !resume.resume_post.wish_post.blank?
