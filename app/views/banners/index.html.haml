@@ -1,0 +1,23 @@
+%h1 Баннеры
+
+%table
+  %thead
+    %tr
+      %th Регион баннера
+      %th Файл
+      %th
+      %th
+      %th
+
+  %tbody
+    - @banners.each do |banner|
+      %tr
+        %td= banner.banner_region
+        %td= banner.path
+        %td= link_to 'Показать', banner
+        %td= link_to 'Редактировать', edit_banner_path(banner)
+        %td= link_to 'Удалить', banner, :method => :delete, :data => { :confirm => 'Вы уверены?' }
+
+%br
+
+= link_to 'Добавить баннер', new_banner_path

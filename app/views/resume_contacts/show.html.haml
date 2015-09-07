@@ -34,5 +34,6 @@
   %p
     %b LinkedIn:
     = @resume_contact.linkedin
-
-= link_to 'Редактировать', edit_resume_contact_path(@resume_contact), class: 'btn btn-default' if @resume_contact.resume.user == current_user
+- if current_user
+  = link_to edit_resume_contact_path(@resume_contact) do
+    = image_tag(asset_path('gg_web_960-12_7_edit_icon.png'), width: '50px')

@@ -48,6 +48,7 @@
   %br
   = link_to 'Назад', resumes_path, class: 'btn btn-default'
   = link_to 'Удалить резюме', resume_path, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-danger'
+  %br
 
   - if current_user.role == 'client' and !a and current_user.companies.first
     = link_to 'Направить отзыв', send_answer_path(@resume, current_user.companies.first), method: 'post'

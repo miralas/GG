@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :banners
   get 'calendar', to: 'calendar#index'
 
   resources :events

@@ -11,8 +11,6 @@
     = link_to 'Курсы', resume_course_path(@resume), remote: true
   %li
     = link_to 'Рекомендации', resume_recomendation_path(@resume), remote: true
-  - if current_user and current_user.role == 'user' and @resume.user == current_user
-    %li
-      = link_to 'Отклики', view_answers_path(@resume), remote: true
+
 .panel.panel-default
 = render template: 'resume_contacts/show', locals: {:'@resume_contact' => @resume.resume_contact, :'@resume' => @resume}

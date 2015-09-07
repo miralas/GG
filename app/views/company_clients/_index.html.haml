@@ -17,7 +17,7 @@
     %p= company_client.website
     %p= company_client.description
     - if company_client.company == current_user
-      = link_to '', edit_company_client_path(company_client) do
+      = link_to edit_company_client_path(company_client) do
         = image_tag(asset_path('gg_web_960-12_7_edit_icon.png'), width: '50px')
       = link_to 'Удалить', company_client, :method => :delete, :data => { :confirm => 'Вы уверены, что хотите удалить клиента?' }, class: 'btn btn-danger'
 
@@ -28,5 +28,5 @@
 - else
   %p 
     Пока не добавлен ни один клиент
-    = link_to '', new_company_client_path do
+    = link_to new_company_client_path do
       = image_tag(asset_path('gg_web_960-12_7_edit_icon.png'), width: '50px')

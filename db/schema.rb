@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150906132649) do
+ActiveRecord::Schema.define(version: 20150907075352) do
+
+  create_table "banner_regions", force: :cascade do |t|
+    t.string   "width"
+    t.string   "height"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "name"
+  end
+
+  create_table "banners", force: :cascade do |t|
+    t.integer  "banner_region_id"
+    t.string   "path"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "banners", ["banner_region_id"], name: "index_banners_on_banner_region_id"
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -80,21 +97,6 @@ ActiveRecord::Schema.define(version: 20150906132649) do
   end
 
   add_index "company_reviews", ["user_id"], name: "index_company_reviews_on_user_id"
-
-  create_table "company_vacancies", force: :cascade do |t|
-    t.string   "title"
-    t.text     "requirements"
-    t.text     "description"
-    t.string   "employment"
-    t.integer  "salary"
-    t.integer  "company_id"
-    t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  add_index "company_vacancies", ["company_id"], name: "index_company_vacancies_on_company_id"
-  add_index "company_vacancies", ["user_id"], name: "index_company_vacancies_on_user_id"
 
   create_table "events", force: :cascade do |t|
     t.integer  "author_id"

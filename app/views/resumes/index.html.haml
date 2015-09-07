@@ -5,7 +5,7 @@
     - @resumes.each do |resume|
       - if !resume.resume_post.nil? and !resume.resume_post.wish_post.blank?
         %h3
-          = link_to resume.resume_post.wish_post, resume
+          = link_to "#{resume.surname} #{resume.name} #{resume.patronymic}, #{resume.resume_post.wish_post}" , resume
       - else
         %h3 
           = link_to 'Название не задано', resume

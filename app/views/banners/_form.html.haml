@@ -1,0 +1,9 @@
+= simple_form_for @banner, :html => {:multipart => true} do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :banner_region, label: 'Регион для баннера'
+    = f.input :path, as: :file
+
+  .form-actions
+    = f.button :submit, 'Сохранить'

@@ -11,9 +11,7 @@
     = link_to 'Курсы', resume_course_path(@resume), remote: true
   %li
     = link_to 'Рекомендации', resume_recomendation_path(@resume), remote: true
-  - if current_user and  current_user.role == 'user' and @resume.user == current_user
-    %li
-      = link_to 'Отклики', view_answers_path(@resume), remote: true   
+
 - if @resume_post.wish_post
   %p
     %b Желаемая должность:
@@ -35,7 +33,7 @@
     %b График работы:
     = @resume_post.timetable
 
-- if @resume_post.resume.user == current_user
+- if @resume_post.resume.user == current_user or current_user
   %p
     = link_to edit_resume_post_path(@resume_post), style: 'float: right;' do
       = image_tag(asset_path('gg_web_960-12_7_edit_icon.png'), width: '50px')

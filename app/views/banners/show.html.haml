@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Регион баннера:
+  = @banner.banner_region
+%p
+  %b Файл:
+  = @banner.path
+
+= link_to 'Редактировать', edit_banner_path(@banner)
+\|
+= link_to 'Назад', banners_path
