@@ -1,0 +1,11 @@
+= simple_form_for(@news) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.input :content, :as => :text, :input_html => { :class => "redactor" }
+    = f.input :publish
+    = f.input :image
+
+  .form-actions
+    = f.button :submit

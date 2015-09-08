@@ -25,10 +25,10 @@ class BannersController < ApplicationController
   # POST /banners.json
   def create
     @banner = Banner.new(banner_params)
-    directory = "public/data"
+    directory = "public/assets/"
     path = File.join(directory, params[:banner][:path].original_filename)
     File.open(path, "wb") { |f| f.write(params[:banner][:path].read) }
-    @banner.path = "/data/" + params[:banner][:path].original_filename
+    @banner.path = params[:banner][:path].original_filename
 
     respond_to do |format|
       if @banner.save

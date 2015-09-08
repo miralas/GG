@@ -11,6 +11,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'nokogiri'
 gem 'spreadsheet'
 gem 'valid_email'
+gem 'carrierwave'
+gem "mini_magick"
 gem 'redactor-rails'
 group :development, :test do
   gem 'byebug'

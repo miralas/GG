@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require moment.min
+//= require redactor-rails
 //= require fullcalendar
 //= require_tree .
 
