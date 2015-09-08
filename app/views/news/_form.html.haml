@@ -2,10 +2,10 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :title
-    = f.input :content, :as => :text, :input_html => { :class => "redactor" }
-    = f.input :publish
-    = f.input :image
+    = f.input :title, label: 'Заголовок'
+    = f.input :content, label: 'Контент', :as => :text, :input_html => { :class => "redactor" }
+    = f.input :publish, label: 'Опубликована'
+    = f.input :image, label: 'ОБложка'
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, 'Сохранить'

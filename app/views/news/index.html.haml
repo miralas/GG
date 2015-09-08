@@ -1,12 +1,11 @@
-%h1 Listing news
+%h1 Новости
 
 %table
   %thead
     %tr
-      %th Title
-      %th Content
-      %th Publish
-      %th Image
+      %th Заголовок
+      %th Опубликована
+      %th Обложка
       %th
       %th
       %th
@@ -15,13 +14,12 @@
     - @news.each do |news|
       %tr
         %td= news.title
-        %td= news.content
         %td= news.publish
         %td= news.image
-        %td= link_to 'Show', news
-        %td= link_to 'Edit', edit_news_path(news)
-        %td= link_to 'Destroy', news, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Показать', news
+        %td= link_to 'Редактировать', edit_news_path(news)
+        %td= link_to 'Удалить', news, :method => :delete, :data => { :confirm => 'Вы уверены?' }
 
 %br
 
-= link_to 'New News', new_news_path
+= link_to 'Добавить новость', new_news_path
