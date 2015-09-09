@@ -1,0 +1,7 @@
+- if @result
+	- @result.each do |res|
+		%h3= res.title
+		%p
+			%b= res.salary 
+- else
+	%p По вашему запросу ничего не найдено

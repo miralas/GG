@@ -28,5 +28,7 @@ Rails.application.routes.draw do
   get 'view_answers/:resume', to: 'resume_answer#view_answers', as: :view_answers
   get 'all_vacancies/', to: 'vacancies#index', as: :all_vacancies
   get 'all_company_vacancies/:company', to: 'company_vacancies#index', as: :all_vacancy
+  get 'search_result', to: 'search#search'
+  post 'search_result', to: 'search#search'
   # resources :users
 end
