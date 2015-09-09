@@ -254,6 +254,8 @@ GEM
     ref (2.0.0)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
+    robokassa (0.0.24)
+      rails (>= 3.2.0)
     rspec (3.3.0)
       rspec-core (~> 3.3.0)
       rspec-expectations (~> 3.3.0)
@@ -381,6 +383,7 @@ DEPENDENCIES
   rb-fsevent
   rb-inotify
   redactor-rails
+  robokassa
   rspec-rails
   sass-rails (~> 5.0)
   selenium-webdriver

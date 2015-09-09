@@ -14,6 +14,7 @@ gem 'valid_email'
 gem 'carrierwave'
 gem "mini_magick"
 gem 'redactor-rails'
+gem 'robokassa'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

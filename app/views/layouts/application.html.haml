@@ -86,69 +86,84 @@
             = image_tag(Banner.where(banner_region: BannerRegion.first.id).last.path) if Banner.where(banner_region: BannerRegion.first.id).last
           = image_tag('gg_web_960-12_news_section.png')
           #news.pull-left
-            = image_tag(@news.first.image || 'gg_web_960-12_news_image.png', width: '100%')
-            %h2{style: 'color: rgb(240, 64, 129);'} 
-              = @news.first.title
-            %p
-              = raw @news.first.content
-            = link_to 'Читать далее', news_path(@news.first), style: 'color: rgb(240, 64, 129);'
-            .clear
-            %br
-            .panel.panel-default.pull-left{ style: "width: #{BannerRegion.first(3).last.width}; height: #{BannerRegion.first(3).last.height};" }
-              = image_tag(Banner.where(banner_region: BannerRegion.first(3).last.id).last.path) if Banner.where(banner_region: BannerRegion.first(3).last.id).last
-            .panel.panel-default.pull-right{ style: "width: #{BannerRegion.last(2).first.width}; height: #{BannerRegion.last(2).first.height};" }
-              = image_tag(Banner.where(banner_region: BannerRegion.last(2).last.id).last.path) if Banner.where(banner_region: BannerRegion.last(2).last.id).last
-            .news-columns
-              - @news.last(2).each do |mini_news|
-                .news.pull-left{ style: 'width: 46%' }
-                  = image_tag(mini_news.image || 'gg_web_960-12_news_image.png')
-                  %h2= mini_news.title
-                  %p= raw mini_news.content
-                  = link_to 'Читать далее', news_path(mini_news), style: 'color: rgb(240, 64, 129);'
+            - if @news
+              = image_tag(@news.first.image || 'gg_web_960-12_news_image.png', width: '100%')
+              %h2{style: 'color: rgb(240, 64, 129);'} 
+                = @news.first.title
+              %p
+                = raw @news.first.content
+              = link_to 'Читать далее', news_path(@news.first), style: 'color: rgb(240, 64, 129);'
+              .clear
+              %br
+              .panel.panel-default.pull-left{ style: "width: #{BannerRegion.first(3).last.width}; height: #{BannerRegion.first(3).last.height};" }
+                = image_tag(Banner.where(banner_region: BannerRegion.first(3).last.id).last.path) if Banner.where(banner_region: BannerRegion.first(3).last.id).last
+              .panel.panel-default.pull-right{ style: "width: #{BannerRegion.last(2).first.width}; height: #{BannerRegion.last(2).first.height};" }
+                = image_tag(Banner.where(banner_region: BannerRegion.last(2).last.id).last.path) if Banner.where(banner_region: BannerRegion.last(2).last.id).last
+              .news-columns
+                - @news.last(2).each do |mini_news|
+                  .news.pull-left{ style: 'width: 46%' }
+                    = image_tag(mini_news.image || 'gg_web_960-12_news_image.png')
+                    %h2= mini_news.title
+                    %p= raw mini_news.content
+                    = link_to 'Читать далее', news_path(mini_news), style: 'color: rgb(240, 64, 129);'
           #sidebar.pull-right
+            - if current_user
+              - if current_user.role == :client
+                - pay_url = Robokassa.client.init_payment_url(0, 1, "TEST", '', 'ru', 'miralas777@yandex.ru', {})
+                = link_to "Оплатить через ROBOKASSA", pay_url, class: 'btn btn-success', style: 'width: 100%; line-height: 3em;'
             #datepicker
             %br
             .panel.panel-default
               .panel-heading
                 %h3 Новости
               .panel-body
-                - if @company_all_news
-                  - @company_all_news.each do |news|
-                    %h4
-                      = news.created_at.to_date
-                      = news.title
-                    %hr.btn-danger
-                    = link_to news.body.truncate(30), company_news_path(news)
+                - if @top_news
+                  - @top_news.each do |news|
+                    = link_to news_path(news) do
+                      %h4
+                        = news.created_at.to_date
+                        = news.title
+                      %hr.btn-danger
                 - else
                   %p На данный момент новостей нет.
             .panel.panel-default.pull-right{ style: "width: #{BannerRegion.second.width}; height: #{BannerRegion.second.height};" }
-              = image_tag(Banner.where(banner_region: BannerRegion.second.id).last.path) if Banner.where(banner_region: BannerRegion.second.id).last
+              = image_tag('sidebar.gif', style: 'width: 100%')
+              / = image_tag(Banner.where(banner_region: BannerRegion.second.id).last.path) if Banner.where(banner_region: BannerRegion.second.id).last
             .clear{style: 'content: "", display: block; clear: both;'}
           %br
           #career.pull-left
             = image_tag('gg_web_960-12_7_carerra_section.png')
-            = image_tag('gg_web_960-12_news_image.png', width: '95%')
-            %h2{style: 'color: rgb(240, 64, 129);'} dfdjfh skjdfhskjdf kjdshfsd
-            %p{style: 'columns: 200px auto;'} jdshfjkdfhjksdfh kjsdfhsk fjshjd dsjkfh sdjfksjdhfdsjf ksdjhf sdfhks djsdhf sdf skdjf sdkjf sf sdkjfh sdf sf sdkf s fshf ksjdhf sjd fksdfh sjd fsjkdf skjdf skfhsfwoiqoif qks fksdjfklsdf sdjfhqofldsf skfdjoidsjfs sdjfl sfkh fjfireh fqe hweufh wruef wuehf nsjddsbfwf kdkcmdkncjnqmdcmo  djsdfjjhsdfk djshfds kjfds ds sf sdkjfh sdf sf sdkf s fshf ksjdhf sjd fksdfh sjd fsjkdf skjdf skfhsfwoiqoif qks fksdjfklsdf sdjfhqofldsf skfdjoidsjfs sdjfl sfkh fjfireh fqe hweufh wruef wuehf nsjddsbfwfo  djsdfjjhsdfk djshfds o  djsdfjjhsdfk djshfds
+            - if @vacancies
+              - @vacancies.each do |vacancy|
+                %h3= vacancy.title
+                %p
+                  %b= vacancy.salary
+                %hr
+            - else
+              %p На данный момент вакансий нет.
           .clear
           %br
         - else
           #news.pull-left
             = yield
           #sidebar.pull-right
+            - if current_user
+              - if current_user.role == :client
+                - pay_url = Robokassa.client.init_payment_url(0, 1, "TEST", '', 'ru', 'miralas777@yandex.ru', {})
+                = link_to "Оплатить через ROBOKASSA", pay_url, class: 'btn btn-success', style: 'width: 100%; line-height: 3em;'
             #datepicker
             %br
             .panel.panel-default
               .panel-heading
                 %h3 Новости
               .panel-body
-                - if @company_all_news
-                  - @company_all_news.each do |news|
-                    %h4
-                      = news.created_at.to_date
-                      = news.title
-                    %hr.btn-danger
-                    = link_to news.body.truncate(30), company_news_path(news)
+                - if @top_news
+                  - @top_news.each do |news|
+                    = link_to news_path(news) do
+                      %h4
+                        = news.created_at.to_date
+                        = news.title
+                      %hr.btn-danger
                 - else
                   %p На данный момент новостей нет.
             .panel.panel-default.pull-right{ style: "width: #{BannerRegion.second.width}; height: #{BannerRegion.second.height};" }

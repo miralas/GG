@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :get_news
 
   def get_news
-    @company_all_news = CompanyNews.limit(10).reverse
+    @top_news =News.limit(10).reverse
   end
 
   def stored_location_for(resource)
