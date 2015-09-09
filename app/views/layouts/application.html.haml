@@ -108,7 +108,7 @@
                     = link_to 'Читать далее', news_path(mini_news), style: 'color: rgb(240, 64, 129);'
           #sidebar.pull-right
             - if current_user
-              - if current_user.role == :client
+              - if current_user.role != 'user'
                 - pay_url = Robokassa.client.init_payment_url(0, 1, "TEST", '', 'ru', 'miralas777@yandex.ru', {})
                 = link_to "Оплатить через ROBOKASSA", pay_url, class: 'btn btn-success', style: 'width: 100%; line-height: 3em;'
             #datepicker
@@ -148,7 +148,7 @@
             = yield
           #sidebar.pull-right
             - if current_user
-              - if current_user.role == :client
+              - if current_user.role != 'user'
                 - pay_url = Robokassa.client.init_payment_url(0, 1, "TEST", '', 'ru', 'miralas777@yandex.ru', {})
                 = link_to "Оплатить через ROBOKASSA", pay_url, class: 'btn btn-success', style: 'width: 100%; line-height: 3em;'
             #datepicker
