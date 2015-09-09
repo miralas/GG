@@ -8,7 +8,7 @@
           = link_to "#{resume.surname} #{resume.name} #{resume.patronymic}, #{resume.resume_post.wish_post}" , resume
       - else
         %h3 
-          = link_to 'Название не задано', resume
+          = link_to "#{resume.surname} #{resume.name} #{resume.patronymic}", resume
 
       %p
         Последнее изменение

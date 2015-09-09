@@ -31,7 +31,7 @@
     .form-group
       .span1
         = f.label 'Куда желаете переехать:'
-      = f.input_field :change_location_place
+      = f.collection_select :change_location_place, City.all, :id, :name, include_blank: false
     .form-group
       .span1
         = f.label 'Готовность к командировкам:'
@@ -39,15 +39,15 @@
     .form-group
       .span1
         = f.label 'Гражданство:'
-      = f.input_field :nationality
+      = f.collection_select :nationality, Country.all, :id, :name, include_blank: false
     .form-group
       .span1
         = f.label 'Разрешение на работу:'
-      = f.input_field :work_ticket
+      = f.collection_select :work_ticket, Country.all, :id, :name, include_blank: false
     .form-group
       .span1
         = f.label 'Время в пути до работы:'
-      = f.select :time_to_work, ['Не имеет значения', '1,5 - 2 часа', '1 час'], include_blank: false
+      = f.select :time_to_work, ['Не имеет значения', '15 минут', '30 минут', '45 минут', '1 час', '1,5 - 2 часа'], include_blank: false
 
   .form-actions
     = f.button :submit, 'Сохранить и продолжить'

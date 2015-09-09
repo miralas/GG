@@ -21,7 +21,7 @@
   = @resume.change_location
   - if !@resume.change_location_place.blank? && !@resume.change_location_place.nil?
     %b Желательный город для переезда:
-    = @resume.change_location_place
+    = City.find(@resume.change_location_place).name
 %p
   %b Готовность к командировкам:
   - if @resume.ready_business_trip
@@ -30,16 +30,16 @@
     Не готов(а)
 %p
   %b Гражданство:
-  = @resume.nationality
+  = Country.find(@resume.nationality).name
 %p
   %b Разрешение на работу:
-  = @resume.work_ticket
+  = Country.find(@resume.work_ticket).name
 %p
   %b Время в пути до работы:
   = @resume.time_to_work
   - if current_user and @resume.user = current_user
     = link_to edit_resume_path(@resume), style: 'float: right;' do
-      = image_tag(asset_path('gg_web_960-12_7_edit_icon.png'), width: '50px')
+      = image_tag('gg_web_960-12_7_edit_icon.png', width: '50px')
 %br
 #result.panel.panel-default
   = render 'resume.html.haml', locals: {:'@resume_contact' => @resume.resume_contact, :'@resume' => @resume}
@@ -53,11 +53,11 @@
   - if current_user.role == 'client' and !a and current_user.companies.first
     = link_to 'Направить отзыв', send_answer_path(@resume, current_user.companies.first), method: 'post'
 
-= image_tag(asset_path('gg_web_960-12_news_section.png'))
+= image_tag('gg_web_960-12_news_section.png')
 %br
-= image_tag(asset_path('gg_web_960-12_7_logo_placeholder.png'), width: '50%', height: '300px;', style: 'float: left')
+= image_tag('gg_web_960-12_7_logo_placeholder.png', width: '50%', height: '300px;', style: 'float: left')
 %br
-= image_tag(asset_path('gg_web_960-12_7_logo_placeholder.png'), width: '70%', height: '300px;', style: 'float: right')
+= image_tag('gg_web_960-12_7_logo_placeholder.png', width: '70%', height: '300px;', style: 'float: right')
 %br
-= image_tag(asset_path('gg_web_960-12_7_logo_placeholder.png'), width: '80%', height: '300px;', style: 'float: left')
+= image_tag('gg_web_960-12_7_logo_placeholder.png', width: '80%', height: '300px;', style: 'float: left')
 .clear

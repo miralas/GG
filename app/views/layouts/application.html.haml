@@ -84,7 +84,8 @@
         / = render 'layouts/messages'
         - if request.env['PATH_INFO'] == root_path
           #slider.well{ style: "width: #{BannerRegion.first.width}; height: #{BannerRegion.first.height};, padding: 0;"}
-            = image_tag(Banner.where(banner_region: BannerRegion.first.id).last.path) if Banner.where(banner_region: BannerRegion.first.id).last
+            = image_tag('top.jpg')
+            / = image_tag(Banner.where(banner_region: BannerRegion.first.id).last.path) if Banner.where(banner_region: BannerRegion.first.id).last
           = image_tag('gg_web_960-12_news_section.png')
           #news.pull-left
             - if @news
@@ -121,9 +122,7 @@
                 - if @top_news
                   - @top_news.each do |news|
                     = link_to news_path(news) do
-                      %h4
-                        = news.created_at.to_date
-                        = news.title.truncate(14)
+                      %h4= news.title.truncate(25)
                       %hr.btn-danger
                 - else
                   %p На данный момент новостей нет.
@@ -161,15 +160,15 @@
                 - if @top_news
                   - @top_news.each do |news|
                     = link_to news_path(news) do
-                      %h4
-                        = news.created_at.to_date
-                        = news.title.truncate(14)
+                      %h4= news.title.truncate(25)
                       %hr.btn-danger
                 - else
                   %p На данный момент новостей нет.
             .panel.panel-default.pull-right{ style: "width: #{BannerRegion.second.width}; height: #{BannerRegion.second.height};" }
-              = image_tag(Banner.where(banner_region: BannerRegion.second.id).last.path) if Banner.where(banner_region: BannerRegion.second.id).last
+              = image_tag('bottom.gif', style: 'width: 100%')
+              / # = image_tag(Banner.where(banner_region: BannerRegion.second.id).last.path) if Banner.where(banner_region: BannerRegion.second.id).last
           .clear{style: 'content: "", display: block; clear: both;'}
         #bottom.well{ style: "width: #{BannerRegion.last.width}; height: #{BannerRegion.last.width};"}
-          = image_tag(Banner.where(banner_region: BannerRegion.last.id).last.path) if Banner.where(banner_region: BannerRegion.last.id).last
+          = image_tag('bottom.gif', style: 'width: 100%')
+          / = image_tag(Banner.where(banner_region: BannerRegion.last.id).last.path) if Banner.where(banner_region: BannerRegion.last.id).last
         = image_tag('gg_web_960-12_7_podval.png')
