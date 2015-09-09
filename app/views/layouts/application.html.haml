@@ -102,8 +102,8 @@
               - @news.last(2).each do |mini_news|
                 .news.pull-left{ style: 'width: 46%' }
                   = image_tag(mini_news.image || 'gg_web_960-12_news_image.png')
-                  %h2 mini_news.title
-                  %p raw mini_news.content
+                  %h2= mini_news.title
+                  %p= raw mini_news.content
                   = link_to 'Читать далее', news_path(mini_news), style: 'color: rgb(240, 64, 129);'
           #sidebar.pull-right
             #datepicker
