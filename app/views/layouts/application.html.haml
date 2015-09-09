@@ -122,7 +122,7 @@
                     = link_to news_path(news) do
                       %h4
                         = news.created_at.to_date
-                        = news.title
+                        = news.title.truncate(15)
                       %hr.btn-danger
                 - else
                   %p На данный момент новостей нет.
@@ -162,7 +162,7 @@
                     = link_to news_path(news) do
                       %h4
                         = news.created_at.to_date
-                        = news.title
+                        = news.title.truncate(15)
                       %hr.btn-danger
                 - else
                   %p На данный момент новостей нет.
