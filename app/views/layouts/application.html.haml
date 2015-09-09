@@ -86,11 +86,12 @@
             = image_tag(Banner.where(banner_region: BannerRegion.first.id).last.path) if Banner.where(banner_region: BannerRegion.first.id).last
           = image_tag('gg_web_960-12_news_section.png')
           #news.pull-left
-            = image_tag('gg_web_960-12_news_image.png', width: '100%')
-            %h2{style: 'color: rgb(240, 64, 129);'} HFHDKD DHDHJD DKLDKL
-            %p kdsjfkdsjfksd skdfjksdfj skdjfkdsjf skdjfksdjf skfdjskdf ksdfj skfjsk fksfj kdsfkdjf kdsj j fdsjdhfjds ytsfjdshf jsdgfjdsjf slkdfjslkdfj shdgfdsb ssdfhksdf sjdgfs, fshf sd
-            %p sjahja ajsdakdasdaldm adywqyq adalsnj aoisdia oaisjd aksdoqdj aodkjqh askhdjkas alskdaskdkasjdsa  sahdjashdjk ajshdas ausdhka aushdka uasgd
-            = link_to 'Читать далее', '#', style: 'color: rgb(240, 64, 129);'
+            = image_tag(@news.first.image || 'gg_web_960-12_news_image.png', width: '100%')
+            %h2{style: 'color: rgb(240, 64, 129);'} 
+              = @news.first.title
+            %p
+              = raw @news.first.content
+            = link_to 'Читать далее', news_path(@news.first), style: 'color: rgb(240, 64, 129);'
             .clear
             %br
             .panel.panel-default.pull-left{ style: "width: #{BannerRegion.first(3).last.width}; height: #{BannerRegion.first(3).last.height};" }
@@ -98,16 +99,12 @@
             .panel.panel-default.pull-right{ style: "width: #{BannerRegion.last(2).first.width}; height: #{BannerRegion.last(2).first.height};" }
               = image_tag(Banner.where(banner_region: BannerRegion.last(2).last.id).last.path) if Banner.where(banner_region: BannerRegion.last(2).last.id).last
             .news-columns
-              .news.pull-left{ style: 'width: 46%' }
-                = image_tag('gg_web_960-12_news_image.png')
-                %h2 fdhhsdjfh dsjfhsjdh
-                %p djhfjhdsfj sjkdfhskjdf ksjdfhskdfh skjdfhsjdf ksjdfhsdf jsdfhdskf sjhdfsdbfgf sdhgf dshjfgdsfg sjhjsdgfjsdhfjks dsjhdgfksdjhf sjfsjhdf skdjhf shfgskd fkjsdf jdhf
-                = link_to 'Читать далее', '#', style: 'color: rgb(240, 64, 129);'
-              .news.pull-right{ style: 'width: 46%' }
-                = image_tag('gg_web_960-12_news_image.png')
-                %h2 fdhhsdjfh dsjfhsjdh
-                %p djhfjhdsfj sjkdfhskjdf ksjdfhskdfh skjdfhsjdf ksjdfhsdf jsdfhdskf sjhdfsdbfgf sdhgf dshjfgdsfg sjhjsdgfjsdhfjks dsjhdgfksdjhf sjfsjhdf skdjhf shfgskd fkjsdf jdhf
-                = link_to 'Читать далее', '#', style: 'color: rgb(240, 64, 129);'
+              - @news.last(2).each do |mini_news|
+                .news.pull-left{ style: 'width: 46%' }
+                  = image_tag(mini_news.image || 'gg_web_960-12_news_image.png')
+                  %h2 mini_news.title
+                  %p raw mini_news.content
+                  = link_to 'Читать далее', news_path(mini_news), style: 'color: rgb(240, 64, 129);'
           #sidebar.pull-right
             #datepicker
             %br

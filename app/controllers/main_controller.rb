@@ -6,6 +6,9 @@ class MainController < ApplicationController
 			elsif current_user.role == 'client'
 				@resumes = Resume.limit(10).reverse
 			end
+
+			@news = News.last(3).reverse
+
 		else
 			@vacancies = Vacancy.limit(10).reverse
 		end	
