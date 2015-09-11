@@ -10,9 +10,10 @@ module Robokassa
     class << self
       def get_options_by_notification_key(key)
         {
-          test_mode: false,
-          login: 'guideofmoney',
-          password1: '25111997daria'
+          test_mode: true,
+          login: 'demo',
+          password1: 'password_1',
+          password2: 'qwer5678'
         }
       end
 
