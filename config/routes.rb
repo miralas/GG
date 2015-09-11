@@ -30,5 +30,12 @@ Rails.application.routes.draw do
   get 'all_company_vacancies/:company', to: 'company_vacancies#index', as: :all_vacancy
   get 'search_result', to: 'search#search'
   post 'search_result', to: 'search#search'
+
+  # scope 'robokassa' do
+  #   match 'paid'    => 'robokassa#paid',    :as => :robokassa_paid # to handle Robokassa push request
+
+  #   match 'success' => 'robokassa#success', :as => :robokassa_success # to handle Robokassa success redirect
+  #   match 'fail'    => 'robokassa#fail',    :as => :robokassa_fail # to handle Robokassa fail redirect
+  # end
   # resources :users
 end

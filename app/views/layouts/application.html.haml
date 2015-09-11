@@ -84,7 +84,13 @@
         / = render 'layouts/messages'
         - if request.env['PATH_INFO'] == root_path
           #slider.well{ style: "width: #{BannerRegion.first.width}; height: #{BannerRegion.first.height};, padding: 0;"}
-            = image_tag('top.jpg')
+            %ul
+              %li
+                = image_tag('gg_slider1.png')
+              %li
+                = image_tag('gg_slider2.png')
+              %li
+                = image_tag('gg_slider3.png')
             / = image_tag(Banner.where(banner_region: BannerRegion.first.id).last.path) if Banner.where(banner_region: BannerRegion.first.id).last
           = image_tag('gg_web_960-12_news_section.png')
           #news.pull-left
@@ -109,10 +115,8 @@
                     %p= raw mini_news.content
                     = link_to 'Читать далее', news_path(mini_news), style: 'color: rgb(240, 64, 129);'
           #sidebar.pull-right
-            - if current_user
-              - if current_user.role != 'user'
-                - pay_url = Robokassa.client.init_payment_url(0, 1, "TEST", '', 'ru', 'miralas777@yandex.ru', {})
-                = link_to "Оплатить доступ к базе резюме через ROBOKASSA", pay_url, class: 'btn btn-success', style: 'width: 100%; line-height: 3em;'
+            - pay_url = Robokassa.client.init_payment_url(0, 1, "TEST", '', 'ru', 'miralas777@yandex.ru', {})
+            = link_to "Оплатить доступ к базе резюме через ROBOKASSA", pay_url, class: 'btn btn-success', style: 'width: 100%; line-height: 3em;'
             #datepicker
             %br
             .panel.panel-default

@@ -63,6 +63,11 @@ h1, h2, h3 {
 	width: 100%;
 }
 
+#slider { position: relative; overflow: auto; margin: 0px; }
+#slider ul { padding-lrft: 0px; }
+#slider li { list-style: none; }
+#slider ul li { float: left; }
+
 #sidebar {
 	width: 255px;
 }

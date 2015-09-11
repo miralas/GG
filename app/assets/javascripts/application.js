@@ -16,11 +16,15 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require moment.min
+//= require unslider 
 //= require redactor-rails
 //= require fullcalendar
 //= require_tree .
 
 $(document).ready(function() {
+	$(function() {
+		$('#slider').unslider();
+	});
 	$(function() {
 	  $('#datepicker').datepicker();
 	});
