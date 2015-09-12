@@ -63,8 +63,8 @@ h1, h2, h3 {
 	width: 100%;
 }
 
-#slider { position: relative; overflow: auto; padding: 0; }
-#slider ul { padding-left: 0px; margin-left: -5px; }
+#slider { position: relative; overflow: auto; padding: 0; height: 351px !important; }
+#slider ul { padding-left: 0px; margin-left: -5px; width: 303% !important; }
 #slider li { list-style: none; }
 #slider ul li { float: left; }
 
@@ -221,6 +221,7 @@ h1, h2, h3 {
 	background-color:inherit;
 	padding:0;
 	height:100px;
+	z-index: 1000;
 }
 
 .primary_nav_wrap ul ul li

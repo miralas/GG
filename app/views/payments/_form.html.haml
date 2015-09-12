@@ -1,0 +1,4 @@
+= semantic_form_for [:dashboard, @payment] do |f|
+  = f.error_messages
+  = f.input :amount
+  = actions_for f, "Пополнить"

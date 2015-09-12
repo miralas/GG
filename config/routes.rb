@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   mount RedactorRails::Engine => '/redactor_rails'
   resources :news
   resources :banners
@@ -30,7 +29,8 @@ Rails.application.routes.draw do
   get 'all_company_vacancies/:company', to: 'company_vacancies#index', as: :all_vacancy
   get 'search_result', to: 'search#search'
   post 'search_result', to: 'search#search'
-
+  mount Robokassa::Engine => "/robokassa", :as => "robokassa"
+  
   # scope 'robokassa' do
   #   match 'paid'    => 'robokassa#paid',    :as => :robokassa_paid # to handle Robokassa push request
 
