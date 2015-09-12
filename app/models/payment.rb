@@ -2,7 +2,7 @@ class Payment < ActiveRecord::Base
   include AASM
 
   validates_presence_of :user_id, :amount
-  attr_accessible :amount
+  # attr_accessible :amount
   belongs_to :user
 
   default_scope order("id desc")
