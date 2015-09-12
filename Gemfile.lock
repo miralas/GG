@@ -9,6 +9,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    aasm (4.3.0)
     actionmailer (4.2.3)
       actionpack (= 4.2.3)
       actionview (= 4.2.3)
@@ -354,6 +355,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aasm
   better_errors
   bootstrap-sass
   byebug
@@ -407,3 +409,6 @@ DEPENDENCIES
   unslider-rails!
   valid_email
   web-console (~> 2.0)
+
+BUNDLED WITH
+   1.10.6

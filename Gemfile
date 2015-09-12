@@ -16,6 +16,7 @@ gem 'carrierwave'
 gem "mini_magick"
 gem 'redactor-rails'
 gem 'robokassa'
+gem 'aasm'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
