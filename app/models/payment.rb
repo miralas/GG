@@ -5,7 +5,7 @@ class Payment < ActiveRecord::Base
   # attr_accessible :amount
   belongs_to :user
 
-  default_scope order("id desc")
+  default_scope { order("id desc") }
 
   aasm do
     state :new, :initial => true
