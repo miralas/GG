@@ -1,11 +1,121 @@
-%p#notice= notice
-
+%h3= @company.title
+%hr
+.logo
+  - if @company.logo
+    = image_tag(@company.logo, width: 200, height: 100)
+  - else
+    = image_tag('gg_web_960-12_7_logo_placeholder', width: 200, height: 100)
 %p
-  %b Title:
-  = @company.title
+  %b Специализация компании:
 %p
-  %b Logo:
-  = @company.logo
-%p
-  %b Specialization:
   = @company.specialization
+%p
+  %b О компании
+%p
+  %i= @company.description
+
+%h3 Вакансии компании
+%hr
+- if @vacncies
+  - @vacncies.each do |vacancy|
+    = link_to company_vacancy_path(@company, vacancy) do
+      %h3
+        = vacancy.title + ', '
+        = vacancy.salary
+    %hr
+- else
+  %p Пока не добавлено ни одной вакансии
+- if current_user
+  - if @company.user == current_user
+    = link_to 'Добавить вакансию', new_company_vacancy_path(@company)
+
+%h3 Стажировки в компании
+%hr
+- if @company_practices
+  - if @company_practices.is_a? Array
+    - @company_practices.each do |practice|
+      = link_to company_practice_path(@company, practice) do
+        %h3
+          = practice.post
+      %hr
+  - else
+    = link_to company_practice_path(@company, @company_practices) do
+      %h3
+        = @company_practices.post
+    %hr
+- else
+  %p Пока не добавлено ни одной стажировки
+- if current_user
+  - if @company.user == current_user
+    = link_to 'Добавить стажировку', new_company_practice_path(@company)
+
+%h3 Новости компании
+%hr
+- if @company_news
+  - @company_news.each do |news|
+    = link_to company_news_path(@company, news) do
+      %h3= news.title
+    %p= news.content.truncate(30)
+    %hr
+- else
+  %p Пока не добавлено ни одной новости
+- if current_user
+  - if @company.user == current_user
+    = link_to 'Добавить новость', new_company_news_path(@company)
+
+%h3 Контакты компании
+%hr
+- if @company_contacts
+  - @company_contacts.each do |contact|
+    = link_to company_contact_path(@company, contact) do
+      %h3= contact.title
+    %p= news.content.truncate(30)
+    %hr
+- else
+  %p Пока не добавлено ни одной новости
+  - if current_user
+    - if @company.user == current_user
+      = link_to 'Добавить новость', new_company_contact_path(@company)
+
+%h3 Клиенты компании
+%hr
+- if @company_clients
+  - @company_clients.each do |client|
+    = link_to company_client_path(@company, client) do
+      %h3= client.title
+    %hr
+- else
+  %p Пока не добавлено ни одного клиента
+- if current_user
+  - if @company.user == current_user
+    = link_to 'Добавить клиента', new_company_contact_path(@company)
+
+%h3 Комментарии к компании
+%hr
+- if @company_comments
+  - @company_comments.each do |comment|
+    = link_to company_comment_path(@company, comment) do
+      %p= comment.comment
+      %p
+        %b= comment.created_at
+    %hr
+- else
+  %p Пока не никто не оставил комментария
+- if current_user
+  - if current_user.role == :user
+    = link_to 'Добавить комментарий', new_company_comment_path(@company)
+
+%h3 Обзоры на компанию
+%hr
+- if @company_reviews
+  - @company_reviews.each do |review|
+    = link_to company_review_path(@company, review) do
+      %p= review.review
+      %p
+        %b= review.created_at
+    %hr
+- else
+  %p Пока не никто не оставил обзор на данную компанию
+- if current_user
+  - if current_user.role == :user
+    = link_to 'Добавить обзор', new_company_review_path(@company)

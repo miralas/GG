@@ -1,0 +1,2 @@
+module CompanyPracticesHelper
+end

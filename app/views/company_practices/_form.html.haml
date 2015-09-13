@@ -1,0 +1,11 @@
+= simple_form_for(@company_practice) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :payment, label: 'Оплачиваемая'
+    = f.input :long, label: 'Длительность'
+    = f.input :post, label: 'Должность'
+    = f.input :description, label: 'Описание'
+
+  .form-actions
+    = f.button :submit, 'Создать практику/стажировку'

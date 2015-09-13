@@ -1,0 +1,27 @@
+%h1 Практики/стажировки
+
+%table
+  %thead
+    %tr
+      %th Оплачиваемая
+      %th Длительность
+      %th Должность
+      %th Описание
+      %th
+      %th
+      %th
+
+  %tbody
+    - @company_practices.each do |company_practice|
+      %tr
+        %td= company_practice.payment
+        %td= company_practice.long
+        %td= company_practice.post
+        %td= company_practice.description
+        %td= link_to 'Показать', company_practice
+        %td= link_to 'Редактировать', edit_company_practice_path(company_practice)
+        %td= link_to 'Удалить', company_practice, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'Добавить практику/Стажировку', new_company_practice_path

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :company_practices
   mount RedactorRails::Engine => '/redactor_rails'
   resources :news
   resources :banners

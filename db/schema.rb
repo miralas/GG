@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150909230727) do
+ActiveRecord::Schema.define(version: 20150913001838) do
 
   create_table "banner_regions", force: :cascade do |t|
     t.string   "width"
@@ -85,6 +85,16 @@ ActiveRecord::Schema.define(version: 20150909230727) do
     t.datetime "updated_at", null: false
     t.integer  "company_id"
     t.integer  "user_id"
+  end
+
+  create_table "company_practices", force: :cascade do |t|
+    t.boolean  "payment"
+    t.string   "long"
+    t.string   "post"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "company_id"
   end
 
   create_table "company_reviews", force: :cascade do |t|

@@ -7,13 +7,25 @@ class CompaniesController < ApplicationController
     if !current_user
       @companies = Company.all.limit(5)
     else
-      @companies = Company.where(user: current_user)
+      if current_user.role == 'user'
+        @companies = Company.all.limit(5)
+      else
+        @companies = Company.where(user: current_user)
+      end
     end
   end
 
   # GET /companies/1
   # GET /companies/1.json
   def show
+    @company = Company.find(params[:id])
+    @company_news = CompanyNews.where(company_id: @company.id ).first
+    @vacncies = Vacancy.where(company_id: @company.id).first
+    @company_cotacts = CompanyContact.where(company_id: @company.id).first
+    @company_comments = CompanyComment.where(company_id: @company.id).first
+    @company_clients = CompanyClient.where(company_id: @company.id).first
+    @company_rewiews = CompanyReview.where(company_id: @company.id).first
+    @company_practices = CompanyPractice.where(company_id: @company.id).first
   end
 
   # GET /companies/new

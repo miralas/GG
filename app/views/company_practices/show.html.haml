@@ -1,0 +1,12 @@
+%p 
+  Оплачиваемая:
+  - if @company_practice
+    Да
+  - else
+    Нет
+%p
+  = @company_practice.long
+%p
+  = @company_practice.post
+%p
+  = @company_practice.description

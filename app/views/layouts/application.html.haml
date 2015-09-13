@@ -63,12 +63,12 @@
               %ul
                 %li= link_to 'РАЗМЕСТИТЬ СТАЖИРОВКУ/ПРАКТИКУ', '#', style: 'background: rgb(118, 205, 255); padding: 0px 20px; color: white;'
                 %li= link_to 'РАЗМЕСТИТЬ ВАКАНСИЮ', '#', style: 'background: rgb(118, 205, 255); padding: 0px 20px; color: white;'
-                %li= link_to 'ПРОДВИЖЕНИЕ БРЕНДА', '#', style: 'background: rgb(118, 205, 255); padding: 0px 20px; color: white;'
+                %li= link_to 'КЛУБ GG', '#', style: 'background: rgb(118, 205, 255); padding: 0px 20px; color: white;'
                 %li= link_to 'ПРАЙС-ЛИСТ', '#', style: 'background: rgb(118, 205, 255); padding: 0px 20px; color: white;'
             %li
               = link_to 'УЧЕБНЫМ ЗАВЕДЕНИЯМ', '#', style: 'background: rgb(198, 43, 108); padding: 0px 20px; color: white;'
               %ul
-                %li= link_to 'ПРОДВИЖЕНИЕ БРЕНДА', '#', style: 'background: rgb(198, 43, 108); padding: 0px 20px; color: white;'
+                %li= link_to 'КЛУБ GG', '#', style: 'background: rgb(198, 43, 108); padding: 0px 20px; color: white;'
             %li
               = link_to 'e-Learning' , '#',style: 'background: rgb(240, 64, 129); padding: 0px 20px; color: white;'
               %ul
@@ -166,7 +166,7 @@
                 - else
                   %p На данный момент новостей нет.
             .panel.panel-default.pull-right{ style: "width: #{BannerRegion.second.width}; height: #{BannerRegion.second.height};" }
-              = image_tag('bottom.gif', style: 'width: 100%')
+              = image_tag('sidebar.gif', style: 'width: 100%')
               / # = image_tag(Banner.where(banner_region: BannerRegion.second.id).last.path) if Banner.where(banner_region: BannerRegion.second.id).last
           .clear{style: 'content: "", display: block; clear: both;'}
         #bottom.well{ style: "width: #{BannerRegion.last.width}; height: #{BannerRegion.last.width};"}
