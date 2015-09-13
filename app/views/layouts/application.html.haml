@@ -173,12 +173,12 @@
           / = image_tag(Banner.where(banner_region: BannerRegion.last.id).last.path) if Banner.where(banner_region: BannerRegion.last.id).last
         #footer
           %ul.pull-left
-            %li Карьерные карты
-            %li Реклама на сайте
-            %li Об оплате
-            %li Реквизиты
+            %li= link_to 'Карьерные карты', career_cards_path
+            %li= link_to 'Реклама на сайте', marketing_path
+            %li= link_to 'Об оплате', about_payment_path
+            %li= link_to 'Реквизиты', requesits_path
           %ul.pull-right
-            %li Публичная оферта
-            %li Игры
-            %li Каталог
-            %li О компании
+            %li= link_to 'Публичная оферта', oferta_path
+            %li= link_to 'Игры', games_path
+            %li= link_to 'Каталог', catalog_path
+            %li= link_to 'О компании', about_path

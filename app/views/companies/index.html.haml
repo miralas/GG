@@ -46,7 +46,7 @@
       %h3= company.title
     .logo
       - if company.logo
-        = image_tag(company.logo, width: 200, height: 100, style: 'float: left;')
+        = image_tag(company.logo, width: 200, height: 100)
       - else
         = image_tag('gg_web_960-12_7_logo_placeholder', width: 200, height: 100)
     %hr

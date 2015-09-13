@@ -1,23 +1,32 @@
-= simple_form_for(@company) do |f|
+= simple_form_for @company, html: { multipart: true } do |f|
   = f.error_notification
 
   .form-inputs
     .form-group
       .span1
         = f.label 'Правовая форма'
-      = f.input_field :company_type
+      - @forms = ['ИП', 'ООО', 'ЗАО', 'ГУП', 'МУП', 'ПБОЮЛ', 'НК', 'ФОНД', 'ПК', 'ГБУ', 'ОАО', 'АО', 'ФГУП']
+      = f.select(:company_type, @forms.map { |value| [ value, value ] })
     .form-group
       .span1
         = f.label 'Название компании'
-      = f.input_field :title
+      = f.input_field :title, size: 40
+    .form-group
+      .span1
+        = f.label 'Сокращенное название компании'
+      = f.input_field :short_name, size: 40
+    .form-group
+      .span1
+        = f.label 'Название компании на английском'
+      = f.input_field :english_name, size: 40
     .form-group
       .span1
         = f.label 'Логотип'
-      = f.input_field :logo
+      = f.input_field :logo, as: :image_preview, input_html: {preview_version: :thumb}
     .form-group
       .span1
         = f.label 'Специализация компании'
-      = f.input_field :specialization
+      = f.input_field :specialization, size: 40
     .form-group
       .span1
         = f.label 'О компании'

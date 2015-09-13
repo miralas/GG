@@ -32,6 +32,14 @@ Rails.application.routes.draw do
   post 'search_result', to: 'search#search'
   mount Robokassa::Engine => "/robokassa", :as => "robokassa"
   
+  get '/career_cards' => 'static_pages#career_cards'
+  get '/marketing' => 'static_pages#marketing'
+  get '/about_payment' => 'static_pages#about_payment'
+  get '/requesits' => 'static_pages#requesits'
+  get '/oferta' => 'static_pages#oferta'
+  get '/games' => 'static_pages#games'
+  get '/catalog' => 'static_pages#catalog'
+  get '/about' => 'static_pages#about'
   # scope 'robokassa' do
   #   match 'paid'    => 'robokassa#paid',    :as => :robokassa_paid # to handle Robokassa push request
 

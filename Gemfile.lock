@@ -307,6 +307,10 @@ GEM
     simple_form (3.1.0)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
+    simple_form_fancy_uploads (0.2.0)
+      carrierwave
+      rails (>= 4.0.0)
+      simple_form (~> 3.1)
     slop (3.6.0)
     spreadsheet (1.0.4)
       ruby-ole (>= 1.0)
@@ -398,6 +402,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   selenium-webdriver
   simple_form
+  simple_form_fancy_uploads
   spreadsheet
   spring
   spring-commands-rspec

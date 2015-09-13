@@ -17,6 +17,7 @@ gem "mini_magick"
 gem 'redactor-rails'
 gem 'robokassa'
 gem 'aasm'
+gem 'simple_form_fancy_uploads'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
