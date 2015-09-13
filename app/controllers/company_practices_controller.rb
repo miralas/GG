@@ -29,7 +29,7 @@ class CompanyPracticesController < ApplicationController
 
     respond_to do |format|
       if @company_practice.save
-        format.html { redirect_to @company_practice, notice: 'Company practice was successfully created.' }
+        format.html { redirect_to company_path(@company_practice.company), notice: 'Company practice was successfully created.' }
         format.json { render :show, status: :created, location: @company_practice }
       else
         format.html { render :new }

@@ -30,7 +30,7 @@ class CompanyCommentsController < ApplicationController
 
     respond_to do |format|
       if @company_comment.save
-        format.html { redirect_to company_comments_path, notice: 'Company comment was successfully created.' }
+        format.html { redirect_to company_path(@company_comment.company), notice: 'Company comment was successfully created.' }
         format.json { render :show, status: :created, location: @company_comment }
       else
         format.html { render :new }

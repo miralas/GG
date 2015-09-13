@@ -17,5 +17,6 @@
 
   .form-actions
     = f.button :submit, 'Сохранить'
-    = link_to 'Назад', companies_path, class: 'btn btn-default'
+    - if params[:format]
+      = link_to 'Назад', company_path(params[:format]), class: 'btn btn-default'
 

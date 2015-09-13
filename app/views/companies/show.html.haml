@@ -15,9 +15,9 @@
   %i= @company.description
 
 %h3 Вакансии компании
-%hr
-- if @vacncies
-  - @vacncies.each do |vacancy|
+%hr.btn-danger
+- if @vacancies
+  - @vacancies.each do |vacancy|
     = link_to company_vacancy_path(@company, vacancy) do
       %h3
         = vacancy.title + ', '
@@ -30,18 +30,12 @@
     = link_to 'Добавить вакансию', new_company_vacancy_path(@company)
 
 %h3 Стажировки в компании
-%hr
+%hr.btn-danger
 - if @company_practices
-  - if @company_practices.is_a? Array
-    - @company_practices.each do |practice|
-      = link_to company_practice_path(@company, practice) do
-        %h3
-          = practice.post
-      %hr
-  - else
-    = link_to company_practice_path(@company, @company_practices) do
+  - @company_practices.each do |practice|
+    = link_to company_practice_path(@company, practice) do
       %h3
-        = @company_practices.post
+        = practice.post
     %hr
 - else
   %p Пока не добавлено ни одной стажировки
@@ -50,12 +44,12 @@
     = link_to 'Добавить стажировку', new_company_practice_path(@company)
 
 %h3 Новости компании
-%hr
+%hr.btn-danger
 - if @company_news
   - @company_news.each do |news|
     = link_to company_news_path(@company, news) do
       %h3= news.title
-    %p= news.content.truncate(30)
+    %p= news.body.truncate(30)
     %hr
 - else
   %p Пока не добавлено ни одной новости
@@ -64,21 +58,27 @@
     = link_to 'Добавить новость', new_company_news_path(@company)
 
 %h3 Контакты компании
-%hr
+%hr.btn-danger
 - if @company_contacts
   - @company_contacts.each do |contact|
     = link_to company_contact_path(@company, contact) do
-      %h3= contact.title
-    %p= news.content.truncate(30)
-    %hr
+      %p 
+        Телефон:
+        = contact.phone
+      %p
+        Адрес:
+        = contact.adress
+      %p
+        Контактное лицо:
+        = contact.fio
 - else
   %p Пока не добавлено ни одной новости
   - if current_user
     - if @company.user == current_user
-      = link_to 'Добавить новость', new_company_contact_path(@company)
+      = link_to 'Добавить контакты', new_company_contact_path(@company)
 
 %h3 Клиенты компании
-%hr
+%hr.btn-danger
 - if @company_clients
   - @company_clients.each do |client|
     = link_to company_client_path(@company, client) do
@@ -88,10 +88,10 @@
   %p Пока не добавлено ни одного клиента
 - if current_user
   - if @company.user == current_user
-    = link_to 'Добавить клиента', new_company_contact_path(@company)
+    = link_to 'Добавить клиента', new_company_client_path(@company)
 
 %h3 Комментарии к компании
-%hr
+%hr.btn-danger
 - if @company_comments
   - @company_comments.each do |comment|
     = link_to company_comment_path(@company, comment) do
@@ -106,7 +106,7 @@
     = link_to 'Добавить комментарий', new_company_comment_path(@company)
 
 %h3 Обзоры на компанию
-%hr
+%hr.btn-danger
 - if @company_reviews
   - @company_reviews.each do |review|
     = link_to company_review_path(@company, review) do

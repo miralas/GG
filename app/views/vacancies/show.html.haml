@@ -20,4 +20,4 @@
 
 - if current_user && @vacancy.company.user == current_user
   = link_to 'Редактировать', edit_company_vacancy_path(@vacancy), class: 'btn btn-default' if current_user == @vacancy.user
-  = link_to 'Назад', company_vacancies_path, class: 'btn btn-default'
+  = link_to 'Назад', :back, class: 'btn btn-default'

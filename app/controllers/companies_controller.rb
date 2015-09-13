@@ -19,13 +19,13 @@ class CompaniesController < ApplicationController
   # GET /companies/1.json
   def show
     @company = Company.find(params[:id])
-    @company_news = CompanyNews.where(company_id: @company.id ).first
-    @vacncies = Vacancy.where(company_id: @company.id).first
-    @company_cotacts = CompanyContact.where(company_id: @company.id).first
-    @company_comments = CompanyComment.where(company_id: @company.id).first
-    @company_clients = CompanyClient.where(company_id: @company.id).first
-    @company_rewiews = CompanyReview.where(company_id: @company.id).first
-    @company_practices = CompanyPractice.where(company_id: @company.id).first
+    @company_news = CompanyNews.where(company_id: @company.id )
+    @vacancies = Vacancy.where(company_id: @company.id)
+    @company_contacts = CompanyContact.where(company_id: @company.id)
+    @company_comments = CompanyComment.where(company_id: @company.id)
+    @company_clients = CompanyClient.where(company_id: @company.id)
+    @company_rewiews = CompanyReview.where(company_id: @company.id)
+    @company_practices = CompanyPractice.where(company_id: @company.id)
   end
 
   # GET /companies/new

@@ -9,3 +9,5 @@
 
   .form-actions
     = f.button :submit, 'Создать практику/стажировку'
+    - if params[:format]
+      = link_to 'Назад', company_path(params[:format]), class: 'btn btn-default'

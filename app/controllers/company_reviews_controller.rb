@@ -30,7 +30,7 @@ class CompanyReviewsController < ApplicationController
 
     respond_to do |format|
       if @company_review.save
-        format.html { redirect_to company_reviews_path, notice: 'Отзыв о компании успешно добавлен' }
+        format.html { redirect_to company_path(@company_review.company), notice: 'Отзыв о компании успешно добавлен' }
         format.json { render :show, status: :created, location: @company_review }
       else
         format.html { render :new }

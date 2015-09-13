@@ -30,7 +30,7 @@ class CompanyNewsController < ApplicationController
 
     respond_to do |format|
       if @company_news.save
-        format.html { redirect_to company_news_index_path, notice: 'Новость добавлена!' }
+        format.html { redirect_to company_path(@company_news.company), notice: 'Новость добавлена!' }
         format.json { render :show, status: :created, location: @company_news }
       else
         format.html { render :new }

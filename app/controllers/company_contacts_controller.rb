@@ -29,7 +29,7 @@ class CompanyContactsController < ApplicationController
 
     respond_to do |format|
       if @company_contact.save
-        format.html { redirect_to companies_path, notice: 'Контакты добавлены!' }
+        format.html { redirect_to company_path(@company_contact.company), notice: 'Контакты добавлены!' }
         format.json { render :show, status: :created, location: @company_contact }
       else
         format.html { render :new }
