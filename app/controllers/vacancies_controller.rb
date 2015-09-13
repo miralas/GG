@@ -7,7 +7,7 @@ class VacanciesController < ApplicationController
     if params[:company_id]
       @vacancies = Vacancy.where(company: params[:company_id])
     else
-      @vacansies = Vacancy.all
+      @vacancies = Vacancy.all
     end
   end
 

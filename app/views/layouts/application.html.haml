@@ -56,7 +56,7 @@
               = link_to 'ВЫПУСКНИКАМ', '#', style: 'background: rgb(250, 204, 38); padding: 0px 20px; color: white;'
               %ul
                 %li= link_to 'СТАЖИРОВКИ/ПРАКТИКИ ', '#', style: 'background: rgb(250, 204, 38); padding: 0px 20px; color: white;'
-                %li= link_to 'ВАКАНСИИ', '#', style: 'background: rgb(250, 204, 38); padding: 0px 20px; color: white;'
+                %li= link_to 'ВАКАНСИИ', all_vacancies_path, style: 'background: rgb(250, 204, 38); padding: 0px 20px; color: white;'
                 %li= link_to 'СОЗДАТЬ РЕЗЮМЕ', '#', style: 'background: rgb(250, 204, 38); padding: 0px 20px; color: white;'
             %li
               = link_to 'РАБОТОДАТЕЛЯМ', '#', style: 'display: inline-block; background: rgb(118, 205, 255); padding: 0px 20px; color: white;'
@@ -89,6 +89,36 @@
               %li
                 = image_tag('gg_slider3.png')
             / = image_tag(Banner.where(banner_region: BannerRegion.first.id).last.path) if Banner.where(banner_region: BannerRegion.first.id).last
+          #career.pull-left
+            = image_tag('gg_web_960-12_7_carerra_section.png')
+            - if @vacancies
+              - @vacancies.each do |vacancy|
+                = link_to company_vacancy_path(vacancy.company, vacancy) do
+                  %h3= vacancy.title
+                  %p
+                    %b= vacancy.salary
+                %hr
+            - else
+              %p На данный момент вакансий нет.
+          #sidebar.pull-right
+            - pay_url = Robokassa.client.init_payment_url(0, 1, "TEST", '', 'ru', 'miralas777@yandex.ru', {})
+            = link_to "Оплатить доступ к базе резюме через ROBOKASSA", pay_url, class: 'btn btn-success', style: 'width: 100%; line-height: 3em;'
+            #datepicker
+            %br
+            .panel.panel-default
+              .panel-heading
+                %h3 Новости
+              .panel-body
+                - if @top_news
+                  - @top_news.each do |news|
+                    = link_to news_path(news) do
+                      %h4= news.title.truncate(25)
+                      %hr.btn-danger
+                - else
+                  %p На данный момент новостей нет.
+            .panel.panel-default.pull-right{ style: "width: #{BannerRegion.second.width}; height: #{BannerRegion.second.height};" }
+              = image_tag('sidebar.gif', style: 'width: 100%')
+          %br
           = image_tag('gg_web_960-12_news_section.png')
           #news.pull-left
             - if @news
@@ -111,38 +141,7 @@
                     %h2= mini_news.title
                     %p= raw mini_news.content
                     = link_to 'Читать далее', news_path(mini_news), style: 'color: rgb(240, 64, 129);'
-          #sidebar.pull-right
-            - pay_url = Robokassa.client.init_payment_url(0, 1, "TEST", '', 'ru', 'miralas777@yandex.ru', {})
-            = link_to "Оплатить доступ к базе резюме через ROBOKASSA", pay_url, class: 'btn btn-success', style: 'width: 100%; line-height: 3em;'
-            #datepicker
-            %br
-            .panel.panel-default
-              .panel-heading
-                %h3 Новости
-              .panel-body
-                - if @top_news
-                  - @top_news.each do |news|
-                    = link_to news_path(news) do
-                      %h4= news.title.truncate(25)
-                      %hr.btn-danger
-                - else
-                  %p На данный момент новостей нет.
-            .panel.panel-default.pull-right{ style: "width: #{BannerRegion.second.width}; height: #{BannerRegion.second.height};" }
-              = image_tag('sidebar.gif', style: 'width: 100%')
-              / = image_tag(Banner.where(banner_region: BannerRegion.second.id).last.path) if Banner.where(banner_region: BannerRegion.second.id).last
-            .clear{style: 'content: "", display: block; clear: both;'}
-          %br
-          #career.pull-left
-            = image_tag('gg_web_960-12_7_carerra_section.png')
-            - if @vacancies
-              - @vacancies.each do |vacancy|
-                %h3= vacancy.title
-                %p
-                  %b= vacancy.salary
-                %hr
-            - else
-              %p На данный момент вакансий нет.
-          .clear
+          .clear{style: 'content: "", display: block; clear: both;'}
           %br
         - else
           #news.pull-left
@@ -172,4 +171,14 @@
         #bottom.well{ style: "width: #{BannerRegion.last.width}; height: #{BannerRegion.last.width};"}
           = image_tag('bottom.gif', style: 'width: 100%')
           / = image_tag(Banner.where(banner_region: BannerRegion.last.id).last.path) if Banner.where(banner_region: BannerRegion.last.id).last
-        = image_tag('gg_web_960-12_7_podval.png')
+        #footer
+          %ul.pull-left
+            %li Карьерные карты
+            %li Реклама на сайте
+            %li Об оплате
+            %li Реквизиты
+          %ul.pull-right
+            %li Публичная оферта
+            %li Игры
+            %li Каталог
+            %li О компании

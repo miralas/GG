@@ -60,7 +60,42 @@ h1, h2, h3 {
 	width: 90%;
 }
 #career {
+	width: 76%;
+}
+#footer {
 	width: 100%;
+	height: 207px;
+	background-image: url('gg_web_960-12_7_podval.png');
+	background-size: 100%;
+	color: white;
+	.pull-left { 
+		margin-right: 40px;
+		margin-top: 30px;
+		width: 40%;
+		li {
+			display: block;
+			width: 100%;
+			line-height: 30px;
+			background-color: #009cdd;
+		}
+		li:hover {
+			background-color: #0077c8;
+		}
+	}
+	.pull-right { 
+		margin-right: 40px;
+		margin-top: 30px;
+		width: 40%;
+		li {
+			display: block;
+			width: 100%;
+			line-height: 30px;
+			background-color: #0077c8;
+		}
+		li:hover {
+			background-color: #009cdd;
+		}
+	}
 }
 
 #slider { position: relative; overflow: auto; padding: 0; height: 351px !important; }
