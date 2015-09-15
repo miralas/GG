@@ -23,4 +23,28 @@ class StaticPagesController < ApplicationController
 
 	def about
 	end
+
+	def tests
+	end
+
+	def experts
+	end
+
+	def all_vacancies
+	end
+
+	def club
+	end
+
+	def pricelist
+	end
+
+	def e_learning
+	end
+	
+	def webinars
+	end
+	
+	def assesement
+	end
 end

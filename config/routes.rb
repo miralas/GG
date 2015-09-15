@@ -40,6 +40,14 @@ Rails.application.routes.draw do
   get '/games' => 'static_pages#games'
   get '/catalog' => 'static_pages#catalog'
   get '/about' => 'static_pages#about'
+  get '/tests' => 'static_pages#tests'
+
+  get '/experts' => 'static_pages#experts'
+  get '/club' => 'static_pages#club'
+  get '/pricelist' => 'static_pages#pricelist'
+  get '/e_learning' => 'static_pages#e_learning'
+  get '/webinars' => 'static_pages#webinars'
+  get '/assesement' => 'static_pages#assesement'
   # scope 'robokassa' do
   #   match 'paid'    => 'robokassa#paid',    :as => :robokassa_paid # to handle Robokassa push request
 

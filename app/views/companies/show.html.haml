@@ -1,4 +1,6 @@
-%h3= @company.title
+%h3
+  = @company.company_type
+  = @company.title + "(#{@company.short_name}, #{@company.english_name})"
 %hr
 .logo
   - if @company.logo
