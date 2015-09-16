@@ -1,0 +1,10 @@
+= simple_form_for(@menu_category) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title, label: 'Название'
+    = f.input :link, label: 'Ссылка'
+    = f.input :publish, label: 'Опубликовать'
+
+  .form-actions
+    = f.button :submit, 'Сохранить'

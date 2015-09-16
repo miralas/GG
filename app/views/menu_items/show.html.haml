@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Название:
+  = @menu_item.title
+%p
+  %b Ссылка:
+  = @menu_item.link
+%p
+  %b Опубликован:
+  = @menu_item.publish
+%p
+  %b Категория:
+  = @menu_item.menu_category
+
+= link_to 'Редактировать', edit_menu_item_path(@menu_item)
+\|
+= link_to 'Назад', menu_items_path

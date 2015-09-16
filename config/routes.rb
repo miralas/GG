@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  get 'menu', to: 'menu#menu'
+  resources :menu_items
+  resources :menu_categories
   resources :company_practices
   mount RedactorRails::Engine => '/redactor_rails'
   resources :news

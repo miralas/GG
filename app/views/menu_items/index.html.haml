@@ -1,0 +1,27 @@
+%h1 Пункты меню
+
+%table
+  %thead
+    %tr
+      %th Название
+      %th Ссылка
+      %th Опубликована
+      %th Категория
+      %th
+      %th
+      %th
+
+  %tbody
+    - @menu_items.each do |menu_item|
+      %tr
+        %td= menu_item.title
+        %td= menu_item.link
+        %td= menu_item.publish
+        %td= menu_item.menu_category
+        %td= link_to 'Показать', menu_item
+        %td= link_to 'Редактировать', edit_menu_item_path(menu_item)
+        %td= link_to 'Удалить', menu_item, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'Добавить пункт меню', new_menu_item_path

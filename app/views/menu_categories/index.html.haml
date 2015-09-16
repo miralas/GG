@@ -1,0 +1,25 @@
+%h1 Основные пункты меню
+
+%table
+  %thead
+    %tr
+      %th Название
+      %th Ссылка
+      %th Опубликована
+      %th
+      %th
+      %th
+
+  %tbody
+    - @menu_categories.each do |menu_category|
+      %tr
+        %td= menu_category.title
+        %td= menu_category.link
+        %td= menu_category.publish
+        %td= link_to 'Показать', menu_category
+        %td= link_to 'Редактировать', edit_menu_category_path(menu_category)
+        %td= link_to 'Удалить', menu_category, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'Добавить новый пункт меню', new_menu_category_path

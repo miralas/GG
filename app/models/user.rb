@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :companies
-  enum role: [:user, :client, :redactor, :admin]
+  enum role: [:user, :client, :redactor, :redactor_menu, :admin]
   after_initialize :set_default_role, :if => :new_record?
 
   def set_default_role

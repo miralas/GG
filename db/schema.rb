@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150913191754) do
+ActiveRecord::Schema.define(version: 20150915201408) do
 
   create_table "banner_regions", force: :cascade do |t|
     t.string   "width"
@@ -126,6 +126,25 @@ ActiveRecord::Schema.define(version: 20150913191754) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "menu_categories", force: :cascade do |t|
+    t.string   "title"
+    t.string   "link"
+    t.boolean  "publish"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "menu_items", force: :cascade do |t|
+    t.string   "title"
+    t.string   "link"
+    t.boolean  "publish"
+    t.integer  "menu_category_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "menu_items", ["menu_category_id"], name: "index_menu_items_on_menu_category_id"
 
   create_table "news", force: :cascade do |t|
     t.string   "title"

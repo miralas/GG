@@ -49,34 +49,45 @@
             = text_field_tag 'Поиск', nil, style: "width: 78%; display: inline;"
             = submit_tag 'Поиск', style: "width: 20%; display: inline;"
         .clear
-
-        #menu.primary_nav_wrap{style: 'text-align: center; background: #2e87d5; color: white;'}
-          %ul
-            %li
-              = link_to 'ВЫПУСКНИКАМ', '#', style: 'background: rgb(250, 204, 38); padding: 0px 20px; color: white;'
-              %ul
-                %li= link_to 'СТАЖИРОВКИ/ПРАКТИКИ ', '#', style: 'background: rgb(250, 204, 38); padding: 0px 20px; color: white;'
-                %li= link_to 'ВАКАНСИИ', all_vacancies_path, style: 'background: rgb(250, 204, 38); padding: 0px 20px; color: white;'
-                %li= link_to 'СОЗДАТЬ РЕЗЮМЕ', '#', style: 'background: rgb(250, 204, 38); padding: 0px 20px; color: white;'
-            %li
-              = link_to 'РАБОТОДАТЕЛЯМ', '#', style: 'display: inline-block; background: rgb(118, 205, 255); padding: 0px 20px; color: white;'
-              %ul
-                %li= link_to 'РАЗМЕСТИТЬ СТАЖИРОВКУ/ПРАКТИКУ', '#', style: 'background: rgb(118, 205, 255); padding: 0px 20px; color: white;'
-                %li= link_to 'РАЗМЕСТИТЬ ВАКАНСИЮ', '#', style: 'background: rgb(118, 205, 255); padding: 0px 20px; color: white;'
-                %li= link_to 'КЛУБ GG', club_path, style: 'background: rgb(118, 205, 255); padding: 0px 20px; color: white;'
-                %li= link_to 'ПРАЙС-ЛИСТ', pricelist_path, style: 'background: rgb(118, 205, 255); padding: 0px 20px; color: white;'
-            %li
-              = link_to 'УЧЕБНЫМ ЗАВЕДЕНИЯМ', '#', style: 'background: rgb(198, 43, 108); padding: 0px 20px; color: white;'
-              %ul
-                %li= link_to 'КЛУБ GG', club_path, style: 'background: rgb(198, 43, 108); padding: 0px 20px; color: white;'
-            %li
-              = link_to 'e-Learning' , e_learning_path,style: 'background: rgb(240, 64, 129); padding: 0px 20px; color: white;'
-              %ul
+        - if @menu_categories
+          #menu.primary_nav_wrap{style: 'text-align: center; background: #2e87d5; color: white;'}
+            %ul
+              - @menu_categories.each do |category|
                 %li
-                  = link_to 'СОВЕТЫ ЭКСПЕРТОВ', experts_path, style: 'background: rgb(240, 64, 129); padding: 0px 20px; color: white;'
-                  = link_to 'ТЕСТЫ', tests_path, style: 'background: rgb(240, 64, 129); padding: 0px 20px; color: white;'
-                  = link_to 'ОБУЧАЮЩИЕ ВЕБИНАРЫ', webinars_path, style: 'background: rgb(240, 64, 129); padding: 0px 20px; color: white;'
-                  = link_to 'ASSESEMENT-ЦЕНТР', assesement_path, style: 'background: rgb(240, 64, 129); padding: 0px 20px; color: white;'
+                  = link_to category.title, category.link, style: 'padding: 0px 20px; color: white; text-transform: uppercase;'
+                  - if category.menu_items
+                    %ul
+                      - category.menu_items.each do |item|
+                        %li
+                          = link_to item.title, item.link, style: 'padding: 0px 20px; color: white; text-transform: uppercase;'
+        - else
+          #menu.primary_nav_wrap{style: 'text-align: center; background: #2e87d5; color: white;'}
+            %ul
+              %li
+                = link_to 'ВЫПУСКНИКАМ', '#', style: 'background: rgb(250, 204, 38); padding: 0px 20px; color: white;'
+                %ul
+                  %li= link_to 'СТАЖИРОВКИ/ПРАКТИКИ ', '#', style: 'background: rgb(250, 204, 38); padding: 0px 20px; color: white;'
+                  %li= link_to 'ВАКАНСИИ', all_vacancies_path, style: 'background: rgb(250, 204, 38); padding: 0px 20px; color: white;'
+                  %li= link_to 'СОЗДАТЬ РЕЗЮМЕ', '#', style: 'background: rgb(250, 204, 38); padding: 0px 20px; color: white;'
+              %li
+                = link_to 'РАБОТОДАТЕЛЯМ', '#', style: 'display: inline-block; background: rgb(118, 205, 255); padding: 0px 20px; color: white;'
+                %ul
+                  %li= link_to 'РАЗМЕСТИТЬ СТАЖИРОВКУ/ПРАКТИКУ', '#', style: 'background: rgb(118, 205, 255); padding: 0px 20px; color: white;'
+                  %li= link_to 'РАЗМЕСТИТЬ ВАКАНСИЮ', '#', style: 'background: rgb(118, 205, 255); padding: 0px 20px; color: white;'
+                  %li= link_to 'КЛУБ GG', club_path, style: 'background: rgb(118, 205, 255); padding: 0px 20px; color: white;'
+                  %li= link_to 'ПРАЙС-ЛИСТ', pricelist_path, style: 'background: rgb(118, 205, 255); padding: 0px 20px; color: white;'
+              %li
+                = link_to 'УЧЕБНЫМ ЗАВЕДЕНИЯМ', '#', style: 'background: rgb(198, 43, 108); padding: 0px 20px; color: white;'
+                %ul
+                  %li= link_to 'КЛУБ GG', club_path, style: 'background: rgb(198, 43, 108); padding: 0px 20px; color: white;'
+              %li
+                = link_to 'e-Learning' , e_learning_path,style: 'background: rgb(240, 64, 129); padding: 0px 20px; color: white;'
+                %ul
+                  %li
+                    = link_to 'СОВЕТЫ ЭКСПЕРТОВ', experts_path, style: 'background: rgb(240, 64, 129); padding: 0px 20px; color: white;'
+                    = link_to 'ТЕСТЫ', tests_path, style: 'background: rgb(240, 64, 129); padding: 0px 20px; color: white;'
+                    = link_to 'ОБУЧАЮЩИЕ ВЕБИНАРЫ', webinars_path, style: 'background: rgb(240, 64, 129); padding: 0px 20px; color: white;'
+                    = link_to 'ASSESEMENT-ЦЕНТР', assesement_path, style: 'background: rgb(240, 64, 129); padding: 0px 20px; color: white;'
       #content{:role => "main"}
         / = render 'layouts/messages'
         - if request.env['PATH_INFO'] == root_path
@@ -182,3 +193,5 @@
             %li= link_to 'Игры', games_path
             %li= link_to 'Каталог', catalog_path
             %li= link_to 'О компании', about_path
+          #p
+            = Rails.application.routes.routes.routes
