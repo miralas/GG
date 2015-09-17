@@ -33,9 +33,8 @@
           - if user_signed_in?
             = link_to 'Выход', destroy_user_session_path, :method=>'delete'
             |
-            - if current_user.role == :admin
-              = link_to 'Меню', menu_path 
-              |
+            = link_to 'Меню', menu_path 
+            |
             = link_to 'Задай вопрос' 
             |
             = link_to 'Обратный звонок' 
@@ -70,28 +69,28 @@
               %li
                 = link_to 'ВЫПУСКНИКАМ', '#', style: 'background: rgb(250, 204, 38); padding: 0px 20px; color: white;'
                 %ul
-                  %li= link_to 'СТАЖИРОВКИ/ПРАКТИКИ ', '#', style: 'background: rgb(250, 204, 38); padding: 0px 20px; color: white;'
-                  %li= link_to 'ВАКАНСИИ', all_vacancies_path, style: 'background: rgb(250, 204, 38); padding: 0px 20px; color: white;'
-                  %li= link_to 'СОЗДАТЬ РЕЗЮМЕ', '#', style: 'background: rgb(250, 204, 38); padding: 0px 20px; color: white;'
+                  %li= link_to 'СТАЖИРОВКИ/ПРАКТИКИ ', '#', style: 'background: rgb(250, 204, 38); padding: 0px 20px; color: white; line-height: 3em;'
+                  %li= link_to 'ВАКАНСИИ', all_vacancies_path, style: 'background: rgb(250, 204, 38); padding: 0px 20px; color: white; line-height: 3em;'
+                  %li= link_to 'СОЗДАТЬ РЕЗЮМЕ', '#', style: 'background: rgb(250, 204, 38); padding: 0px 20px; color: white; line-height: 3em;'
               %li
                 = link_to 'РАБОТОДАТЕЛЯМ', '#', style: 'display: inline-block; background: rgb(118, 205, 255); padding: 0px 20px; color: white;'
                 %ul
-                  %li= link_to 'РАЗМЕСТИТЬ СТАЖИРОВКУ/ПРАКТИКУ', '#', style: 'background: rgb(118, 205, 255); padding: 0px 20px; color: white;'
-                  %li= link_to 'РАЗМЕСТИТЬ ВАКАНСИЮ', '#', style: 'background: rgb(118, 205, 255); padding: 0px 20px; color: white;'
-                  %li= link_to 'КЛУБ GG', club_path, style: 'background: rgb(118, 205, 255); padding: 0px 20px; color: white;'
-                  %li= link_to 'ПРАЙС-ЛИСТ', pricelist_path, style: 'background: rgb(118, 205, 255); padding: 0px 20px; color: white;'
+                  %li= link_to 'РАЗМЕСТИТЬ СТАЖИРОВКУ/ПРАКТИКУ', '#', style: 'background: rgb(118, 205, 255); padding: 0px 20px; color: white; line-height: 3em;'
+                  %li= link_to 'РАЗМЕСТИТЬ ВАКАНСИЮ', '#', style: 'background: rgb(118, 205, 255); padding: 0px 20px; color: white; line-height: 3em;'
+                  %li= link_to 'КЛУБ GG', club_path, style: 'background: rgb(118, 205, 255); padding: 0px 20px; color: white; line-height: 3em;'
+                  %li= link_to 'ПРАЙС-ЛИСТ', pricelist_path, style: 'background: rgb(118, 205, 255); padding: 0px 20px; color: white; line-height: 3em;'
               %li
                 = link_to 'УЧЕБНЫМ ЗАВЕДЕНИЯМ', '#', style: 'background: rgb(198, 43, 108); padding: 0px 20px; color: white;'
                 %ul
-                  %li= link_to 'КЛУБ GG', club_path, style: 'background: rgb(198, 43, 108); padding: 0px 20px; color: white;'
+                  %li= link_to 'КЛУБ GG', club_path, style: 'background: rgb(198, 43, 108); padding: 0px 20px; color: white; line-height: 3em;'
               %li
                 = link_to 'e-Learning' , e_learning_path,style: 'background: rgb(240, 64, 129); padding: 0px 20px; color: white;'
                 %ul
                   %li
-                    = link_to 'СОВЕТЫ ЭКСПЕРТОВ', experts_path, style: 'background: rgb(240, 64, 129); padding: 0px 20px; color: white;'
-                    = link_to 'ТЕСТЫ', tests_path, style: 'background: rgb(240, 64, 129); padding: 0px 20px; color: white;'
-                    = link_to 'ОБУЧАЮЩИЕ ВЕБИНАРЫ', webinars_path, style: 'background: rgb(240, 64, 129); padding: 0px 20px; color: white;'
-                    = link_to 'ASSESEMENT-ЦЕНТР', assesement_path, style: 'background: rgb(240, 64, 129); padding: 0px 20px; color: white;'
+                    = link_to 'СОВЕТЫ ЭКСПЕРТОВ', experts_path, style: 'background: rgb(240, 64, 129); padding: 0px 20px; color: white; line-height: 3em;'
+                    = link_to 'ТЕСТЫ', tests_path, style: 'background: rgb(240, 64, 129); padding: 0px 20px; color: white; line-height: 3em;'
+                    = link_to 'ОБУЧАЮЩИЕ ВЕБИНАРЫ', webinars_path, style: 'background: rgb(240, 64, 129); padding: 0px 20px; color: white; line-height: 3em;'
+                    = link_to 'ASSESEMENT-ЦЕНТР', assesement_path, style: 'background: rgb(240, 64, 129); padding: 0px 20px; color: white; line-height: 3em;'
       #content{:role => "main"}
         / = render 'layouts/messages'
         - if request.env['PATH_INFO'] == root_path
