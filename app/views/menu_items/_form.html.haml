@@ -2,10 +2,10 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :title
-    = f.input :link
-    = f.input :publish
-    = f.association :menu_category
+    = f.input :title, label: 'Название'
+    = f.select :link, @final_routes.map { |value| [value.to_s, value.to_s] }
+    = f.input :publish, label: 'Опубликован'
+    = f.association :menu_category, label: 'Родительский пункт меню'
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, label: 'Сохранить'

@@ -3,7 +3,7 @@
 
   .form-inputs
     = f.input :title, label: 'Название'
-    = f.input :link, label: 'Ссылка'
+    = f.select :link, @final_routes.map { |value| [value.to_s, value.to_s] }
     = f.input :publish, label: 'Опубликовать'
 
   .form-actions

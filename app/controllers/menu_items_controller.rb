@@ -15,6 +15,20 @@ class MenuItemsController < ApplicationController
   # GET /menu_items/new
   def new
     @menu_item = MenuItem.new
+    all_routes = Rails.application.routes.routes
+    @final_routes = []
+    all_routes.each do |route|
+      route = route.path.spec.to_s.gsub("(.:format)", '')
+      route = route.gsub("/:id", '')
+      route = route.gsub('/:provider', '')
+      route = route.gsub('/:action', '')
+      route = route.gsub( '/:company_id', '' )
+      route = route.gsub('/:company', '')
+      route = route.gsub('/:resume', '')
+      route = route.gsub('/*id', '')
+      route = route.gsub('/*path', '')
+      @final_routes << route if route != '/'
+    end
   end
 
   # GET /menu_items/1/edit
@@ -40,6 +54,20 @@ class MenuItemsController < ApplicationController
   # PATCH/PUT /menu_items/1
   # PATCH/PUT /menu_items/1.json
   def update
+    all_routes = Rails.application.routes.routes
+    @final_routes = []
+    all_routes.each do |route|
+      route = route.path.spec.to_s.gsub("(.:format)", '')
+      route = route.gsub("/:id", '')
+      route = route.gsub('/:provider', '')
+      route = route.gsub('/:action', '')
+      route = route.gsub( '/:company_id', '' )
+      route = route.gsub('/:company', '')
+      route = route.gsub('/:resume', '')
+      route = route.gsub('/*id', '')
+      route = route.gsub('/*path', '')
+      @final_routes << route if route != '/'
+    end
     respond_to do |format|
       if @menu_item.update(menu_item_params)
         format.html { redirect_to menu_path, notice: 'Menu item was successfully updated.' }

@@ -33,6 +33,9 @@
           - if user_signed_in?
             = link_to 'Выход', destroy_user_session_path, :method=>'delete'
             |
+            - if current_user.role == :admin
+              = link_to 'Меню', menu_path 
+              |
             = link_to 'Задай вопрос' 
             |
             = link_to 'Обратный звонок' 
@@ -50,16 +53,17 @@
             = submit_tag 'Поиск', style: "width: 20%; display: inline;"
         .clear
         - if @menu_categories
+          - color = "rgb(250, 204, 38)"
           #menu.primary_nav_wrap{style: 'text-align: center; background: #2e87d5; color: white;'}
             %ul
               - @menu_categories.each do |category|
                 %li
-                  = link_to category.title, category.link, style: 'padding: 0px 20px; color: white; text-transform: uppercase;'
-                  - if category.menu_items
+                  = link_to category.title, category.link, style: "padding: 0px 20px; color: white; text-transform: uppercase; background-color: #{color}; "
+                  - if category.menu_items.first
                     %ul
                       - category.menu_items.each do |item|
                         %li
-                          = link_to item.title, item.link, style: 'padding: 0px 20px; color: white; text-transform: uppercase;'
+                          = link_to item.title, item.link, style: "padding: 0px 20px; color: white; text-transform: uppercase; background-color: #{color}; line-height: 3em;"
         - else
           #menu.primary_nav_wrap{style: 'text-align: center; background: #2e87d5; color: white;'}
             %ul
@@ -194,4 +198,4 @@
             %li= link_to 'Каталог', catalog_path
             %li= link_to 'О компании', about_path
           #p
-            = Rails.application.routes.routes.routes
+            = Rails.application.routes.routes

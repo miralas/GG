@@ -5,8 +5,10 @@ class ApplicationController < ActionController::Base
 
   before_filter :get_news
 
+
   def get_news
     @top_news =News.limit(10).reverse
+    @menu_categories = MenuCategory.all
   end
 
   def stored_location_for(resource)
