@@ -136,7 +136,7 @@
           = image_tag('gg_web_960-12_news_section.png')
           #news.pull-left
             - if @news
-              = image_tag(@news.first.image || 'gg_web_960-12_news_image.png', width: '100%')
+              = image_tag(@news.first || 'gg_web_960-12_news_image.png', width: '100%')
               %h2{style: 'color: rgb(240, 64, 129);'} 
                 = @news.first.title
               %p
