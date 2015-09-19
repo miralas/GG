@@ -18,9 +18,12 @@ gem 'redactor-rails'
 gem 'robokassa'
 gem 'aasm'
 gem 'simple_form_fancy_uploads'
+gem 'pg'
+gem 'eventmachine', :github => 'eventmachine/eventmachine', :branch => 'master'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
+  gem 'mina'
   gem 'spring'
 end
 gem 'bootstrap-sass'
@@ -56,7 +59,6 @@ group :development, :test do
   gem 'sqlite3'
 end
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end
 group :test do
