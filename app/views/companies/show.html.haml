@@ -61,7 +61,7 @@
 
 %h3 Контакты компании
 %hr.btn-danger
-- if @company_contacts
+- if !@company_contacts.empty?
   - @company_contacts.each do |contact|
     = link_to company_contact_path(@company, contact) do
       %p 
