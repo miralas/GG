@@ -25,6 +25,7 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'mina'
   gem 'spring'
+  gem 'thin'
 end
 gem 'bootstrap-sass'
 gem 'devise'
@@ -37,7 +38,6 @@ gem 'simple_form'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'therubyracer', :platform=>:ruby
-gem 'thin'
 group :development do
   gem 'better_errors'
   gem 'guard-bundler'
@@ -60,6 +60,7 @@ group :development, :test do
 end
 group :production do
   gem 'rails_12factor'
+  gem 'passenger'
 end
 group :test do
   gem 'capybara'
