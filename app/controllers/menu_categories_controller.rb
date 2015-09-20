@@ -33,6 +33,21 @@ class MenuCategoriesController < ApplicationController
 
   # GET /menu_categories/1/edit
   def edit
+    all_routes = Rails.application.routes.routes
+    @final_routes = []
+    all_routes.each do |route|
+      route = route.path.spec.to_s.gsub("(.:format)", '')
+      route = route.gsub("/:id", '')
+      route = route.gsub('/:provider', '')
+      route = route.gsub('/:action', '')
+      route = route.gsub( '/:company_id', '' )
+      route = route.gsub('/:company', '')
+      route = route.gsub('/:resume', '')
+      route = route.gsub('/*id', '')
+      route = route.gsub('/*path', '')
+      @final_routes << route if route != '/'
+      @final_routes << route
+    end
   end
 
   # POST /menu_categories
@@ -55,20 +70,6 @@ class MenuCategoriesController < ApplicationController
   # PATCH/PUT /menu_categories/1.json
   def update
     all_routes = Rails.application.routes.routes
-    @final_routes = []
-    all_routes.each do |route|
-      route = route.path.spec.to_s.gsub("(.:format)", '')
-      route = route.gsub("/:id", '')
-      route = route.gsub('/:provider', '')
-      route = route.gsub('/:action', '')
-      route = route.gsub( '/:company_id', '' )
-      route = route.gsub('/:company', '')
-      route = route.gsub('/:resume', '')
-      route = route.gsub('/*id', '')
-      route = route.gsub('/*path', '')
-      @final_routes << route if route != '/'
-      @final_routes << route
-    end
     respond_to do |format|
       if @menu_category.update(menu_category_params)
         format.html { redirect_to menu_path, notice: 'Menu category was successfully updated.' }
