@@ -3,8 +3,9 @@
 
   .form-inputs
     = f.input :title, label: 'Название'
-    = f.select :link, @final_routes.map { |value| [value.to_s, value.to_s] }
     = f.input :publish, label: 'Опубликовать'
+    = f.input :color, as: :minicolors, input_html: {data: { minicolors: {theme: :bootstrap, position: :right}}}
+    = f.select :link, @final_routes.map { |value| [value.to_s, value.to_s] }
 
   .form-actions
     = f.button :submit, 'Сохранить'

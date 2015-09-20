@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150915201408) do
+ActiveRecord::Schema.define(version: 20150919232909) do
 
   create_table "banner_regions", force: :cascade do |t|
     t.string   "width"
@@ -133,6 +133,7 @@ ActiveRecord::Schema.define(version: 20150915201408) do
     t.boolean  "publish"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "color"
   end
 
   create_table "menu_items", force: :cascade do |t|

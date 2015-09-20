@@ -19,6 +19,7 @@ gem 'robokassa'
 gem 'aasm'
 gem 'simple_form_fancy_uploads'
 gem 'pg'
+gem 'jquery-minicolors-rails'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
