@@ -20,6 +20,10 @@ gem 'aasm'
 gem 'simple_form_fancy_uploads'
 gem 'pg'
 gem 'jquery-minicolors-rails'
+gem 'geocoder'
+gem 'whenever', :require => false
+gem 'mysql2',          '~> 0.3.18', :platform => :ruby
+gem 'thinking-sphinx', '~> 3.1.4'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

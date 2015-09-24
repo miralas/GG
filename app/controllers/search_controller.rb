@@ -1,7 +1,7 @@
 class SearchController < ApplicationController
 
 	def search
-		@results = Vacancy.where(title: "%#{params[:phrase]}%")
+		@results = Vacancy.search params['Поиск']
 	end
 
 end
