@@ -15,7 +15,7 @@ set :term_mode, nil
 set :user, 'www-data'
 set :domain, '188.225.80.66'
 set :port, '6622'
-set :deploy_to, '/var/www/gg.center'
+set :deploy_to, '/var/www/greatgraduate.ru'
 set :repository, 'https://github.com/miralas/GG.git'
 set :branch, 'master'
 set :rbenv_path, "/home/miralas/.rbenv"

@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150919232909) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "banner_regions", force: :cascade do |t|
     t.string   "width"
     t.string   "height"
@@ -28,7 +31,7 @@ ActiveRecord::Schema.define(version: 20150919232909) do
     t.datetime "updated_at",       null: false
   end
 
-  add_index "banners", ["banner_region_id"], name: "index_banners_on_banner_region_id"
+  add_index "banners", ["banner_region_id"], name: "index_banners_on_banner_region_id", using: :btree
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -49,7 +52,7 @@ ActiveRecord::Schema.define(version: 20150919232909) do
     t.string   "english_name"
   end
 
-  add_index "companies", ["user_id"], name: "index_companies_on_user_id"
+  add_index "companies", ["user_id"], name: "index_companies_on_user_id", using: :btree
 
   create_table "company_clients", force: :cascade do |t|
     t.string   "title"
@@ -68,8 +71,8 @@ ActiveRecord::Schema.define(version: 20150919232909) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "company_comments", ["company_id"], name: "index_company_comments_on_company_id"
-  add_index "company_comments", ["user_id"], name: "index_company_comments_on_user_id"
+  add_index "company_comments", ["company_id"], name: "index_company_comments_on_company_id", using: :btree
+  add_index "company_comments", ["user_id"], name: "index_company_comments_on_user_id", using: :btree
 
   create_table "company_contacts", force: :cascade do |t|
     t.string   "phone"
@@ -108,7 +111,7 @@ ActiveRecord::Schema.define(version: 20150919232909) do
     t.integer  "company_id"
   end
 
-  add_index "company_reviews", ["user_id"], name: "index_company_reviews_on_user_id"
+  add_index "company_reviews", ["user_id"], name: "index_company_reviews_on_user_id", using: :btree
 
   create_table "countries", force: :cascade do |t|
     t.string   "name"
@@ -145,7 +148,7 @@ ActiveRecord::Schema.define(version: 20150919232909) do
     t.datetime "updated_at",       null: false
   end
 
-  add_index "menu_items", ["menu_category_id"], name: "index_menu_items_on_menu_category_id"
+  add_index "menu_items", ["menu_category_id"], name: "index_menu_items_on_menu_category_id", using: :btree
 
   create_table "news", force: :cascade do |t|
     t.string   "title"
@@ -169,8 +172,8 @@ ActiveRecord::Schema.define(version: 20150919232909) do
     t.datetime "updated_at"
   end
 
-  add_index "redactor_assets", ["assetable_type", "assetable_id"], name: "idx_redactor_assetable"
-  add_index "redactor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_redactor_assetable_type"
+  add_index "redactor_assets", ["assetable_type", "assetable_id"], name: "idx_redactor_assetable", using: :btree
+  add_index "redactor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_redactor_assetable_type", using: :btree
 
   create_table "resume_answers", force: :cascade do |t|
     t.integer  "resume_id"
@@ -180,8 +183,8 @@ ActiveRecord::Schema.define(version: 20150919232909) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "resume_answers", ["company_id"], name: "index_resume_answers_on_company_id"
-  add_index "resume_answers", ["resume_id"], name: "index_resume_answers_on_resume_id"
+  add_index "resume_answers", ["company_id"], name: "index_resume_answers_on_company_id", using: :btree
+  add_index "resume_answers", ["resume_id"], name: "index_resume_answers_on_resume_id", using: :btree
 
   create_table "resume_contacts", force: :cascade do |t|
     t.string   "mobile_phone"
@@ -198,7 +201,7 @@ ActiveRecord::Schema.define(version: 20150919232909) do
     t.datetime "updated_at",   null: false
   end
 
-  add_index "resume_contacts", ["resume_id"], name: "index_resume_contacts_on_resume_id"
+  add_index "resume_contacts", ["resume_id"], name: "index_resume_contacts_on_resume_id", using: :btree
 
   create_table "resume_courses", force: :cascade do |t|
     t.string   "title"
@@ -210,7 +213,7 @@ ActiveRecord::Schema.define(version: 20150919232909) do
     t.datetime "updated_at",     null: false
   end
 
-  add_index "resume_courses", ["resume_id"], name: "index_resume_courses_on_resume_id"
+  add_index "resume_courses", ["resume_id"], name: "index_resume_courses_on_resume_id", using: :btree
 
   create_table "resume_exams", force: :cascade do |t|
     t.string   "title"
@@ -222,7 +225,7 @@ ActiveRecord::Schema.define(version: 20150919232909) do
     t.datetime "updated_at",     null: false
   end
 
-  add_index "resume_exams", ["resume_id"], name: "index_resume_exams_on_resume_id"
+  add_index "resume_exams", ["resume_id"], name: "index_resume_exams_on_resume_id", using: :btree
 
   create_table "resume_posts", force: :cascade do |t|
     t.string   "wish_post"
@@ -245,7 +248,7 @@ ActiveRecord::Schema.define(version: 20150919232909) do
     t.datetime "updated_at",   null: false
   end
 
-  add_index "resume_recomendations", ["resume_id"], name: "index_resume_recomendations_on_resume_id"
+  add_index "resume_recomendations", ["resume_id"], name: "index_resume_recomendations_on_resume_id", using: :btree
 
   create_table "resume_works", force: :cascade do |t|
     t.string   "organization"
@@ -263,7 +266,7 @@ ActiveRecord::Schema.define(version: 20150919232909) do
     t.datetime "updated_at",   null: false
   end
 
-  add_index "resume_works", ["resume_id"], name: "index_resume_works_on_resume_id"
+  add_index "resume_works", ["resume_id"], name: "index_resume_works_on_resume_id", using: :btree
 
   create_table "resumes", force: :cascade do |t|
     t.string   "surname"
@@ -284,7 +287,7 @@ ActiveRecord::Schema.define(version: 20150919232909) do
     t.string   "photo"
   end
 
-  add_index "resumes", ["user_id"], name: "index_resumes_on_user_id"
+  add_index "resumes", ["user_id"], name: "index_resumes_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -306,8 +309,8 @@ ActiveRecord::Schema.define(version: 20150919232909) do
     t.string   "uid"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "vacancies", force: :cascade do |t|
     t.string   "title"
@@ -321,18 +324,23 @@ ActiveRecord::Schema.define(version: 20150919232909) do
     t.datetime "updated_at",   null: false
   end
 
-  add_index "vacancies", ["company_id"], name: "index_vacancies_on_company_id"
-  add_index "vacancies", ["user_id"], name: "index_vacancies_on_user_id"
+  add_index "vacancies", ["company_id"], name: "index_vacancies_on_company_id", using: :btree
+  add_index "vacancies", ["user_id"], name: "index_vacancies_on_user_id", using: :btree
 
-  create_table "vacancy_answers", force: :cascade do |t|
-    t.integer  "resume_id"
-    t.integer  "company_vacancy_id"
-    t.datetime "when_viewed"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-  end
-
-  add_index "vacancy_answers", ["company_vacancy_id"], name: "index_vacancy_answers_on_company_vacancy_id"
-  add_index "vacancy_answers", ["resume_id"], name: "index_vacancy_answers_on_resume_id"
-
+  add_foreign_key "banners", "banner_regions"
+  add_foreign_key "companies", "users"
+  add_foreign_key "company_comments", "companies"
+  add_foreign_key "company_comments", "users"
+  add_foreign_key "company_reviews", "users"
+  add_foreign_key "menu_items", "menu_categories"
+  add_foreign_key "resume_answers", "companies"
+  add_foreign_key "resume_answers", "resumes"
+  add_foreign_key "resume_contacts", "resumes"
+  add_foreign_key "resume_courses", "resumes"
+  add_foreign_key "resume_exams", "resumes"
+  add_foreign_key "resume_recomendations", "resumes"
+  add_foreign_key "resume_works", "resumes"
+  add_foreign_key "resumes", "users"
+  add_foreign_key "vacancies", "companies"
+  add_foreign_key "vacancies", "users"
 end
