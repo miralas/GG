@@ -1,6 +1,9 @@
+%h1 Результаты поиска
+%hr
 - if @results
 	- @results.each do |res|
-		%h3= res.title
+		= link_to res
+			%h3= res.title
 		%p
 			%b= res.salary 
 - else
