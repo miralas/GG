@@ -2,7 +2,7 @@
 %hr
 - if @results
 	- @results.each do |res|
-		= link_to res
+		= link_to res do
 			%h3= res.title
 		%p
 			%b= res.salary 
