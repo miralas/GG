@@ -50,7 +50,7 @@
           = form_tag(search_result_path) do
             = text_field_tag 'Поиск', nil, style: "width: 78%; display: inline;", id: 'query', name: 'query'
             - @models = ['Вакансии', 'Резюме', 'Стажировки']
-            = select_tag(@models.map { |value| [ value, value ] }), id: 'model', name: 'model'
+            = select_tag(@models.map { |value| [ value, value ] }, id: 'model', name: 'model')
             = submit_tag 'Поиск', style: "width: 20%; display: inline;"
         .clear
         - if !@menu_categories.empty?
