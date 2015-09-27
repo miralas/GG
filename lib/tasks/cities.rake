@@ -19,7 +19,7 @@ namespace :cities do
     puts "Заполнено"
   end
 
-  desc "SDFGHJKL"
+  desc "Fill countries"
   task :from_countries => :environment do
     require 'spreadsheet'
 

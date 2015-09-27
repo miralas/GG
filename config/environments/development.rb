@@ -40,11 +40,11 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
     config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-  :address              => "smtp.yandex.ru",
+  :address              => "mail.nic.ru",
   :port                 => 465,
-  :domain               => 'yandex.ru',
-  :user_name            => "miralas777",
-  :password             => "mishayulia123",
+  :domain               => 'greatgraduate.ru',
+  :user_name            => "no-reply",
+  :password             => Rails.application.secrets.mail_pass,
   :authentication       => 'plain',
   :enable_starttls_auto => true  }
 

@@ -48,6 +48,13 @@
             = link_to 'Обратный звонок' 
           %br
           = form_tag(search_result_path) do
+            = collection_select :category, Category.all, :id, :name
+            = collection_select :city, City.all, :id, :name
+            = submit_tag 'Поиск', style: "width: 20%; display: inline;"
+
+
+          %br
+          = form_tag(search_result_path) do
             = text_field_tag 'Поиск', nil, style: "width: 78%; display: inline;", id: 'query', name: 'query'
             - @models = ['Вакансии', 'Резюме', 'Стажировки']
             = select_tag :model, options_for_select(@models)

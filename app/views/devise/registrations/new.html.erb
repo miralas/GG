@@ -3,10 +3,6 @@
     <h3>Регистрация</h3>
     <%= devise_error_messages! %>
     <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
-    </div>
-    <div class="form-group">
       <%= f.label :role %>
       <%= f.select :role, options_for_select([['Соискатель', 'user'],['Работодатель', 'client'],['ВУЗ', 'vuz'],['ССУЗ', 'ssuz']]), class: 'form-control' %>
     </div>
@@ -24,4 +20,5 @@
     </div>
      <%= f.submit 'Зарегистрироваться', :class => 'button right' %>
   <% end %>
+  <p>Нажимая «Зарегистрировать», вы подтверждаете, что принимаете условия «Соглашения об оказании услуг по содействию в профессиональной ориентации и трудоустройстве (оферта)»</p>
 </div>
