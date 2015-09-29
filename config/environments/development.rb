@@ -38,15 +38,18 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-    config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-  :address              => "mail.nic.ru",
-  :port                 => 465,
-  :domain               => 'greatgraduate.ru',
-  :user_name            => "no-reply",
-  :password             => Rails.application.secrets.mail_pass,
-  :authentication       => 'plain',
-  :enable_starttls_auto => true  }
+    :address              => "mail.nic.ru",
+    :port                 => 465,
+    :domain               => 'greatgraduate.ru',
+    :user_name            => "no-reply@greatgraduate.ru",
+    :password             => Rails.application.secrets.mail_pass,
+    :authentication       => 'login',
+    :enable_starttls_auto => true  ,
+    :ssl                    => true,
+    :tls                    => true
+  }
 
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
