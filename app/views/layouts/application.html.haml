@@ -35,7 +35,7 @@
               %br
               .front-search.top-navigation__front-search
                 = form_tag(search_result_path, { :class => 'front-search__form' }) do
-                  = collection_select :category, :id, Category.all, :id, :name, {include_blank: false}, { class: 'front-search__control' }
+                  = select_tag :type, options_for_select([['Вакансии', 'vacancy'],['Резюме', 'resume'],['Стажировки', 'practice']]), { class: 'front-search__control' }
                   = collection_select :city, :id, City.all, :id, :name, {include_blank: false}, { class: 'front-search__control' }
                   = submit_tag '', class: 'search'
 
@@ -55,7 +55,6 @@
                           %li
                             = link_to item.title, item.link, style: "background: ##{category.color}"
 
-          #content{:role => "main"}
             / = render 'layouts/messages'
             - if request.env['PATH_INFO'] == root_path
               .slider{ style: "width: #{BannerRegion.first.width}; height: #{BannerRegion.first.height};, padding: 0;"}
@@ -70,6 +69,14 @@
               %section.interships-calendar
                 .front-interships.interships-calendar__interships
                   %h2.front-interships__title Interships/Стажировки по профессиям
+                  - if @practicies
+                    - @practicies.each do |practice|
+                      %h3.front-interships__item-title
+                        = practice.company
+                      .front-interships__item-subtitle
+                        = practice.post
+                        = practice.long
+                      = link_to 'Читать дальше', company_practice_path(practice), class: 'front-interships__read-more'
                 .interships-calendar__calendar
                   = link_to 'Предложи событие', new_event_path, class: 'interships-calendar__calendar-add'
               %section.news-block

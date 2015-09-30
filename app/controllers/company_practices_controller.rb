@@ -29,7 +29,7 @@ class CompanyPracticesController < ApplicationController
 
     respond_to do |format|
       if @company_practice.save
-        format.html { redirect_to company_path(@company_practice.company), notice: 'Company practice was successfully created.' }
+        format.html { redirect_to company_path(@company_practice.company), notice: 'Стажировка успешно добавлена' }
         format.json { render :show, status: :created, location: @company_practice }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class CompanyPracticesController < ApplicationController
   def update
     respond_to do |format|
       if @company_practice.update(company_practice_params)
-        format.html { redirect_to @company_practice, notice: 'Company practice was successfully updated.' }
+        format.html { redirect_to @company_practice, notice: 'Стажировка успешно обновлена' }
         format.json { render :show, status: :ok, location: @company_practice }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class CompanyPracticesController < ApplicationController
   def destroy
     @company_practice.destroy
     respond_to do |format|
-      format.html { redirect_to company_practices_url, notice: 'Company practice was successfully destroyed.' }
+      format.html { redirect_to company_practices_url, notice: 'Стажировка успешно удалена' }
       format.json { head :no_content }
     end
   end

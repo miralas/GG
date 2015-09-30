@@ -3,6 +3,7 @@ namespace :cities do
   task :from_file => :environment do
     require 'spreadsheet'
 
+    City.destroy_all
     directory = "lib/files/"
     name = directory + 'cities.xls'
     spreadsheet = Spreadsheet.open(name)
@@ -13,6 +14,7 @@ namespace :cities do
         city = City.new
         city.name = row[0]
         city.save
+        puts city.name
       end
     end
 
