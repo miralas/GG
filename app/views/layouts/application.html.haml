@@ -58,14 +58,22 @@
             / = render 'layouts/messages'
             - if request.env['PATH_INFO'] == root_path
               .slider{ style: "width: #{BannerRegion.first.width}; height: #{BannerRegion.first.height};, padding: 0;"}
-                / %ul.slide
-                /   %li
-                /     = image_tag('gg_slider1.png')
-                /   %li
-                /     = image_tag('gg_slider2.png')
-                /   %li
-                /     = image_tag('gg_slider3.png')
-                / = image_tag(Banner.where(banner_region: BannerRegion.first.id).last.path) if Banner.where(banner_region: BannerRegion.first.id).last
+              / %ul.slide
+              /   %li
+              /     = image_tag('gg_slider1.png')
+              /   %li
+              /     = image_tag('gg_slider2.png')
+              /   %li
+              /     = image_tag('gg_slider3.png')
+              / = image_tag(Banner.where(banner_region: BannerRegion.first.id).last.path) if Banner.where(banner_region: BannerRegion.first.id).last
+              %nav.front-add-menu
+                %ul.front-add-menu__list
+                  %li.front-add-menu__item
+                    = link_to 'Разместить резюме', '#', class: 'front-add-menu__link'
+                  %li.front-add-menu__item
+                    = link_to 'Опубликовать стажировку', '#', class: 'front-add-menu__link'
+                  %li.front-add-menu__item
+                    = link_to 'Опубликовать вакансию', '#', class: 'front-add-menu__link'
               %section.interships-calendar
                 .front-interships.interships-calendar__interships
                   %h2.front-interships__title Interships/Стажировки по профессиям
@@ -86,20 +94,23 @@
                   Вебинар BIG DATA в фармацевтике
                   = link_to 'Стать участником события', '#', class: 'news-block__event-link'
                 .news-block__news-row
-              %section.advertising
-              .consultant-widget
-              %footer.l-footer
-                %ul.footer-nav-first
-                  %li.footer-nav-first__item= link_to 'Карьерные карты', career_cards_path
-                  %li.footer-nav-first__item= link_to 'Об оплате', about_payment_path
-                %ul.footer-nav-second
-                  %li.footer-nav-first__second
-                    = link_to 'twitter', 'twitter', class: 'footer-nav-second__link'
-                    = link_to 'facebook', 'facebook', class: 'footer-nav-second__link'
-                    = link_to 'vk', 'vk', class: 'footer-nav-second__link'
-                %ul.footer-nav-third
-                  %li.footer-nav-first__item= link_to 'Публичная оферта', oferta_path
-                  %li.footer-nav-first__item= link_to 'Реквизиты', requesits_path
+            %section.advertising
+            .consultant-widget
+            %footer.l-footer
+              %ul.footer-nav-first
+                %li.footer-nav-first__item= link_to 'Реклама на сайте', career_cards_path
+                %li.footer-nav-first__item= link_to 'Каталог', about_payment_path
+                %li.footer-nav-first__item= link_to 'Путь GG', about_payment_path
+              %ul.footer-nav-second
+                %li.footer-nav-first__second
+                  = link_to 'twitter', 'twitter', class: 'footer-nav-second__link'
+                  = link_to 'facebook', 'facebook', class: 'footer-nav-second__link'
+                  = link_to 'vk', 'vk', class: 'footer-nav-second__link'
+              %ul.footer-nav-third
+                %li.footer-nav-first__item= link_to 'Публичная оферта', oferta_path
+                %li.footer-nav-first__item= link_to 'О компании', requesits_path
+                %li.footer-nav-first__item= link_to 'Об оплате', requesits_path
+                %li.footer-nav-first__item= link_to 'Реквизиты', requesits_path
 
             /   #career.pull-left
             /     = image_tag('gg_web_960-12_7_carerra_section.png')

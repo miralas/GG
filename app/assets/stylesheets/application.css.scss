@@ -840,7 +840,8 @@ html, body {
       height: 100% !important;
       left: -99em;
       right: -99em;
-      visibility: visible !important; }
+      visibility: visible !important;
+      display: block !important; }
   .main-menu::before {
     background: #0077c8; }
   .main-menu__level-0 {
