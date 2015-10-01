@@ -10,7 +10,7 @@
 
 BannerRegion.destroy_all
 regions = [
-	{ width: '100%', height: '350px',  name: 'Верхний баннер' },
+	{ width: '100%', height: '600px',  name: 'Верхний баннер' },
 	{ width: '255px', height: '400px', name: 'Боковой' },
 	{ width: '500px', height: '60px',  name: 'Под новостями широкий' },
 	{ width: '320px', height: '60px',  name: 'Под новостями узкий' },

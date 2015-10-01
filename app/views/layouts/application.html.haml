@@ -35,8 +35,8 @@
               %br
               .front-search.top-navigation__front-search
                 = form_tag(search_result_path, { :class => 'front-search__form' }) do
-                  = select_tag :type, options_for_select([['Вакансии', 'vacancy'],['Резюме', 'resume'],['Стажировки', 'practice']]), { class: 'front-search__control' }
-                  = collection_select :city, :id, City.all, :id, :name, {include_blank: false}, { class: 'front-search__control' }
+                  = select_tag :type, options_for_select([['НАЙТИ', ''],['Вакансии', 'vacancy'],['Резюме', 'resume'],['Стажировки', 'practice']]), { class: 'front-search__control' }
+                  = collection_select :city, :id, City.all, :id, :name, {include_blank: 'ВЫБРАТЬ ГОРОД'}, { class: 'front-search__control' }
                   = submit_tag '', class: 'search'
 
               = form_tag(search_result_path, {:class => 'top-navigation__search'}) do
@@ -85,6 +85,13 @@
                         = practice.post
                         = practice.long
                       = link_to 'Читать дальше', company_practice_path(practice), class: 'front-interships__read-more'
+                .interships-calendar__calendar
+                  = link_to 'Предложи событие', new_event_path, class: 'interships-calendar__calendar-add'
+            - else
+              %section.interships-calendar
+                .front-interships.interships-calendar__interships
+                  %h2.front-interships__title Interships/Стажировки по профессиям
+                  = yield
                 .interships-calendar__calendar
                   = link_to 'Предложи событие', new_event_path, class: 'interships-calendar__calendar-add'
               %section.news-block
