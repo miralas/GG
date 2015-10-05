@@ -84,7 +84,7 @@ Rails.application.configure do
     :address              => "mail.nic.ru",
     :port                 => 465,
     :domain               => 'greatgraduate.ru',
-    :user_name            => "no-reply",
+    :user_name            => "no-reply@greatgraduate.ru",
     :password             => Rails.application.secrets.mail_pass,
     :authentication       => 'login',
     :enable_starttls_auto => true  ,
