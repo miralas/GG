@@ -90,6 +90,7 @@
             - else
               %section.interships-calendar
                 .front-interships.interships-calendar__interships
+                  %p#notice
                   = yield
                 .interships-calendar__calendar
                   = link_to 'Предложи событие', new_event_path, class: 'interships-calendar__calendar-add'
