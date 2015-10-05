@@ -87,7 +87,9 @@ Rails.application.configure do
     :user_name            => "no-reply",
     :password             => Rails.application.secrets.mail_pass,
     :authentication       => 'login',
-    :enable_starttls_auto => true  
+    :enable_starttls_auto => true  ,
+    :ssl                    => true,
+    :tls                    => true
   }
 
   config.action_mailer.perform_deliveries = true
