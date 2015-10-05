@@ -86,7 +86,7 @@ Rails.application.configure do
     :domain               => 'greatgraduate.ru',
     :user_name            => "no-reply",
     :password             => Rails.application.secrets.mail_pass,
-    :authentication       => 'plain',
+    :authentication       => 'login',
     :enable_starttls_auto => true  
   }
 
