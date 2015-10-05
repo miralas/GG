@@ -1,0 +1,2 @@
+module AboutGraduatesHelper
+end

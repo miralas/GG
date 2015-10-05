@@ -1,0 +1,16 @@
+%h1.front-interships__title Учебное заведение
+- if !@institutions.empty?
+  - @institutions.each do |intitution|
+    = link_to intitution_path(intitution) do
+      %h3= intitution.title
+    .logo
+      - if intitution.logo
+        = image_tag(intitution.logo, width: 200, height: 100)
+      - else
+        = image_tag('gg_web_960-12_7_logo_placeholder', width: 200, height: 100)
+    %hr
+- else
+  - if current_user
+    - if current_user.role == 'learning'
+      %p Вы еще не добавили учебное заведение, пожалуйста, добавтье учебное заведение, нажав на кнопку:
+      = link_to 'Добавить учебное заведение', new_institution_path, class: 'btn btn-default'

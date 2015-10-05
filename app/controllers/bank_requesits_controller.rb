@@ -27,6 +27,8 @@ class BankRequesitsController < ApplicationController
     @bank_requesit = BankRequesit.new(bank_requesit_params)
     if current_user.role == 'client'
       @bank_requesit.new_company = current_user.new_companies.first
+    elsif current_user.role == 'learning'
+      @bank_requesit.institution = current_user.institution
     end
 
     respond_to do |format|
@@ -72,6 +74,6 @@ class BankRequesitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bank_requesit_params
-      params.require(:bank_requesit).permit(:bill, :bank, :adress_bank, :bik, :inn, :kpp, :cor_bill, :new_company_id)
+      params.require(:bank_requesit).permit(:bill, :bank, :adress_bank, :bik, :inn, :kpp, :cor_bill, :new_company_id, :institution_id)
     end
 end

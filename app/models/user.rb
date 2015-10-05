@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   has_many :new_companies
+  has_one :institution
+  has_one :graduate
   geocoded_by :current_sign_in_ip
   enum role: [:user, :client, :learning, :redactor, :redactor_menu, :admin]
   after_initialize :set_default_role, :if => :new_record?

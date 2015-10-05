@@ -1,0 +1,15 @@
+= simple_form_for(@graduate_bank_requesit) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :bill, label: 'Расчетный счет'
+    = f.input :bank, label: 'Банк'
+    = f.input :bank_adress, label: 'Адрес банка'
+    = f.input :bik, label: 'БИК'
+    = f.input :inn, label: 'ИНН'
+    = f.input :kpp, label: 'КПП'
+    = f.input :cor_bill, label: 'Кор. счет'
+
+  .form-actions
+    = f.button :submit, 'Сохранить'
+    = link_to new_about_graduate_path, 'Пропустить этот шаг'

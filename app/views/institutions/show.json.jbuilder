@@ -1,0 +1,1 @@
+json.extract! @institution, :id, :org_type, :title, :logo, :full_adress, :post_adress, :phone, :faks, :email, :website, :director_fio, :director_post, :contact_fio, :contact_phone, :contact_email, :user_id, :created_at, :updated_at

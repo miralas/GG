@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  resources :about_graduates
+  resources :graduate_bank_requesits
+  resources :graduate_requesits
+  resources :graduates
+  resources :institutions
   resources :abouts
   resources :requesits
   resources :bank_requesits

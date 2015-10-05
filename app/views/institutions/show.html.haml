@@ -1,0 +1,40 @@
+%h1.front-interships__title
+  = @institution.org_type
+  = @institution.title
+%p#notice= notice
+
+%p
+  %b Юридический адрес:
+  = @institution.full_adress
+%p
+  %b Почтовый адрес:
+  = @institution.post_adress
+%p
+  %b Телефон:
+  = @institution.phone
+%p
+  %b Факс:
+  = @institution.faks
+%p
+  %b Email:
+  = @institution.email
+%p
+  %b Website:
+  = @institution.website
+%p
+  %b ФИО руководителя:
+  = @institution.director_fio
+%p
+  %b Должность руководителя:
+  = @institution.director_post
+%p
+  %b Контактное лицо:
+  = @institution.contact_fio
+%p
+  %b Контактный телефон:
+  = @institution.contact_phone
+%p
+  %b Контактный email:
+  = @institution.contact_email
+
+= link_to 'Редактировать', edit_institution_path(@institution), class: 'btn btn-default'

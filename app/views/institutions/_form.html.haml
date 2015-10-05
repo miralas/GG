@@ -1,0 +1,33 @@
+= simple_form_for(@institution) do |f|
+  = f.error_notification
+
+  .form-inputs
+    .form-group
+      .span1
+        = f.label 'Вид организации'
+      - @forms = ['ВУЗ', 'ССУЗ', 'MBA']
+      = f.select(:org_type, @forms.map { |value| [ value, value ] })
+    = f.input :title, label: 'Название организации'
+    = f.input :logo, label: 'Логотип', as: :image_preview
+    %h3 Адрес
+    %hr
+    = f.input :full_adress, label: 'Юридический адрес'
+    = f.input :post_adress, label: 'Почтовый адрес'
+    %h3 Контакты
+    %hr
+    = f.input :phone, label: 'Телефон'
+    = f.input :faks, label: 'Факс'
+    = f.input :email, label: 'Email'
+    = f.input :website, label: 'Сайт'
+    %h3 Руководитель компании
+    %hr
+    = f.input :director_fio, label: 'ФИО руководителя'
+    = f.input :director_post, label: 'Должность руководителя'
+    %h3 Контактное лицо с порталом GG.CENTER
+    %hr
+    = f.input :contact_fio, label: 'ФИО контактного лица'
+    = f.input :contact_phone, label: 'Телефон контактного лица'
+    = f.input :contact_email, label: 'Email контактного лица'
+
+  .form-actions
+    = f.button :submit, 'Сохранить общую информацию'

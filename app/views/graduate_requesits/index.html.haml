@@ -1,0 +1,31 @@
+%h1 Listing graduate_requesits
+
+%table
+  %thead
+    %tr
+      %th Birth date
+      %th Place birth
+      %th Nationality
+      %th Sex
+      %th Inn
+      %th Graduate
+      %th
+      %th
+      %th
+
+  %tbody
+    - @graduate_requesits.each do |graduate_requesit|
+      %tr
+        %td= graduate_requesit.birth_date
+        %td= graduate_requesit.place_birth
+        %td= graduate_requesit.nationality
+        %td= graduate_requesit.sex
+        %td= graduate_requesit.inn
+        %td= graduate_requesit.graduate
+        %td= link_to 'Show', graduate_requesit
+        %td= link_to 'Edit', edit_graduate_requesit_path(graduate_requesit)
+        %td= link_to 'Destroy', graduate_requesit, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Graduate requesit', new_graduate_requesit_path

@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b About:
+  = @about_graduate.about
+%p
+  %b Profession:
+  = @about_graduate.profession
+%p
+  %b Achievements:
+  = @about_graduate.achievements
+%p
+  %b Competence:
+  = @about_graduate.competence
+%p
+  %b Recomendations:
+  = @about_graduate.recomendations
+%p
+  %b Photo:
+  = @about_graduate.photo
+%p
+  %b Graduate:
+  = @about_graduate.graduate
+
+= link_to 'Edit', edit_about_graduate_path(@about_graduate)
+\|
+= link_to 'Back', about_graduates_path

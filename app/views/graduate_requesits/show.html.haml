@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Birth date:
+  = @graduate_requesit.birth_date
+%p
+  %b Place birth:
+  = @graduate_requesit.place_birth
+%p
+  %b Nationality:
+  = @graduate_requesit.nationality
+%p
+  %b Sex:
+  = @graduate_requesit.sex
+%p
+  %b Inn:
+  = @graduate_requesit.inn
+%p
+  %b Graduate:
+  = @graduate_requesit.graduate
+
+= link_to 'Edit', edit_graduate_requesit_path(@graduate_requesit)
+\|
+= link_to 'Back', graduate_requesits_path

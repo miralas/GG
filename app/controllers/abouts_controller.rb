@@ -27,11 +27,17 @@ class AboutsController < ApplicationController
     @about = About.new(about_params)
     if current_user.role == 'client'
       @about.new_company = current_user.new_companies.first
+    elsif current_user.role == 'learning'
+      @about.institution = current_user.institution
     end
 
     respond_to do |format|
       if @about.save
-        format.html { redirect_to current_user.new_companies.first, notice: 'About was successfully created.' }
+        if current_user.role == 'client'
+          format.html { redirect_to current_user.new_companies.first, notice: 'About was successfully created.' }
+        elsif current_user.role == 'learning'
+          format.html { redirect_to current_user.institution, notice: 'About was successfully created.' }
+        end
         format.json { render :show, status: :created, location: @about }
       else
         format.html { render :new }
@@ -72,6 +78,6 @@ class AboutsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def about_params
-      params.require(:about).permit(:about, :count_people, :achievements, :pluses, :new_company_id)
+      params.require(:about).permit(:about, :count_people, :achievements, :pluses, :new_company_id, :institution_id)
     end
 end

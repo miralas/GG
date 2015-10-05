@@ -1,0 +1,13 @@
+= simple_form_for(@about_graduate) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :about, label: 'О себе'
+    = f.input :profession, label: 'Профессия'
+    = f.input :achievements, label: 'Успехи и достижения (Дипломы, Сертификаты, Грамоты)'
+    = f.input :competence, label: 'Дополнительные компетенции (стажировки, ПК, иностранные языки)'
+    = f.input :recomendations, label: 'Рекомендации'
+    = f.input :photo, label: 'Фотография', as: :image_preview
+
+  .form-actions
+    = f.button :submit, 'Сохранить'

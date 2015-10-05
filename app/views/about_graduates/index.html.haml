@@ -1,0 +1,33 @@
+%h1 Listing about_graduates
+
+%table
+  %thead
+    %tr
+      %th About
+      %th Profession
+      %th Achievements
+      %th Competence
+      %th Recomendations
+      %th Photo
+      %th Graduate
+      %th
+      %th
+      %th
+
+  %tbody
+    - @about_graduates.each do |about_graduate|
+      %tr
+        %td= about_graduate.about
+        %td= about_graduate.profession
+        %td= about_graduate.achievements
+        %td= about_graduate.competence
+        %td= about_graduate.recomendations
+        %td= about_graduate.photo
+        %td= about_graduate.graduate
+        %td= link_to 'Show', about_graduate
+        %td= link_to 'Edit', edit_about_graduate_path(about_graduate)
+        %td= link_to 'Destroy', about_graduate, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New About graduate', new_about_graduate_path

@@ -1,0 +1,16 @@
+%h1.front-interships__title Пользоатель
+- if !@graduates.empty?
+  - @graduates.each do |graduate|
+    = link_to graduate_path(graduate) do
+      %h3= "#{graduate.lastname} #{graduate.name} #{graduate.second_name}"
+    .photo
+      / - if gradu.logo
+      /   = image_tag(intitution.logo, width: 200, height: 100)
+      / - else
+      /   = image_tag('gg_web_960-12_7_logo_placeholder', width: 200, height: 100)
+    %hr
+- else
+  - if current_user
+    - if current_user.role == 'user'
+      %p Вы еще не добавили пользователя, пожалуйста, добавтье пользователя, нажав на кнопку:
+      = link_to 'Добавить пользователя', new_graduate_path, class: 'btn btn-default'

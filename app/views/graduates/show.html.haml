@@ -1,0 +1,23 @@
+%h1.front-interships__title 
+  = @graduate.lastname
+  = @graduate.name
+  = @graduate.second_name
+%p#notice= notice
+
+%p
+  %b Статус:
+  = @graduate.status
+%p
+  %b Адрес регистрации:
+  = @graduate.doc_adress
+%p
+  %b Почтовый адрес:
+  = @graduate.post_adress
+%p
+  %b Телефон:
+  = @graduate.phone
+%p
+  %b Email:
+  = @graduate.email
+
+= link_to 'Редактировать', edit_graduate_path(@graduate), class: 'btn btn-default'

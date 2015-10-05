@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151004161338) do
+ActiveRecord::Schema.define(version: 20151005023139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "about_graduates", force: :cascade do |t|
+    t.text     "about"
+    t.string   "profession"
+    t.string   "achievements"
+    t.string   "competence"
+    t.string   "recomendations"
+    t.string   "photo"
+    t.integer  "graduate_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "about_graduates", ["graduate_id"], name: "index_about_graduates_on_graduate_id", using: :btree
 
   create_table "abouts", force: :cascade do |t|
     t.string   "about"
@@ -24,8 +38,10 @@ ActiveRecord::Schema.define(version: 20151004161338) do
     t.integer  "new_company_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "institution_id"
   end
 
+  add_index "abouts", ["institution_id"], name: "index_abouts_on_institution_id", using: :btree
   add_index "abouts", ["new_company_id"], name: "index_abouts_on_new_company_id", using: :btree
 
   create_table "bank_requesits", force: :cascade do |t|
@@ -39,8 +55,10 @@ ActiveRecord::Schema.define(version: 20151004161338) do
     t.integer  "new_company_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "institution_id"
   end
 
+  add_index "bank_requesits", ["institution_id"], name: "index_bank_requesits_on_institution_id", using: :btree
   add_index "bank_requesits", ["new_company_id"], name: "index_bank_requesits_on_new_company_id", using: :btree
 
   create_table "banner_regions", force: :cascade do |t|
@@ -154,11 +172,77 @@ ActiveRecord::Schema.define(version: 20151004161338) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "graduate_bank_requesits", force: :cascade do |t|
+    t.string   "bill"
+    t.string   "bank"
+    t.string   "bank_adress"
+    t.string   "bik"
+    t.string   "inn"
+    t.string   "kpp"
+    t.string   "cor_bill"
+    t.integer  "graduate_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "graduate_bank_requesits", ["graduate_id"], name: "index_graduate_bank_requesits_on_graduate_id", using: :btree
+
+  create_table "graduate_requesits", force: :cascade do |t|
+    t.date     "birth_date"
+    t.string   "place_birth"
+    t.string   "nationality"
+    t.string   "sex"
+    t.string   "inn"
+    t.integer  "graduate_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "graduate_requesits", ["graduate_id"], name: "index_graduate_requesits_on_graduate_id", using: :btree
+
+  create_table "graduates", force: :cascade do |t|
+    t.string   "lastname"
+    t.string   "name"
+    t.string   "second_name"
+    t.string   "status"
+    t.string   "doc_adress"
+    t.string   "post_adress"
+    t.string   "phone"
+    t.string   "email"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "graduates", ["user_id"], name: "index_graduates_on_user_id", using: :btree
+
   create_table "industries", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "institutions", force: :cascade do |t|
+    t.string   "org_type"
+    t.string   "title"
+    t.string   "logo"
+    t.string   "full_adress"
+    t.string   "post_adress"
+    t.string   "phone"
+    t.string   "faks"
+    t.string   "email"
+    t.string   "website"
+    t.string   "director_fio"
+    t.string   "director_post"
+    t.string   "contact_fio"
+    t.string   "contact_phone"
+    t.string   "contact_email"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "institutions", ["user_id"], name: "index_institutions_on_user_id", using: :btree
 
   create_table "menu_categories", force: :cascade do |t|
     t.string   "title"
@@ -246,8 +330,10 @@ ActiveRecord::Schema.define(version: 20151004161338) do
     t.integer  "new_company_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "institution_id"
   end
 
+  add_index "requesits", ["institution_id"], name: "index_requesits_on_institution_id", using: :btree
   add_index "requesits", ["new_company_id"], name: "index_requesits_on_new_company_id", using: :btree
 
   create_table "resume_answers", force: :cascade do |t|
@@ -406,15 +492,23 @@ ActiveRecord::Schema.define(version: 20151004161338) do
 
   add_index "vacancies", ["new_company_id"], name: "index_vacancies_on_new_company_id", using: :btree
 
+  add_foreign_key "about_graduates", "graduates"
+  add_foreign_key "abouts", "institutions"
   add_foreign_key "abouts", "new_companies"
+  add_foreign_key "bank_requesits", "institutions"
   add_foreign_key "bank_requesits", "new_companies"
   add_foreign_key "banners", "banner_regions"
   add_foreign_key "companies", "users"
   add_foreign_key "company_comments", "companies"
   add_foreign_key "company_comments", "users"
   add_foreign_key "company_reviews", "users"
+  add_foreign_key "graduate_bank_requesits", "graduates"
+  add_foreign_key "graduate_requesits", "graduates"
+  add_foreign_key "graduates", "users"
+  add_foreign_key "institutions", "users"
   add_foreign_key "menu_items", "menu_categories"
   add_foreign_key "new_companies", "users"
+  add_foreign_key "requesits", "institutions"
   add_foreign_key "requesits", "new_companies"
   add_foreign_key "resume_answers", "companies"
   add_foreign_key "resume_answers", "resumes"

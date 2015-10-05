@@ -18,8 +18,10 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     if current_user.role == 'client'
       new_companies_path
+    elsif current_user.role == 'user'
+      graduates_path
     else
-      resumes_path
+      institutions_path
     end
   end
 end

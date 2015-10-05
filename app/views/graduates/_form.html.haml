@@ -1,0 +1,15 @@
+= simple_form_for(@graduate) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :lastname, label: 'Фамилия'
+    = f.input :name, label: 'Имя'
+    = f.input :second_name, label: 'Отчество'
+    = f.input :status, label: 'Статус'
+    = f.input :doc_adress, label: 'Адрес регистрации'
+    = f.input :post_adress, label: 'Почтовый адрес'
+    = f.input :phone, label: 'Телефон'
+    = f.input :email, label: 'Email'
+
+  .form-actions
+    = f.button :submit, 'Сохранить'

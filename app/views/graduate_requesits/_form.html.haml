@@ -1,0 +1,17 @@
+= simple_form_for(@graduate_requesit) do |f|
+  = f.error_notification
+
+  .form-inputs
+    .form-group
+      .span1
+        = f.label 'Дата рождения:'
+      = f.input_field :birth_date, as: :date, start_year: Date.today.year - 60, end_year: Date.today.year - 16
+    = f.input :place_birth, label: 'Место рождения'
+    = f.input :nationality, label: 'Гражданство'
+    .form-group
+      .span1
+      = f.select :sex, options_for_select([["Мужской", 'Мужской'], ["Женский", 'Женский']]), include_blank: false
+    = f.input :inn, label: 'ИНН'
+
+  .form-actions
+    = f.button :submit, 'Сохранить'

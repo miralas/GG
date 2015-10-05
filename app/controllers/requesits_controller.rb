@@ -27,6 +27,8 @@ class RequesitsController < ApplicationController
     @requesit = Requesit.new(requesit_params)
     if current_user.role == 'client'
       @requesit.new_company = current_user.new_companies.first
+    elsif current_user.role == 'learning'
+      @requesit.institution = current_user.institution
     end
 
     respond_to do |format|
@@ -72,6 +74,6 @@ class RequesitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def requesit_params
-      params.require(:requesit).permit(:inn, :kpp, :ogrn, :oktmo, :okpo, :okato, :okogu, :okfs, :okopf, :okved1, :okved2, :okved3s, :new_company_id)
+      params.require(:requesit).permit(:inn, :kpp, :ogrn, :oktmo, :okpo, :okato, :okogu, :okfs, :okopf, :okved1, :okved2, :okved3s, :new_company_id, :institution_id)
     end
 end
