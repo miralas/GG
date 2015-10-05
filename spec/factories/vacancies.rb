@@ -1,12 +1,11 @@
 FactoryGirl.define do
   factory :vacancy do
     title "MyString"
-requirements "MyText"
+requrements "MyText"
 description "MyText"
 employment "MyString"
-salary 1
-user nil
-company nil
+salary 1.5
+new_company nil
   end
 
 end

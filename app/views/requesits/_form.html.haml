@@ -1,0 +1,23 @@
+= simple_form_for(@requesit) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :inn, label: 'ИНН'
+    = f.input :kpp, label: 'КПП'
+    = f.input :ogrn, label: 'ОГРН'
+    = f.input :oktmo, label: 'ОКТМО'
+    = f.input :okpo, label: 'ОКПО'
+    = f.input :okato, label: 'ОКАТО'
+    = f.input :okogu, label: 'ОКОГУ'
+    = f.input :okfs, label: 'ОКФС'
+    = f.input :okopf, label: 'ОКОПФ'
+    %h3 3 основных кода ОКВЭД
+    %hr
+    = f.input :okved1, label: 'ОКВЭД'
+    = f.input :okved2, label: 'ОКВЭД'
+    = f.input :okved3s, label: 'ОКВЭД'
+
+  .form-actions
+    = f.button :submit, 'Сохранить реквизиты'
+
+%br

@@ -1,0 +1,71 @@
+= simple_form_for(@new_company) do |f|
+  = f.error_notification
+
+  .form-inputs
+    .form-group
+      .span1
+        = f.label 'Правовая форма'
+      - @forms = ['ИП', 'ООО', 'ЗАО', 'ГУП', 'МУП', 'ПБОЮЛ', 'НК', 'ФОНД', 'ПК', 'ГБУ', 'ОАО', 'АО', 'ФГУП']
+      = f.select(:company_type, @forms.map { |value| [ value, value ] })
+    .form-group
+      .span1
+      = f.input :full_title, label: 'Полное наименование компании', required: true
+    .form-group
+      .span1
+      = f.input :short_title, label: 'Сокращенное наименование компании', required: true
+    .form-group
+      .span1
+      = f.input :english_title, label: 'Наименование компании на английском языке', required: true
+    .form-group
+      .span1
+        = f.label 'Отрасль'
+      = f.collection_select :specialization, Industry.all, :id, :name, include_blank: false
+    .form-group
+      .span1
+      = f.input :logo, label: 'Логотип', required: true, as: :image_preview
+    %h3 Адрес
+    %hr
+    .form-group
+      .span1
+      = f.input :full_adress, label: 'Юридический адрес', required: true
+    .form-group
+      .span1
+      = f.input :post_adress, label: 'Почтовый адрес', required: true
+    %h3 Контакты
+    %hr
+    .form-group
+      .span1
+      = f.input :phone, label: 'Телефон', required: true
+    .form-group
+      .span1
+      = f.input :faks, label: 'Факс', required: true
+    .form-group
+      .span1
+      = f.input :email, label: 'Электронная почта', required: true
+    .form-group
+      .span1
+      = f.input :website, label: 'Сайт', required: true
+    %h3 Руководитель компании
+    %hr
+    .form-group
+      .span1
+      = f.input :director_name, label: 'ФИО руководителя организации', required: true
+    .form-group
+      .span1
+      = f.input :director_post, label: 'Должность руководителя организации', required: true
+    %h3 Контактное лицо с порталом GG.CENTER
+    %hr
+    .form-group
+      .span1
+      = f.input :contact_name, label: 'Контактное лицо', required: true
+    .form-group
+      .span1
+      = f.input :contacy_phone, label: 'Телефон контактного лица', required: true
+    .form-group
+      .span1
+      = f.input :contact_email, label: 'Контактный email', required: true
+
+  .form-actions
+    = f.button :submit, 'Сохранить'
+
+%br

@@ -1,0 +1,82 @@
+%h1.front-interships__title Моя компания
+%p#notice= notice
+
+%h3
+  = @new_company.full_title + "(#{@new_company.short_title}, #{@new_company.english_title})"
+#logotype
+  = image_tag(@new_company.logo)
+%hr
+%p
+  %b Отрасль:
+  = Industry.find(@new_company.specialization).name
+%p
+  %b Юридический адрес:
+  = @new_company.full_adress
+%p
+  %b Почтовый адрес:
+  = @new_company.post_adress
+%p
+  %b Телефон:
+  = @new_company.phone
+%p
+  %b Факс:
+  = @new_company.faks
+%p
+  %b Email:
+  = @new_company.email
+%p
+  %b Сайт:
+  = link_to @new_company.website, @new_company.website
+%h3 Руководитель
+%hr
+%p
+  %b ФИО руководителя:
+  = @new_company.director_name
+%p
+  %b Должность руководителя:
+  = @new_company.director_post
+%h3 Контактная информация
+%hr
+%p
+  %b Контактное лицо:
+  = @new_company.contact_name
+%p
+  %b Контактный телефон:
+  = @new_company.contacy_phone
+%p
+  %b Контактный email:
+  = @new_company.contact_email
+
+- if current_user
+  -if current_user.role == 'client' and @new_company.user == current_user
+    = link_to 'Редактировать компанию', edit_new_company_path(@new_company), class: 'btn btn-default'
+%br
+
+%h3 Вакансии компании
+%hr.btn-danger
+- if @vacancies
+  - @vacancies.each do |vacancy|
+    = link_to vacancy_path(vacancy) do
+      %h3
+        = vacancy.title + ', '
+        = vacancy.salary
+    %hr
+- else
+  %p Пока не добавлено ни одной вакансии
+- if current_user
+  - if @new_company.user == current_user
+    = link_to 'Добавить вакансию', new_vacancy_path(@new_company)
+
+%h3 Стажировки в компании
+%hr.btn-danger
+- if @company_practices
+  - @company_practices.each do |practice|
+    = link_to company_practice_path(practice) do
+      %h3
+        = practice.post
+    %hr
+- else
+  %p Пока не добавлено ни одной стажировки
+- if current_user
+  - if @new_company.user == current_user
+    = link_to 'Добавить стажировку', new_company_practice_path(@new_company)

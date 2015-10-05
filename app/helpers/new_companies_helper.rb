@@ -1,0 +1,2 @@
+module NewCompaniesHelper
+end

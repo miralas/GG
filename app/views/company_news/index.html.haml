@@ -13,7 +13,7 @@
 
 - if @company_news
   - @company_news.each do |company_news|
-    %h3= company_news.title
+    %h3.front-interships__title= company_news.title
     %p= company_news.body
     - if current_user == company_news.user_id or current_user.role == 'admin'
       %td= link_to 'Редактировать', edit_company_news_path(company_news), class: 'btn btn-default'

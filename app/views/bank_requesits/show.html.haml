@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Bill:
+  = @bank_requesit.bill
+%p
+  %b Bank:
+  = @bank_requesit.bank
+%p
+  %b Adress bank:
+  = @bank_requesit.adress_bank
+%p
+  %b Bik:
+  = @bank_requesit.bik
+%p
+  %b Inn:
+  = @bank_requesit.inn
+%p
+  %b Kpp:
+  = @bank_requesit.kpp
+%p
+  %b Cor bill:
+  = @bank_requesit.cor_bill
+%p
+  %b Company:
+  = @bank_requesit.company
+
+= link_to 'Edit', edit_bank_requesit_path(@bank_requesit)
+\|
+= link_to 'Back', bank_requesits_path

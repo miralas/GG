@@ -3,13 +3,16 @@
 
 %p
   %b Компания:
-  = @vacancy.company.title
+  = NewCompany.find(@vacancy.new_company_id).full_title
 %p
   %b Зарплата:
   = @vacancy.salary
 %p
+  %b Город:
+  = City.find(@vacancy.city).name
+%p
   %b Требования:
-  = @vacancy.requirements
+  = @vacancy.requrements
 %p
   %b Описание:
   = @vacancy.description
@@ -18,6 +21,6 @@
   = @vacancy.employment
 
 
-- if current_user && @vacancy.company.user == current_user
-  = link_to 'Редактировать', edit_company_vacancy_path(@vacancy), class: 'btn btn-default' if current_user == @vacancy.user
+- if current_user && @vacancy.new_company.user == current_user
+  = link_to 'Редактировать', edit_vacancy_path(@vacancy), class: 'btn btn-default' if current_user.new_companies.first == @vacancy.new_company
   = link_to 'Назад', :back, class: 'btn btn-default'

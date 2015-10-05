@@ -35,7 +35,7 @@
               %br
               .front-search.top-navigation__front-search
                 = form_tag(search_result_path, { :class => 'front-search__form' }) do
-                  = select_tag :type, options_for_select([['НАЙТИ', ''],['Вакансии', 'vacancy'],['Резюме', 'resume'],['Стажировки', 'practice']]), { class: 'front-search__control' }
+                  = select_tag :model, options_for_select([['НАЙТИ', ''],['Вакансии', 'vacancy'],['Резюме', 'resume'],['Стажировки', 'practice']]), { class: 'front-search__control' }
                   = collection_select :city, :id, City.all, :id, :name, {include_blank: 'ВЫБРАТЬ ГОРОД'}, { class: 'front-search__control' }
                   = submit_tag '', class: 'search'
 
@@ -90,18 +90,9 @@
             - else
               %section.interships-calendar
                 .front-interships.interships-calendar__interships
-                  %h2.front-interships__title Interships/Стажировки по профессиям
                   = yield
                 .interships-calendar__calendar
                   = link_to 'Предложи событие', new_event_path, class: 'interships-calendar__calendar-add'
-              %section.news-block
-                %h2.news-block__title Новости
-                .news-block__image
-                .news-block__event
-                  Вебинар BIG DATA в фармацевтике
-                  = link_to 'Стать участником события', '#', class: 'news-block__event-link'
-                .news-block__news-row
-            %section.advertising
             .consultant-widget
             %footer.l-footer
               %ul.footer-nav-first

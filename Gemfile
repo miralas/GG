@@ -24,6 +24,7 @@ gem 'geocoder'
 gem 'whenever', :require => false
 gem 'mysql2',          '~> 0.3.18', :platform => :ruby
 gem 'thinking-sphinx', '~> 3.1.4'
+gem 'cancancan', '~> 1.10'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :abouts
+  resources :requesits
+  resources :bank_requesits
+  resources :new_companies
   get 'menu', to: 'menu#menu'
   resources :menu_items
   resources :menu_categories
@@ -15,10 +19,7 @@ Rails.application.routes.draw do
   resources :company_news
   resources :company_clients
   resources :company_comments
-  resources :company_contacts
-  resources :companies do
-    resources :vacancies
-  end
+  resources :vacancies
   resources :resume_contacts
   resources :resume_works
   resources :resume_recomendations

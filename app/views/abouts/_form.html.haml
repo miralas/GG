@@ -1,0 +1,11 @@
+= simple_form_for(@about) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :about, label: 'О компании'
+    = f.input :count_people, label: 'Численность'
+    = f.input :achievements, label: 'Успехи и достижения'
+    = f.input :pluses, label: 'Ключевые преимущества'
+
+  .form-actions
+    = f.button :submit, 'Закончить регистрацию'

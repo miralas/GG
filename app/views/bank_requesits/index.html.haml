@@ -1,0 +1,35 @@
+%h1 Listing bank_requesits
+
+%table
+  %thead
+    %tr
+      %th Bill
+      %th Bank
+      %th Adress bank
+      %th Bik
+      %th Inn
+      %th Kpp
+      %th Cor bill
+      %th Company
+      %th
+      %th
+      %th
+
+  %tbody
+    - @bank_requesits.each do |bank_requesit|
+      %tr
+        %td= bank_requesit.bill
+        %td= bank_requesit.bank
+        %td= bank_requesit.adress_bank
+        %td= bank_requesit.bik
+        %td= bank_requesit.inn
+        %td= bank_requesit.kpp
+        %td= bank_requesit.cor_bill
+        %td= bank_requesit.company
+        %td= link_to 'Show', bank_requesit
+        %td= link_to 'Edit', edit_bank_requesit_path(bank_requesit)
+        %td= link_to 'Destroy', bank_requesit, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Bank requesit', new_bank_requesit_path

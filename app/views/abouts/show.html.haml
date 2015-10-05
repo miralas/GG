@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b About:
+  = @about.about
+%p
+  %b Count people:
+  = @about.count_people
+%p
+  %b Achievements:
+  = @about.achievements
+%p
+  %b Pluses:
+  = @about.pluses
+%p
+  %b Company:
+  = @about.company
+
+= link_to 'Edit', edit_about_path(@about)
+\|
+= link_to 'Back', abouts_path

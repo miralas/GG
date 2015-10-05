@@ -11,10 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150927212534) do
+ActiveRecord::Schema.define(version: 20151004161338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "abouts", force: :cascade do |t|
+    t.string   "about"
+    t.string   "count_people"
+    t.string   "achievements"
+    t.string   "pluses"
+    t.integer  "new_company_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "abouts", ["new_company_id"], name: "index_abouts_on_new_company_id", using: :btree
+
+  create_table "bank_requesits", force: :cascade do |t|
+    t.string   "bill"
+    t.string   "bank"
+    t.string   "adress_bank"
+    t.string   "bik"
+    t.string   "inn"
+    t.string   "kpp"
+    t.string   "cor_bill"
+    t.integer  "new_company_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "bank_requesits", ["new_company_id"], name: "index_bank_requesits_on_new_company_id", using: :btree
 
   create_table "banner_regions", force: :cascade do |t|
     t.string   "width"
@@ -80,15 +107,6 @@ ActiveRecord::Schema.define(version: 20150927212534) do
   add_index "company_comments", ["company_id"], name: "index_company_comments_on_company_id", using: :btree
   add_index "company_comments", ["user_id"], name: "index_company_comments_on_user_id", using: :btree
 
-  create_table "company_contacts", force: :cascade do |t|
-    t.string   "phone"
-    t.string   "adress"
-    t.string   "fio"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "company_id"
-  end
-
   create_table "company_news", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
@@ -103,9 +121,9 @@ ActiveRecord::Schema.define(version: 20150927212534) do
     t.string   "long"
     t.string   "post"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "company_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "new_company_id"
   end
 
   create_table "company_reviews", force: :cascade do |t|
@@ -136,6 +154,12 @@ ActiveRecord::Schema.define(version: 20150927212534) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "industries", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "menu_categories", force: :cascade do |t|
     t.string   "title"
     t.string   "link"
@@ -155,6 +179,31 @@ ActiveRecord::Schema.define(version: 20150927212534) do
   end
 
   add_index "menu_items", ["menu_category_id"], name: "index_menu_items_on_menu_category_id", using: :btree
+
+  create_table "new_companies", force: :cascade do |t|
+    t.string   "company_type"
+    t.string   "full_title"
+    t.string   "short_title"
+    t.string   "english_title"
+    t.string   "specialization"
+    t.string   "logo"
+    t.string   "full_adress"
+    t.string   "post_adress"
+    t.string   "phone"
+    t.string   "faks"
+    t.string   "email"
+    t.string   "website"
+    t.string   "director_name"
+    t.string   "director_post"
+    t.string   "contact_name"
+    t.string   "contacy_phone"
+    t.string   "contact_email"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "new_companies", ["user_id"], name: "index_new_companies_on_user_id", using: :btree
 
   create_table "news", force: :cascade do |t|
     t.string   "title"
@@ -180,6 +229,26 @@ ActiveRecord::Schema.define(version: 20150927212534) do
 
   add_index "redactor_assets", ["assetable_type", "assetable_id"], name: "idx_redactor_assetable", using: :btree
   add_index "redactor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_redactor_assetable_type", using: :btree
+
+  create_table "requesits", force: :cascade do |t|
+    t.string   "inn"
+    t.string   "kpp"
+    t.string   "ogrn"
+    t.string   "oktmo"
+    t.string   "okpo"
+    t.string   "okato"
+    t.string   "okogu"
+    t.string   "okfs"
+    t.string   "okopf"
+    t.string   "okved1"
+    t.string   "okved2"
+    t.string   "okved3s"
+    t.integer  "new_company_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "requesits", ["new_company_id"], name: "index_requesits_on_new_company_id", using: :btree
 
   create_table "resume_answers", force: :cascade do |t|
     t.integer  "resume_id"
@@ -325,25 +394,28 @@ ActiveRecord::Schema.define(version: 20150927212534) do
 
   create_table "vacancies", force: :cascade do |t|
     t.string   "title"
-    t.text     "requirements"
+    t.text     "requrements"
     t.text     "description"
     t.string   "employment"
-    t.integer  "salary"
-    t.integer  "user_id"
-    t.integer  "company_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.float    "salary"
+    t.integer  "new_company_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "city"
   end
 
-  add_index "vacancies", ["company_id"], name: "index_vacancies_on_company_id", using: :btree
-  add_index "vacancies", ["user_id"], name: "index_vacancies_on_user_id", using: :btree
+  add_index "vacancies", ["new_company_id"], name: "index_vacancies_on_new_company_id", using: :btree
 
+  add_foreign_key "abouts", "new_companies"
+  add_foreign_key "bank_requesits", "new_companies"
   add_foreign_key "banners", "banner_regions"
   add_foreign_key "companies", "users"
   add_foreign_key "company_comments", "companies"
   add_foreign_key "company_comments", "users"
   add_foreign_key "company_reviews", "users"
   add_foreign_key "menu_items", "menu_categories"
+  add_foreign_key "new_companies", "users"
+  add_foreign_key "requesits", "new_companies"
   add_foreign_key "resume_answers", "companies"
   add_foreign_key "resume_answers", "resumes"
   add_foreign_key "resume_contacts", "resumes"
@@ -352,6 +424,5 @@ ActiveRecord::Schema.define(version: 20150927212534) do
   add_foreign_key "resume_recomendations", "resumes"
   add_foreign_key "resume_works", "resumes"
   add_foreign_key "resumes", "users"
-  add_foreign_key "vacancies", "companies"
-  add_foreign_key "vacancies", "users"
+  add_foreign_key "vacancies", "new_companies"
 end

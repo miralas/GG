@@ -1,0 +1,45 @@
+%h1 Listing requesits
+
+%table
+  %thead
+    %tr
+      %th Inn
+      %th Kpp
+      %th Ogrn
+      %th Oktmo
+      %th Okpo
+      %th Okato
+      %th Okogu
+      %th Okfs
+      %th Okopf
+      %th Okved1
+      %th Okved2
+      %th Okved3s
+      %th Company
+      %th
+      %th
+      %th
+
+  %tbody
+    - @requesits.each do |requesit|
+      %tr
+        %td= requesit.inn
+        %td= requesit.kpp
+        %td= requesit.ogrn
+        %td= requesit.oktmo
+        %td= requesit.okpo
+        %td= requesit.okato
+        %td= requesit.okogu
+        %td= requesit.okfs
+        %td= requesit.okopf
+        %td= requesit.okved1
+        %td= requesit.okved2
+        %td= requesit.okved3s
+        %td= requesit.company
+        %td= link_to 'Show', requesit
+        %td= link_to 'Edit', edit_requesit_path(requesit)
+        %td= link_to 'Destroy', requesit, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Requesit', new_requesit_path

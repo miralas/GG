@@ -1,0 +1,14 @@
+= simple_form_for(@bank_requesit) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :bill, label: 'Расчетный счет'
+    = f.input :bank, label: 'Банк'
+    = f.input :adress_bank, label: 'Адрес банка'
+    = f.input :bik, label: 'БИК'
+    = f.input :inn, label: 'ИНН'
+    = f.input :kpp, label: 'КПП'
+    = f.input :cor_bill, label: 'Корр. счет'
+
+  .form-actions
+    = f.button :submit, 'Сохранить реквизиты'

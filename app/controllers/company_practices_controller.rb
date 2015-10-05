@@ -25,11 +25,11 @@ class CompanyPracticesController < ApplicationController
   # POST /company_practices.json
   def create
     @company_practice = CompanyPractice.new(company_practice_params)
-    @company_practice.company = current_user.companies.first
+    @company_practice.new_company = current_user.new_companies.first
 
     respond_to do |format|
       if @company_practice.save
-        format.html { redirect_to company_path(@company_practice.company), notice: 'Стажировка успешно добавлена' }
+        format.html { redirect_to new_company_path(@company_practice.new_company), notice: 'Стажировка успешно добавлена' }
         format.json { render :show, status: :created, location: @company_practice }
       else
         format.html { render :new }
@@ -70,6 +70,6 @@ class CompanyPracticesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_practice_params
-      params.require(:company_practice).permit(:payment, :long, :post, :description)
+      params.require(:company_practice).permit(:payment, :long, :post, :description, :new_company_id)
     end
 end

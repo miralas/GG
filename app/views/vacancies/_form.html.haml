@@ -1,4 +1,4 @@
-= simple_form_for :vacancy, url: company_vacancies_path(params[:company_id]) do |f|
+= simple_form_for(@vacancy) do |f|
   = f.error_notification
 
   .form-inputs
@@ -8,8 +8,12 @@
       = f.input_field :title
     .form-group
       .span1
+        = f.label 'Город размещения'
+      = f.collection_select :city, City.all, :id, :name, include_blank: false
+    .form-group
+      .span1
         = f.label 'Требования'
-      = f.input_field :requirements
+      = f.input_field :requrements
     .form-group
       .span1
         = f.label 'Описание'

@@ -4,8 +4,8 @@ class VacanciesController < ApplicationController
   # GET /vacancies
   # GET /vacancies.json
   def index
-    if params[:company_id]
-      @vacancies = Vacancy.where(company: params[:company_id])
+    if params[:new_company_id]
+      @vacancies = Vacancy.where(new_company: params[:new_company_id])
     else
       @vacancies = Vacancy.all
     end
@@ -33,11 +33,11 @@ class VacanciesController < ApplicationController
   # POST /vacancies.json
   def create
     @vacancy = Vacancy.new(vacancy_params)
-    @vacancy.company_id = params[:company_id]
+    @vacancy.new_company = current_user.new_companies.first
 
     respond_to do |format|
       if @vacancy.save
-        format.html { redirect_to company_vacancy_path(@vacancy.company, @vacancy), notice: 'Vacancy was successfully created.' }
+        format.html { redirect_to @vacancy, notice: 'Вакансия успешно создана' }
         format.json { render :show, status: :created, location: @vacancy }
       else
         format.html { render :new }
@@ -51,7 +51,7 @@ class VacanciesController < ApplicationController
   def update
     respond_to do |format|
       if @vacancy.update(vacancy_params)
-        format.html { redirect_to @vacancy, notice: 'Vacancy was successfully updated.' }
+        format.html { redirect_to @vacancy, notice: 'Вакансия успешно отредактирована' }
         format.json { render :show, status: :ok, location: @vacancy }
       else
         format.html { render :edit }
@@ -78,6 +78,6 @@ class VacanciesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vacancy_params
-      params.require(:vacancy).permit(:title, :requirements, :description, :employment, :salary, :user_id, :company_id)
+      params.require(:vacancy).permit(:title, :requrements, :description, :employment, :salary, :user_id, :new_company_id, :city)
     end
 end

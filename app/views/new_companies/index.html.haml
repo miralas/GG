@@ -1,0 +1,16 @@
+%h1.front-interships__title Моя компания
+- if !@companies.empty?
+  - @companies.each do |company|
+    = link_to company_path(company) do
+      %h3= company.full_title
+    .logo
+      - if company.logo
+        = image_tag(company.logo, width: 200, height: 100)
+      - else
+        = image_tag('gg_web_960-12_7_logo_placeholder', width: 200, height: 100)
+    %hr
+- else
+  - if current_user
+    - if current_user.role == 'client'
+      %p Вы еще не добавили свою компанию, пожалуйста, добавтье компанию, нажав на кнопку:
+      = link_to 'Добавить компанию', new_new_company_path, class: 'btn btn-default'

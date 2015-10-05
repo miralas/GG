@@ -1,3 +1,3 @@
 class CompanyPractice < ActiveRecord::Base
-  belongs_to :company
+  belongs_to :new_company
 end
